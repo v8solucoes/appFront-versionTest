@@ -1,0 +1,9 @@
+@import "~src/sass/formulario";
+
+.f {
+  @include formulario();
+}
+
+mat-form-field {
+  width: 100%;
+}

@@ -1,0 +1,40 @@
+<div [ngClass]="'pad-tema-white fundo'">
+  <div class="centralizar">
+
+    <div *ngIf="autenticar.auth.user | async as usuario; else exibeLogin">
+      <mat-card>
+        <h1>Olá {{ usuario.email }}!</h1>
+        <button (click)="autenticar.desconectar()">Sair</button>
+      </mat-card>
+    </div>
+
+    <ng-template #exibeLogin>
+      <mat-card>
+
+        <img mat-card-sm-image class="logo" src="../../assets/Logo-V8-Sites.jpg" alt="V8 Soluções">
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [type]="'email'" [formGroup]="autenticar.login.get('email')"
+            [value]="autenticar.login.get('email').value">
+          <mat-icon mat-icon-button matSuffix>person</mat-icon>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Senha</mat-label>
+          <input matInput [type]="exibir ? 'password' : 'text'" [formGroup]="autenticar.login.get('senha')"
+            [value]="autenticar.login.get('senha').value">
+          <button mat-icon-button matSuffix (click)="exibir = !exibir" [attr.aria-label]="'Senha'"
+            [attr.aria-pressed]="exibir">
+            <mat-icon>{{exibir ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-raised-button (click)="autenticar.conectar()">Entrar</button>
+        <button mat-raised-button>Novo</button>
+
+      </mat-card>
+    </ng-template>
+
+  </div>
+</div>

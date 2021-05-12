@@ -1,0 +1,21 @@
+
+<ng-template #carregando>
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</ng-template>
+
+<ng-container *ngIf="i.data.usuario.credenciais.acao; else carregando">
+
+  <section [ngSwitch]="i.data.usuario.credenciais.acao">
+
+    <section *ngSwitchCase="'nova'" >
+      <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario >
+    </section>
+    <section *ngSwitchCase="'item'" >
+      <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario >
+    </section>
+    <section *ngSwitchCase="'lista'" >
+   LISTA
+    </section>
+
+  </section>
+</ng-container>

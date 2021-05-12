@@ -1,0 +1,70 @@
+{
+    "testeFormulario": {
+        "testeControl": "MUITO CONTROL",
+        "testeLista": [
+            "1 sites",
+            "2 internet",
+            "3 menus"
+        ],
+        "grupo": {
+            "testeControl": true,
+            "testeLista": [
+                "1 FELIX",
+                "2 mano",
+                "3 Pedro"
+            ]
+        },
+        "grupoLista": [
+            {
+                "testeControl": "Que Lista",
+                "testeLista": [
+                    "1 legal",
+                    "2 super",
+                    "3 demais"
+                ]
+            },
+            {
+                "testeControl": "muiot control",
+                "testeLista": [
+                    "1 controlado",
+                    "2 super",
+                    "3 agora"
+                ]
+            }
+        ]
+    },
+    "apresentador": {
+        "testeControl": "MUITO CONTROL",
+        "testeLista": [
+            "1 sites",
+            "2 internet",
+            "3 menus"
+        ],
+        "grupo": {
+            "testeControl": true,
+            "testeLista": [
+                "1 FELIX",
+                "2 mano",
+                "3 Pedro"
+            ]
+        },
+        "grupoLista": [
+            {
+                "testeControl": "Que Lista",
+                "testeLista": [
+                    "1 legal",
+                    "2 super",
+                    "3 demais"
+                ]
+            },
+            {
+                "testeControl": "muiot control",
+                "testeLista": [
+                    "1 controlado",
+                    "2 super",
+                    "3 agora"
+                ]
+            }
+        ]
+    }
+}

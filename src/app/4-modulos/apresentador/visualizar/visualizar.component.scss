@@ -1,0 +1,21 @@
+mat-dialog-content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+nav {
+  display: block;
+  justify-content: center;
+}
+
+#processando {
+  visibility: hidden;
+}
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+    background-color: rgb(120, 208, 50);
+}

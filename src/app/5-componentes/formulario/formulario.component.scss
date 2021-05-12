@@ -1,0 +1,22 @@
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+/*     background-color: rgb(154, 151, 175); */
+}
+app-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 8px;
+  width: 90%;
+  background-color: rgb(85, 78, 78);
+}
+pre {
+/*   box-sizing: border-box; */
+  padding: 1rem;
+  margin: 1rem;
+  width: 25%; /* calco para descontar a margem da largura do box se aumenta a marge tem que ajustar aqui tb */
+}

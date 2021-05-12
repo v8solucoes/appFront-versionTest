@@ -1,0 +1,29 @@
+<section>
+  <nav [ngStyle]="cssAltura">
+
+    <button mat-mini-fab color="accent" [disabled]="exibirAnterior" (click)="anterior()">
+      <mat-icon>navigate_before</mat-icon>
+    </button>
+
+    <!-- <button mat-raised-button color="accent">
+       {{ formulario.controls[id].value}}
+    </button> -->
+
+    <button mat-mini-fab color="accent" [disabled]="exibirProximo" (click)="proximo()">
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+
+  </nav>
+
+  <section #scroll [@listaHorizontalScroll]="true">
+
+    <img *ngFor="let imagem of modelo.colecao.lista; index as i; first"
+      src="{{ modelo.colecao.pasta + imagem.id + modelo.colecao.extensao }}"
+      [ngStyle]="cssImagem"
+      [ngClass]="formulario.get(id).value == imagem.id ? 'ativo': ''"
+      (click)="selecionar(imagem.id)"
+    >
+
+  </section>
+
+</section>

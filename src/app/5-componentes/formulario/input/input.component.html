@@ -1,0 +1,54 @@
+<mat-form-field appearance="{{ modelo.cssInput }}">
+
+  <mat-label>{{ modelo.nome }}</mat-label>
+
+  <mat-icon *ngIf="modelo.inputIconeEsquerdo" matPrefix> {{ modelo.inputIconeEsquerdo }}</mat-icon>
+  <span *ngIf="modelo.inputTextoEsquerdo" matPrefix> {{ modelo.inputTextoEsquerdo }}</span>
+
+  <!-- INPUT -->
+  <input *ngIf="modelo?.inputTipo == 'input'"      [formControl]="formulario" matInput [required]='modelo?.requerido'>
+
+  <!-- TEXT ÁREA -->
+  <input *ngIf="modelo?.inputTipo == 'texto-area'" [formControl]="formulario" matInput [required]='modelo?.requerido'>
+
+  <!-- SELECT  -->
+  <mat-select *ngIf="modelo?.inputTipo == 'select'" [formControl]="formulario" matInput [required]='modelo?.requerido'>
+
+    <ng-container [ngSwitch]="modelo.colecao.tipo">
+
+      <ng-container *ngSwitchCase="'objeto'">
+
+        <mat-option *ngFor="let objeto of modelo.colecao.objeto | keyvalue" [value]="objeto.key">
+          {{ objeto.value.nome }}
+        </mat-option>
+
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'lista'">
+
+        <mat-option *ngFor="let selecao of modelo.colecao.lista" [value]="selecao.id">
+          {{selecao.nome}}
+        </mat-option>
+
+      </ng-container>
+
+    </ng-container>
+
+    <mat-option (click)="ola()">Adicionar Campo</mat-option>
+
+  </mat-select>
+
+  <mat-icon *ngIf="modelo.inputIconeDireito" matSuffix> {{ modelo.inputIconeDireito }}</mat-icon>
+  <span *ngIf="modelo.inputTextoDireito" matSuffix> {{ modelo.inputTextoDireito }}</span>
+
+  <mat-hint *ngIf="modelo.inputDicaEsquerda" align="start">{{ modelo.inputDicaEsquerda }}</mat-hint>
+  <mat-hint *ngIf="modelo.inputDicaDireita" align="end">{{ modelo.inputDicaDireita }}</mat-hint>
+
+  <!-- Contador -->
+  <mat-hint *ngIf="modelo.inputContador" align="end"> {{formulario.value?.length}} / {{
+    modelo.inputContador }}</mat-hint>
+  <!-- ERROS -->
+  <mat-error *ngIf="formulario.invalid">Erro:
+    <app-input-erro [erros]='formulario.errors'></app-input-erro>
+  </mat-error>
+</mat-form-field>

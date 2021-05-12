@@ -1,0 +1,112 @@
+<ul>
+  <li>
+    <div>23</div>
+    <span>
+      <p>Comissão de Manutenção Testes de Título Grande</p>
+      <span>15-12-2009 > Como você está podemos ajudar</span>
+    </span>
+
+        <button mat-icon-button>
+
+    <mat-icon>menu</mat-icon>
+
+  </button>
+
+  </li>
+  <li>
+    <div>23</div>
+    <span>
+      <p>Comissão de Manutenção Testes de Título Grande</p>
+      <span>15-12-2009 > Como você está podemos ajudar</span>
+    </span>
+
+        <button mat-icon-button>
+
+    <mat-icon>menu</mat-icon>
+
+  </button>
+
+  </li>
+  <li>
+    <div>23</div>
+    <span>
+      <p>Comissão de Manutenção Testes de Título Grande</p>
+      <span>15-12-2009 > Como você está podemos ajudar</span>
+    </span>
+
+        <button mat-icon-button>
+
+    <mat-icon>menu</mat-icon>
+
+  </button>
+
+  </li>
+  <li>
+    <div>23</div>
+    <span>
+      <p>Comissão de Manutenção Testes de Título Grande</p>
+      <span>15-12-2009 > Como você está podemos ajudar</span>
+    </span>
+
+        <button mat-icon-button>
+
+    <mat-icon>menu</mat-icon>
+
+  </button>
+
+  </li>
+</ul>
+
+<ng-template #carregando>
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</ng-template>
+
+<ng-container *ngIf="carregar; else carregando">
+
+  <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario>
+
+  <section>
+
+    <div class='formulario'>
+
+      <section>
+
+        <div class='a-total'>
+
+          <mat-progress-bar *ngIf="carregarAudio" mode="query"></mat-progress-bar>
+
+          <audio #audio controls crossorigin="anonymous">
+            Seu navegador não suporte Audio mp3. Instale outro navegador.
+          </audio>
+
+        </div>
+
+        <div class='a-total'>
+
+          <button mat-raised-button color="accent"
+            (click)="caixaDialogo.apresentador('500px',formulario.get('apresentadorGaleria').value)"
+            [disabled]="!formulario.valid">
+            VISUALIZAR</button>
+          <button mat-raised-button color="accent" (click)="playAudio()" [disabled]="!formulario.valid">
+
+            OUVIR</button>
+       <!--    <button mat-raised-button color="accent" (click)="zure()" [disabled]="!formulario.valid">
+
+            ZURE</button> -->
+
+        </div>
+        <div class='a-total'>
+
+          <button mat-raised-button color="accent" (click)="salvar()" [disabled]="!formulario.valid">
+
+            SALVAR</button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </section>
+
+</ng-container>

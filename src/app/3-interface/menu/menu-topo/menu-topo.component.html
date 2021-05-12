@@ -1,0 +1,14 @@
+<nav [@barra]="i.design.menuScrollBarra">
+
+  <div id="avatar"></div>
+
+  <h6> {{ i.data.usuario?.credenciais?.usuarioNome || 'V8 User' }} </h6>
+
+  <button mat-icon-button (click)="this.i.eventoEmitter.emit('menuEsquerdo')">
+
+    <mat-icon>close</mat-icon>
+    <!-- <mat-icon>{{ this.i.design.telaDesktop ? 'close' : 'last_page' }}</mat-icon> -->
+
+  </button>
+
+</nav>

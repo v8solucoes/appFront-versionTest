@@ -1,0 +1,12 @@
+<section>
+  <button mat-icon-button
+  *ngIf="i.design.telaDesktopTablet != true"
+  [routerLink]="[i.data.usuario.credenciais.modulo,'lista', '']">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <div id="titulo"> {{ i.data.usuario.credenciais.nomeModulo }} </div>
+
+  <button mat-raised-button color="accent" (click)="i.salvar()">Cria </button>
+</section>
+

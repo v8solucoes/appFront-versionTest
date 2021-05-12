@@ -1,0 +1,8 @@
+<p>
+  voz-polly works!<br>
+</p>
+<button (click)="pegar()">VOZ</button>
+<audio controls *ngIf="audioURL">
+  <source src="{{ audioURL }}" type="audio/mpeg">
+Seu navegador não suporte Audio mp3. Instale outro.
+</audio>

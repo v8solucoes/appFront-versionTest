@@ -1,0 +1,105 @@
+<ng-template #carregando>
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</ng-template>
+
+<ng-container *ngIf="carregar; else carregando">
+
+ <!--  <nav>
+
+    <button mat-raised-button color="accent">Vídeo</button>
+    <button mat-raised-button color="accent" disabled>Câmera</button>
+    <button mat-raised-button color="accent" disabled>Arquivo</button>
+
+  </nav> -->
+
+  <app-formulario [modulo]="chaveModulo" [debugar]='false'></app-formulario>
+
+  <section>
+
+    <div class='formulario'>
+
+      <section>
+
+        <div class='a-total'>
+
+          <mat-progress-bar *ngIf="carregarAudio" mode="query"></mat-progress-bar>
+
+          <audio #audio controls crossorigin="anonymous">
+            Seu navegador não suporte Audio mp3. Instale outro navegador.
+          </audio>
+
+        </div>
+
+        <div class='a-total'>
+
+         <!--  <button mat-raised-button color="accent" (click)="playAudio()" [disabled]="formulario.valid">
+            COMPARTILHAR</button> -->
+          <button mat-raised-button color="accent" (click)="caixaDialogo.apresentador('500px',formulario.get('apresentadorGaleria').value)" [disabled]="!formulario.valid">
+            VISUALIZAR</button>
+          <button mat-raised-button color="accent" (click)="playAudio()" [disabled]="!formulario.valid">
+
+            OUVIR</button>
+
+        </div>
+
+
+      </section>
+
+    </div>
+
+  </section>
+
+
+</ng-container>
+
+<!-- Texto Fala -->
+
+<!-- <section>
+  <audio #audio controls crossorigin="anonymous">
+    Seu navegador não suporte Audio mp3. Instale outro navegador.
+  </audio>
+</section> -->
+
+<!-- BOTÕES -->
+
+<section>
+
+  <button mat-raised-button color="accent" (click)="salvar()" [disabled]="!status.play">PLAY
+
+  </button>
+
+  <button mat-raised-button color="accent" (click)="stop('Botao',false)" [disabled]="status.play">Stop
+
+  </button>
+
+  <button mat-raised-button color="accent" (click)="salvar()" [disabled]="!status.salvar">Salvar
+
+  </button>
+
+  <a #download class="button">
+    <button mat-raised-button color="accent" [disabled]="!status.salvar">Download
+    </button>
+  </a>
+
+</section>
+<section>
+
+  <!--  <pre> {{ status }}</pre>
+    <pre> {{ formulario.value }}</pre> -->
+
+  <video #video width="320px" loop muted poster="assets/modulo/apresentador/modelo/apresentador01.png">
+  </video><br>
+  <video #gravando width="320" controls play></video>
+
+</section>
+
+<ng-container>
+
+  <!-- LISTA DE VÍDEOS -->
+
+  <!--   <app-formulario modulo='apresentador'></app-formulario> -->
+
+  <!--  <app-listar-imagens-horizontal [lista]="dados.moduloModelo['idVideo'].colecao" [largura]="204"
+    [selecaoAtual]="formulario.get('idVideo').value" (indiceSelecionado)="videoSelecao($event)">
+  </app-listar-imagens-horizontal> -->
+</ng-container>

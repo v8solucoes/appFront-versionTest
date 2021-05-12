@@ -1,0 +1,125 @@
+@import "~src/sass/_construtor";
+
+li {
+  @extend %flex-linha;
+  @extend %margens;
+
+  color: var(--cor-inativo);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: 56px;
+  border-radius: 2%;
+  cursor: pointer;
+  border-bottom: 0.5px dotted var(--cor-divisor);
+
+    & > #avatar {
+      @extend %card-imagem-40px;
+    }
+
+    & > #texto {
+      @extend %flex-coluna;
+      padding: 0px;
+      margin: 0px;
+      margin-left: 16px;
+      width: calc(100% - 120px);
+
+      flex-grow: 1;
+
+      & > #titulo {
+        padding: 0px;
+        margin: 0px;
+        line-height: 150%;
+        @extend %fonte-sub-titulo-1;
+        @extend %texto-limitar;
+
+        &:hover {
+          white-space: normal;
+          overflow: visible;
+        }
+      }
+      & > #sub-titulo {
+        padding: 0px;
+        margin: 0px;
+        line-height: 150%;
+        @extend %fonte-caption;
+        @extend %texto-limitar;
+
+        &:hover {
+          white-space: normal;
+          overflow: visible;
+        }
+      }
+    }
+    &:hover {
+      background-color: var(--cor-background-ativo);
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+
+
+/* ul {
+
+  margin: 0;
+  padding: 0;
+} */
+
+/* li {
+
+  @extend %flex-linha;
+  @extend %margens;
+  justify-content: 'space-between';
+  color: var(--cor-inativo);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: 56px;
+  border-radius: 2%;
+  cursor: pointer;
+  border-bottom: 0.5px dotted var(--cor-divisor);
+  & > div {
+    @extend %flex-coluna;
+
+    margin-right: 16px;
+    text-align: center;
+    min-height: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+    background-color: brown;
+    @extend %fonte-sub-titulo-2;
+  }
+  & > span {
+    @extend %flex-coluna;
+
+    & > p {
+      color: var(--cor-ativo);
+      @extend %fonte-sub-titulo-1;
+    }
+    & > span {
+      color: var(--cor-inativo);
+      @extend %fonte-caption;
+    }
+  }
+
+  & > button {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 16px;
+    margin-left: 16px;
+    color: var(--cor-inativo);
+    @extend %fonte-caption;
+  }
+  &:hover {
+    background-color: var(--cor-background-ativo);
+  }
+  &:focus {
+    outline: 0;
+  }
+  & > h1 {
+    margin: 0px;
+    padding: 0px;
+    padding-left: 16px;
+    @extend %fonte-body2;
+
+  }
+} */

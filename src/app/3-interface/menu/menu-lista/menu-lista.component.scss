@@ -1,0 +1,13 @@
+@import "~src/sass/construtor";
+
+ul {
+  @include menu-lista;
+}
+.ativo {
+  @include ativo;
+}
+.menu-divisor {
+  @include menu-divisor;
+}
+
+

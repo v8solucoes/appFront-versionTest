@@ -1,0 +1,41 @@
+<div class="{{ modelo.cssColuna }}"
+
+ (click)="abrir = !abrir" (click)="getLista(formulario).length == 0
+? crud.addCampoLista(formulario)
+: false
+">
+
+  <mat-icon *ngIf="modelo.icone">{{ modelo.icone }}</mat-icon>
+
+  <mat-form-field appearance="{{modelo.cssInput}}">
+    <input matInput value="{{ modelo.nome }}">
+  </mat-form-field>
+
+  <button mat-icon-button >
+    <mat-icon [@icone]="modelo.abrirGrupo">expand_more</mat-icon>
+  </button>
+
+</div>
+
+<div [@conteudo]="abrir">
+
+  <ng-container *ngFor="let lista of getLista(formulario).controls; index as i; last as ultimo">
+
+    <div [@entrarSair]="'in'" [ngClass]="modelo.cssColuna">
+
+      <app-input [formulario]="formulario.get([i])" [modelo]="modelo"></app-input>
+
+      <button *ngIf="ultimo" mat-mini-fab color="accent" (click)="crud.addCampoLista(formulario)"
+        [ngStyle]="{'margin-left.px': '8'}">
+        <mat-icon>add</mat-icon>
+      </button>
+
+      <button *ngIf="!ultimo" mat-icon-button color="warn" (click)="crud.deleteCampoLista(formulario, i)"
+        [ngStyle]="{'margin-left.px': '8'}">
+        <mat-icon>remove</mat-icon>
+      </button>
+
+    </div>
+
+  </ng-container>
+</div>

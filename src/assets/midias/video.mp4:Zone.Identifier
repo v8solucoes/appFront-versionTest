@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=about:client
+HostUrl=https://mdn.github.io/dom-examples/canvas/chroma-keying/media/video.mp4

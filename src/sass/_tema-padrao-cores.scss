@@ -1,0 +1,59 @@
+// CORES BLACK com texto Branco https://material.io/resources/color/#!/?view.left=1&view.right=0&primary.color=212121&secondary.color=F9A825
+// CORES WITHE com texto Preto
+
+$pad-black:  black;
+$pad-white: white;
+
+$pad-black-background: #212121;
+$pad-white-background: #fafafa;
+
+$pad-black-cor-primaria: #fafafa;
+$pad-white-cor-primaria: #212121e0;
+
+$pad-black-cor-primaria-clara: #484848;
+$pad-white-cor-primaria-clara: #dbdbdb;
+
+$pad-black-cor-primaria-escura: #000000;
+$pad-white-cor-primaria-escura: #6b6b6b;
+
+$pad-black-cor-secundaria: #f9a825;
+$pad-white-cor-secundaria: #1a237e;
+
+$pad-black-cor-secundaria-clara: #ffd95a;
+$pad-white-cor-secundaria-clara: #534bae;
+
+$pad-black-cor-secundaria-escura: #c17900;
+$pad-white-cor-secundaria-escura: #000051;
+
+$pad-black-cor-alerta: #ffd95a;
+$pad-white-cor-alerta: #f44336;
+
+%pad-cores-black {
+  --cor-secundaria: #{$pad-black-cor-secundaria};
+  --cor-ativo: #{$pad-white};
+  --cor-inativo: #{rgba($pad-white, 0.87)};
+  --cor-background: #{$pad-black-background};
+  --cor-background-ativo: #{rgba($pad-white, 0.12)};
+  --cor-divisor:  #{rgba($pad-white, 0.30)};
+  --cor-4dp:      #{rgba($pad-white, 0.090)};
+}
+
+%pad-cores-white {
+  --cor-secundaria: #{$pad-white-cor-secundaria};
+  --cor-ativo: #{$pad-black};
+  --cor-inativo: #{rgba($pad-black, 0.87)};
+  --cor-background: #{$pad-white-background};
+  --cor-background-ativo: #{rgba($pad-black, 0.12)};
+  --cor-divisor:  #{rgba($pad-black, 0.30)};
+  --cor-4dp:      #{rgba($pad-black, 0.090)};
+}
+
+/* %pad-cores-white {
+  --cor-ativo: #{$pad-white};
+  --cor-inativo: rgba($pad-white, 0.87);
+  --cor-ativo-fundo: rgba($pad-black, 0.12);
+  --cor-background: #{$pad-black};
+  --cor-background-ativo: rgba($pad-black, 0.12);
+  --cor-divisor: rgba($pad-black, 0.30);
+  --cor-4dp: rgba($pad-black, 0.9);
+} */

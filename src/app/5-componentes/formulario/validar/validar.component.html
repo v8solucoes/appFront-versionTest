@@ -1,0 +1,17 @@
+<h1 mat-dialog-title >Corrigir os campos:</h1>
+
+<mat-dialog-content>
+
+  <div *ngFor="let campo of data.campos; ">
+
+  > {{ data.modelo[campo].nome}} <br>
+
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button [mat-dialog-close]="true" >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-dialog-actions>

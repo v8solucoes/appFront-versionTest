@@ -1,0 +1,9 @@
+@import "~src/sass/construtor";
+
+section {
+  @extend %scroll;
+}
+
+app-barra-desktop {
+  width: 100%;
+}

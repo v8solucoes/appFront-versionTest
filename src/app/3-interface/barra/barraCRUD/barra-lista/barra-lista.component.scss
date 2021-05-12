@@ -1,0 +1,31 @@
+@import "~src/sass/construtor";
+
+section {
+  padding: 0px;
+  margin: 0px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  @extend %flex-linha;
+/*   background-color: brown; */
+}
+button {
+  margin: 0px;
+  padding: 0px;
+  margin-right: 8px;
+  /* margin-left: 8px; */
+}
+
+#titulo-lista {
+  padding-left: 16px;
+  line-height: 150%;
+  @extend %texto-limitar;
+  @extend %fonte-sub-titulo-1;
+
+  padding-right: 16px;
+  padding-left: 16px;
+
+  @media (max-width: 360px) {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+}

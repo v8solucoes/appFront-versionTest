@@ -1,0 +1,9 @@
+<ng-container  *ngFor="let erro of erros | keyvalue">
+
+ {{ mensagem[erro.key] }}  {{ erro.value != '[object Object]' ? erro.value : ''}}
+
+ <app-input-erro *ngIf="erro.value == '[object Object]' ? true : false"
+  [erros]='erro.value'>
+</app-input-erro>
+
+</ng-container>

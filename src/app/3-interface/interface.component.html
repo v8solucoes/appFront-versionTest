@@ -1,0 +1,46 @@
+<ng-template #carregando >
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</ng-template>
+
+<section>
+
+<mat-drawer-container
+[ngClass]="i.designUser.tema"
+[hasBackdrop]="i.design.telaCelular"
+*ngIf="i.data.usuario; else carregando">
+
+  <!-- <mat-drawer #menuEsquerdo mode="side" [opened]="i.designUser.iniciarMenuFixo" position="end">
+
+   <app-menu></app-menu>
+
+  </mat-drawer> -->
+  <mat-drawer #menuEsquerdo mode="side" [opened]="this.i.design.telaDesktop" >
+
+   <app-menu></app-menu>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+
+    <mat-sidenav-container>
+
+      <mat-sidenav-content>
+
+        <app-modulo> </app-modulo>
+
+      </mat-sidenav-content>
+
+      <mat-sidenav #menuDireito mode="side" [opened]=" i.carregarModulo && i.design.telaDesktopTablet" position="end">
+
+        <!-- <button (click)="this.i.eventoEmitter.emit('menuDireito')">EXIBE Módulo</button> -->
+        <app-desktop> </app-desktop>
+
+      </mat-sidenav>
+
+    </mat-sidenav-container>
+
+  </mat-drawer-content>
+
+</mat-drawer-container>
+
+</section>

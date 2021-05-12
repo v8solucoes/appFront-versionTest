@@ -1,0 +1,33 @@
+<section *ngIf="videoExibir">
+  <video autoplay="true"  muted="true"
+  #video>
+
+    <source src="../../../assets/midias/video.mp4" type="video/mp4">
+
+    Desculpe seu Navegador não suporte esse vídeo.
+
+  </video>
+  <div id="mascara"></div>
+  <div id="controles">
+  <!--   <button (click)="mute()">Mute</button>
+    <button (click)="pause()">Pause</button>
+    <button (click)="gravar()">Gravar</button> -->
+  </div>
+
+<!--   <button id="fechar" (click)="fechar()">Fechar</button> -->
+<div  id="play">
+  <button (click)="mute()">Mute</button>
+  <button (click)="pause()">Pause</button>
+  <button (click)="play()">Play</button>
+  <button (click)="removerFundoRGB()">Remover FUNDO</button><br>
+
+  Status: {{ videoStatus }}
+  Timer: {{ this.video.currentTime }}
+
+</div>
+  
+</section>
+<div>
+  <canvas #videoCopia id="c1" width="320" height="192"></canvas>
+  <canvas #videoImagem id="c2" width="320" height="192"></canvas>
+</div>

@@ -1,0 +1,39 @@
+<nav [@barra]="i.design.menuScrollBarra">
+
+  <ul>
+
+    <li matRipple [matMenuTriggerFor]="menu">
+
+      <mat-icon>settings</mat-icon>
+
+      <h1> Configurações </h1>
+
+    </li>
+
+    <li (click)="a.desconectar()">
+
+      <mat-icon>login</mat-icon>
+
+      <h1> Sair </h1>
+
+    </li>
+
+  </ul>
+
+  <mat-menu #menu="matMenu" xPosition="before">
+
+    <button mat-menu-item
+    (click)="caixaDialogo.abrirCaixa('250px','fonte-tamanho')">
+      <mat-icon>format_size</mat-icon>
+      <span>Fonte Tamanho</span>
+    </button>
+
+    <button mat-menu-item
+    (click)="caixaDialogo.abrirCaixa('250px','tema-cor')">
+      <mat-icon>color_lens</mat-icon>
+      <span>Tema Cor</span>
+    </button>
+
+  </mat-menu>
+
+</nav>

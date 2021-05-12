@@ -1,0 +1,60 @@
+@import '~@angular/material/theming';
+@import '~src/sass/tema-padrao';
+@import '~src/sass/tema-custom';
+
+$pad-black-configuracao-fonte-material: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(var(--fonte-material), 24px, 500)
+);
+
+@include mat-core($pad-black-configuracao-fonte-material);
+
+:root {
+  --fonte-material: 15px;
+  --fonte-10: 10px;
+  --fonte-12: 12px;
+  --fonte-14: 14px;
+  --fonte-16: 16px;
+  --fonte-20: 20px;
+  --margem: 16px;
+}
+
+.pad-tema-black {
+  @extend %pad-cores-black;
+  @include angular-material-color($pad-black-tema);
+}
+.pad-tema-white {
+  @extend %pad-cores-white;
+  @include angular-material-theme($pad-white-tema);
+}
+.cus-tema-black {
+  @extend %cus-cores-black;
+  @include angular-material-color($pad-black-tema);
+}
+.cus-tema-white {
+  @extend %cus-cores-white;
+  @include angular-material-theme($pad-white-tema);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  @media (min-width: 960px) {
+
+    width: 960px;
+  /*   height: 100%; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  background-color: var(--cor-background);
+  font-size: 0.625rem;
+  font-family: Roboto, Noto, sans-serif;
+  font-weight: normal;
+}

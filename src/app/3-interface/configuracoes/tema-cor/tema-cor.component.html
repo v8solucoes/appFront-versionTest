@@ -1,0 +1,15 @@
+<h1 mat-dialog-title >Tema Cor</h1>
+
+<mat-dialog-content>
+  
+  <button mat-button (click)="trocarTema('pad-tema-black')"><mat-icon id="pad-tema-black"></mat-icon>Black</button>
+  <button mat-button (click)="trocarTema('pad-tema-white')"><mat-icon id="pad-tema-white"></mat-icon>White</button>
+  <button mat-button (click)="trocarTema('cus-tema-black')"><mat-icon id="cus-tema-black"></mat-icon>Blue White</button>
+  <button mat-button (click)="trocarTema('cus-tema-white')"><mat-icon id="cus-tema-white"></mat-icon>Blue Black</button>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="trocarTema('pad-tema-black')">Padrão</button>
+  <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+</mat-dialog-actions>

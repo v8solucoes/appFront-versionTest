@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "v8app-888cd"
+  },
+  "targets": {
+    "v8app-888cd": {
+      "hosting": {
+        "v8app": [
+          "v8app-888cd"
+        ]
+      }
+    }
+  }
+}

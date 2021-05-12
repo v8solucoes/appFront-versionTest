@@ -1,0 +1,70 @@
+@import '~src/sass/tema-padrao-cores';
+
+// https://material.io/resources/color/#!/?view.left=1&view.right=0&primary.color=212121&secondary.color=F9A825
+
+// NOTA * PAD é abreviação de Padão para não conflitar com outras variáveis.
+
+// PASSO 1 CARREGA CORES PADÕRES DO TEMA CORES TEMA
+
+// PASSO 2 CORES COMBINAÇÃO MATERIAL
+
+// COR PRIMÁRIA BLACK
+$pad-black-cor-primaria-material: ( 
+  500: $pad-black-cor-primaria,
+  100: $pad-black-cor-primaria-clara,
+  700: $pad-black-cor-primaria-escura,
+ contrast: ( 
+   500: $dark-primary-text,
+   100: $light-primary-text,
+   700: $light-primary-text
+   )
+);
+// COR PRIMÁRIA WHITE
+$pad-white-cor-primaria-material: ( 
+  500: $pad-white-cor-primaria,
+  100: $pad-white-cor-primaria-clara,
+  700: $pad-white-cor-primaria-escura,
+ contrast: ( 
+   500: $light-primary-text,
+   100: $dark-primary-text,
+   700: $dark-primary-text
+   )
+);
+// COR SECUNDÁRIO BLACK
+$pad-black-cor-secundaria-material: ( 
+  media: $pad-black-cor-secundaria,
+  clara: $pad-black-cor-secundaria-clara, 
+  escura: $pad-black-cor-secundaria-escura,
+ contrast: (
+  media: $dark-primary-text,
+  clara: $dark-primary-text,
+  escura: $dark-primary-text )
+);
+// COR SECUNDÁRIO WHITE
+$pad-white-cor-secundaria-material: ( 
+  media: $pad-white-cor-secundaria,
+  clara: $pad-white-cor-secundaria-clara, 
+  escura: $pad-white-cor-secundaria-escura,
+ contrast: (
+  media: $light-primary-text,
+  clara: $light-primary-text,
+  escura: $light-primary-text )
+);
+
+$pad-black-cor-alerta-material: ( 500: $pad-black-cor-alerta, contrast: ( 500: $light-primary-text));
+$pad-white-cor-alerta-material: ( 500: $pad-white-cor-alerta, contrast: ( 500: $dark-primary-text));
+
+// PASSO 3 MONTAGEM CORES MATERIAL DESING
+
+$pad-black-primaria: mat-palette($pad-black-cor-primaria-material); 
+$pad-black-secundaria: mat-palette($pad-black-cor-secundaria-material, media, clara, escura);
+$pad-black-erro: mat-palette($pad-black-cor-alerta-material);
+
+$pad-white-primaria: mat-palette($pad-white-cor-primaria-material); 
+$pad-white-secundaria: mat-palette($pad-white-cor-secundaria-material, media, clara, escura);
+$pad-white-erro: mat-palette($pad-white-cor-alerta-material);
+
+// PASSO 4 CRIAÇÃO DOS TEMAS
+
+$pad-black-tema: mat-dark-theme($pad-black-primaria, $pad-black-secundaria, $pad-black-erro);
+$pad-white-tema: mat-light-theme($pad-white-primaria, $pad-white-secundaria, $pad-white-erro);

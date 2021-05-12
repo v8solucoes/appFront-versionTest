@@ -1,0 +1,20 @@
+@import "~src/sass/construtor";
+
+section {
+  @extend %scroll;
+}
+app-barra-celular-topo,
+app-conteudo-celular {
+  width: 100%;
+  @media (min-width: 601px) {
+    display: none;
+  }
+}
+app-barra-modulo,
+app-conteudo-modulo {
+  width: 100%;
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+

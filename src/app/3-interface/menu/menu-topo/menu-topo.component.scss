@@ -1,0 +1,16 @@
+@import '~src/sass/construtor';
+
+nav {
+  @extend %nav-topo;
+  
+    & > [id=avatar] {
+      @extend %card-imagem-40px;
+    }
+    & > h6 {
+      margin: 0px;
+      margin-left: 16px;
+      @extend %fonte-h6;
+      @extend %texto-limitar;
+    }
+  }
+

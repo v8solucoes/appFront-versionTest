@@ -1,0 +1,243 @@
+// INTERFACE
+@mixin janela-interface($largura) {
+
+  border-left: 1.0px dotted var(--cor-divisor);
+  background-color: var(--cor-background);
+  box-sizing: border-box;
+
+  @extend %flex-coluna;
+  width: $largura;
+
+  @media (max-width: 360px) {
+    max-width: 100%;
+  }
+
+}
+
+%conteudo {
+
+  border-left: 1.0px dotted var(--cor-divisor);
+  background-color: var(--cor-background);
+  box-sizing: border-box;
+  /* @extend %flex-coluna; */
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+/*   justify-content: center;
+  list-style-type: none; */
+}
+
+@mixin texto-limita($desconto) {
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: calc(100% - $desconto);
+
+  &:hover {
+    white-space: normal;
+    overflow: visible;
+  }
+}
+
+@mixin menu-lista() {
+
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+
+  & li {
+    @extend %flex-linha;
+    @extend %margens;
+    color: var(--cor-inativo);
+    height: 56px;
+    cursor: pointer;
+
+    &:hover { background-color: var(--cor-background-ativo);}
+    &:focus { outline: 0;}
+    & > h1 {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 16px;
+      @extend %fonte-body2;
+      @extend %texto-limitar;
+    }
+  }
+
+  & > h1 {
+    margin: 0px;
+    padding: 0px;
+    padding-left: 16px;
+    @extend %fonte-body2;
+  }
+
+}
+@mixin ativo() {
+  &-fundo { background-color: var(--cor-background-ativo);}
+  &-icone { color: var(--cor-secundaria);}
+  &-texto { color: var(--cor-ativo);}
+}
+@mixin menu-divisor() {
+  &-topo {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 0.5px solid var(--cor-divisor);
+  }
+  &-rodape {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--cor-divisor);
+  }
+}
+@mixin menu-colecao() {
+    @extend %flex-linha;
+    @extend %fonte-body2;
+    padding-left: var(--margem);
+    height: 56px;
+}
+
+@mixin nav-rodape() {
+  background-color: var(--cor-4dp);
+  border-top: 0.5px solid var(--cor-divisor);
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
+}
+
+// GLOBAL
+%flex-coluna {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+}
+%flex-linha {
+ /*  height: 100%; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style-type: none;
+}
+%margens {
+  padding-left: var(--margem);
+  padding-right: var(--margem);
+
+  @media (max-width: 360px) {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+%nav-topo {
+  @extend %flex-linha;
+  @extend %margens;
+  height: 56px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: var(--cor-4dp);
+}
+
+%nav-bottom {
+  @extend %flex-linha;
+  @extend %margens;
+  height: 56px;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
+  background-color: var(--cor-4dp);
+}
+
+%card-imagem-40px {
+  min-height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background-image: url("../assets/Logo-V8-Sites.jpg");
+  background-size: cover;
+}
+
+%texto-limitar {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &:hover {
+    white-space: normal;
+    overflow: visible;
+  }
+}
+%fonte-h6 {
+  font-size: var(--fonte-20);
+  letter-spacing: 0.15px;
+  font-weight: 500;
+}
+%fonte-sub-titulo-1 {
+  font-size: var(--fonte-16);
+  letter-spacing: 0.15px;
+  font-weight: 400;
+}
+%fonte-sub-titulo-2 {
+  font-size: var(--fonte-14);
+  letter-spacing: 0.1px;
+  font-weight: 500;
+}
+%fonte-body1 {
+  font-size: var(--fonte-16);
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+%fonte-body2 {
+  font-size: var(--fonte-14);
+  letter-spacing: 0.25px;
+  font-weight: 400;
+}
+%fonte-caption {
+  font-size: var(--fonte-12);
+  letter-spacing: 0.4px;
+  font-weight: 400;
+}
+%fonte-overline {
+  font-size: var(--fonte-10);
+  letter-spacing: 1.5px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+%texto-limitado {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+%texto-limitado-hover {
+  white-space: normal;
+  overflow: visible;
+}
+%scroll {
+  height: 100%;
+  width: 100%;
+  padding-top: 24px;
+  padding-bottom: 190px;
+  overflow: auto;
+  box-sizing: border-box;
+
+  @media (max-width: 360px) {
+    overflow: hidden;
+    &:hover {
+      overflow: auto;
+    }
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    background: rgba(255, 255, 255, 0.13);
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 6px;
+    background: rgba(255, 255, 255, 0.13);
+  }
+}
+
+
+// flex-grow: 3, flex-shrink: 2 e flex-basis: 300px;
+/* https://origamid.com/projetos/flexbox-guia-completo/ */
+
+/*   -webkit-transition: opacity 1s ease-in-out;
+     -moz-transition: opacity 1s ease-in-out;
+     -ms-transition: opacity 1s ease-in-out;
+     -o-transition: opacity 1s ease-in-out;
+     transition: opacity 1s ease-in-out; */
+/* opacity: 0.5; */

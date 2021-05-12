@@ -1,0 +1,26 @@
+
+<div class="left">
+ <div id="startButton" class="button" (click)="gravar()">
+   Start
+ </div>
+ <h2>Preview</h2>
+ <video #videoOrigem width="160" height="120" ></video>
+</div>
+<div class="right">
+ <div id="stopButton" class="button" (click)="stop()">
+   Stop
+ </div>
+ <h2>Gravando</h2>
+ <video #gravando width="160" height="120" controls></video>
+ <a #download class="button" href="teste">
+   Download
+ </a>
+</div>
+<div class="bottom">
+ <pre id="log"></pre>
+</div>
+{{ status }}
+<audio #audio controls>
+  <source src="../../../assets/apresentador/audio-01.mp3" type="audio/mpeg">
+Seu navegador não suporte Audio mp3. Instale outro navegador.
+</audio>

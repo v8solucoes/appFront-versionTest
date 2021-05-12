@@ -1,0 +1,13 @@
+@import "~src/sass/construtor";
+h1 { @extend %fonte-h6; }
+
+h2 {
+    @extend %texto-limitar;
+    @extend %fonte-sub-titulo-1;
+    width: 100%;
+}
+mat-dialog-content {
+    @extend %flex-linha;
+    height: 60px;
+    text-align: center;
+}

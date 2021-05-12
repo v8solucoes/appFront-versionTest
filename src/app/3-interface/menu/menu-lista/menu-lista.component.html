@@ -1,0 +1,62 @@
+<ul [ngSwitch]="menu.tipo">
+<!--   <li routerLink="new-modulo/">{{ menu.moduloNome }}</li> -->
+<!--   <li routerLink="new-modulo/">{{ menu.url | urlparamodulo }}</li> -->
+
+  <li *ngSwitchCase="'control'" routerLinkActive="ativo-fundo"
+  [routerLink]="[menu.url, menu.acao, menu.item]"
+  (click)="i.fecharMenu()"
+  >
+ <!--  <li *ngSwitchCase="'control'" routerLinkActive="ativo-fundo"
+  [routerLink]="[menu.url, menu.acao, menu.item]"
+  (click)="
+  i.fecharMenu();
+  i.getModulo({modulo: menu.url, acao: menu.acao, item: menu.item})"
+  > -->
+
+    <mat-icon routerLinkActive="ativo-icone"> {{ menu.icone }} </mat-icon>
+
+    <h1 routerLinkActive="ativo-texto"> {{ menu.moduloNome }} </h1>
+
+  </li>
+
+  <ul *ngSwitchCase="'colecao'"
+   class="{{ botaoAbrirFecharMenu && divisor ? 'menu-divisor-topo' : ''}}
+   {{ botaoAbrirFecharMenu || ultimo  ? 'menu-divisor-rodape': ''}}">
+
+    <h1> {{ menu.moduloNome }} </h1>
+
+    <app-menu-lista *ngFor="let menu of menu.grupo; let last let first let index"
+     [menu]="menu" [ultimo]="last"
+     [primeiro]="first"
+     [divisor]="first ? false : menu.grupo[index-1].tipo == 'control'? false : true">
+    </app-menu-lista>
+
+  </ul>
+
+  <ul *ngSwitchCase="'colecaoGaveta'"
+   class="{{ botaoAbrirFecharMenu && divisor ? 'menu-divisor-topo' : ''}}
+          {{ botaoAbrirFecharMenu || ultimo  ? 'menu-divisor-rodape': ''}}">
+
+    <li (click)="botaoAbrirFecharMenu = !botaoAbrirFecharMenu">
+
+      <mat-icon> {{ menu.icone }} </mat-icon>
+
+      <h1> {{ menu.moduloNome }} </h1>
+
+      <mat-icon [@icone]="botaoAbrirFecharMenu">expand_more</mat-icon>
+
+    </li>
+
+    <div [@conteudoMenu]="botaoAbrirFecharMenu">
+
+      <app-menu-lista *ngFor="let menu of menu.grupo; let last let first let index" [menu]="menu" [ultimo]="last"
+        [primeiro]="first" [divisor]="first ? false : menu.grupo[index-1].tipo == 'control'? false : true">
+      </app-menu-lista>
+
+    </div>
+
+  </ul>
+
+  <div *ngSwitchDefault>NÃO ENCONTRADO: {{ menu.tipo }}</div>
+
+</ul>

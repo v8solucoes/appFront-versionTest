@@ -1,0 +1,25 @@
+@import '~src/sass/construtor';
+mat-dialog-content{
+/*   margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left; */
+  width: 100%;
+}
+h1{
+  @extend %fonte-h6
+}
+
+
+nav {
+  display: block;
+  justify-content: left;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+    background-color: rgb(120, 208, 50);
+}

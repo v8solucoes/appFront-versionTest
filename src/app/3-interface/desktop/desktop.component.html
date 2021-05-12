@@ -1,0 +1,17 @@
+<ng-template #carregando>
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</ng-template>
+
+<ng-container *ngIf="i.carregarModulo && i.design.telaDesktopTablet; else carregando">
+
+  <app-barra-desktop [@flyInOut]="i.design.animaItem"></app-barra-desktop>
+
+  <section (scroll)="i.ocultarBarraMenu($event,'modulo')">
+
+    <div [@flyInOut]="i.design.animaItem">
+      <router-outlet *ngIf='!i.design.telaCelular'></router-outlet>
+    </div>
+
+  </section>
+
+</ng-container>

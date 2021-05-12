@@ -1,0 +1,8 @@
+@import "~src/sass/construtor";
+ul {
+  @include menu-lista;
+}
+nav {
+  @include nav-rodape;
+}
+

@@ -1,0 +1,9 @@
+<section>
+  <app-grupo
+  [formulario]="usuario.modulo[modulo].form"
+  [permissao]="usuario.modulo[modulo].permissao"
+  [modelo]="usuario.modulo[modulo].modelo">
+  </app-grupo>
+</section>
+<pre *ngIf="debugar"> {{ usuario?.modulo[modulo].form.valid | json }} </pre>
+<pre *ngIf="debugar"> {{ usuario?.modulo[modulo].form.value | json }} </pre>

@@ -1,0 +1,49 @@
+// CORES BLACK com texto Branco https://material.io/resources/color/#!/?view.left=1&view.right=0&primary.color=212121&secondary.color=F9A825
+// CORES WITHE com texto Preto
+
+$cus-black:  black; 
+$cus-white: white; 
+
+$cus-black-background: #000051;
+$cus-white-background: #d1d9ff;
+
+$cus-black-cor-primaria: #fafafa;
+$cus-white-cor-primaria: #212121e0;
+
+$cus-black-cor-primaria-clara: #484848;
+$cus-white-cor-primaria-clara: #dbdbdb;
+
+$cus-black-cor-primaria-escura: #000000;
+$cus-white-cor-primaria-escura: #6b6b6b;
+
+$cus-black-cor-secundaria: #f9a825;
+$cus-white-cor-secundaria: #1a237e;
+
+$cus-black-cor-secundaria-clara: #ffd95a;
+$cus-white-cor-secundaria-clara: #534bae;
+
+$cus-black-cor-secundaria-escura: #c17900;
+$cus-white-cor-secundaria-escura: #000051;
+
+$cus-black-cor-alerta: #f44336;
+$cus-white-cor-alerta: #f44336;
+
+%cus-cores-black {
+  --cor-secundaria: #{$cus-black-cor-secundaria};
+  --cor-ativo: #{$cus-white};
+  --cor-inativo: #{rgba($cus-white, 0.87)};
+  --cor-background: #{$cus-black-background};
+  --cor-background-ativo: #{rgba($cus-white, 0.12)};
+  --cor-divisor:  #{rgba($cus-white, 0.30)};
+  --cor-4dp:      #{rgba($cus-white, 0.090)};
+}
+
+%cus-cores-white {
+  --cor-secundaria: #{$cus-white-cor-secundaria};
+  --cor-ativo: #{$cus-black};
+  --cor-inativo: #{rgba($cus-black, 0.87)};
+  --cor-background: #{$cus-white-background};
+  --cor-background-ativo: #{rgba($cus-black, 0.12)};
+  --cor-divisor:  #{rgba($cus-black, 0.30)};
+  --cor-4dp:      #{rgba($cus-black, 0.090)};
+}

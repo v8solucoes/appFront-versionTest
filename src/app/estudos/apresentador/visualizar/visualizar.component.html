@@ -1,0 +1,19 @@
+<mat-dialog-content>
+  <video #video width="320px" loop autoplay="true" muted>
+ <!--  <video #video width="320px" loop muted
+  poster="{{'assets/modulo/apresentador/modelo/' + data.nome + '.png'}}"> -->
+  <source src="{{'assets/modulo/apresentador/modelo/' + data.nome + '.mp4'}}" type="video/mp4">
+    Vídeo não suportado!
+  </video>
+  <canvas #videoCopia id="c1" width="320" height="192"></canvas>
+  <canvas #videoImagem id="c2" width="320" height="192"></canvas>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+  <button mat-button>Padrão</button>
+  <button (click)="removerFundoRGB()">Remover FUNDO</button><br>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+
+</mat-dialog-actions>

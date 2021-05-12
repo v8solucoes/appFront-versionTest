@@ -1,0 +1,52 @@
+@import '~src/sass/_construtor';
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background-color: blue; */
+}
+section > nav {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+section > nav > button {
+    margin: 16px;
+    z-index: 10;
+  }
+section > section {
+
+    display: flex;
+    flex-direction: row;
+  /*   justify-content: center; */
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+section > section::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.13);
+  }
+section > section::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.13);
+  }
+
+img {
+    margin-right: 16px;
+    opacity: 0.6;
+    cursor: pointer;
+    border: solid 2px rgba(255, 255, 255, 0) ;
+    z-index: 2;
+}
+img:hover {
+    opacity: 1;
+    border: solid 2px var(--cor-divisor) ;
+}
+.ativo {
+    opacity: 1;
+    border: solid 2px var(--cor-divisor) ;
+}

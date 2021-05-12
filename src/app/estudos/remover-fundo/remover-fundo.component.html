@@ -1,0 +1,20 @@
+<video #video autoplay="true"  muted="true" width="640" height="480" style="display: none;"></video>
+
+<!-- <video autoplay="true"  muted="true"
+  #video>
+
+    <source src="../../../assets/midias/video.mp4" type="video/mp4">
+
+    Desculpe seu Navegador não suporte esse vídeo.
+
+  </video> -->
+<button (click)="pause()">Pause</button>
+<button (click)="play()">Play</button>
+<button (click)="init()">Capturar</button>
+<br>
+Status: {{ status }}<BR>
+<canvas #videoImagem width="640" height="480" style="display: none;"> </canvas>
+<canvas #videoCopia width="640" height="480"></canvas>
+
+
+

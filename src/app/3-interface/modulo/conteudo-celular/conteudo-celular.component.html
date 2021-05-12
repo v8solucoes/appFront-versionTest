@@ -1,0 +1,11 @@
+Conteudo Celular
+<br>
+Celular: {{ i.design.telaCelular }}<br>
+Tablet: {{ i.design.telaTablet }}<br>
+Desktop: {{ i.design.telaDesktop }}
+Desktop&Tablet: {{ i.design.telaDesktopTablet }}
+<router-outlet *ngIf='i.design.telaCelular'></router-outlet>
+
+<app-listar *ngIf="(i.design.telaCelular && i.data.usuario.credenciais.acao == 'lista') ? true :
+              (i.design.telaDesktop) ? true : false" [lista]="i.data.usuario.modulo.revenda.dados.lista">
+</app-listar>

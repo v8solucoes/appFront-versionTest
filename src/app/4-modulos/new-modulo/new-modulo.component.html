@@ -1,0 +1,11 @@
+<ng-template #carregando>
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</ng-template>
+
+<ng-container *ngIf="carregar; else carregando">
+
+  <app-formulario modulo='newModulo'></app-formulario>
+
+</ng-container>
+
+

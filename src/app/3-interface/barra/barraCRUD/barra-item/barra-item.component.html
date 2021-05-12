@@ -1,0 +1,13 @@
+<section *ngIf="i.data.usuario.credenciais.acao == 'item'">
+
+  <button *ngIf="i.design.telaCelular== true"
+   mat-icon-button
+  [routerLink]="[i.data.usuario.credenciais.modulo,'lista', '']">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <div id="titulo"> {{ i.data.usuario.modulo[i.data.usuario.credenciais.modulo].dados.item['nome'] }} </div>
+
+  <button mat-raised-button color="accent" (click)="i.salvar()"> Editar </button>
+</section>
+

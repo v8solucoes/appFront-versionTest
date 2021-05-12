@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Fonte Tamanho</h1>
+
+<mat-dialog-content>
+
+  <button mat-mini-fab
+   disabled="{{ i.data.usuario.design.temaFonte <= -2 ? 'true':'false'}}"
+   (click)="diminuir()">
+
+    <mat-icon>remove</mat-icon>
+
+  </button>
+
+  <h2> {{ i.data.usuario.design.temaFonte }} </h2>
+
+  <button mat-mini-fab
+   disabled="{{ i.data.usuario.design.temaFonte >= 10 ? 'true':'false'}}"
+   (click)="adicionar()">
+
+   <mat-icon>add</mat-icon>
+
+  </button>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+  <button mat-button (click)="padrao()">Padrão</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+
+</mat-dialog-actions>

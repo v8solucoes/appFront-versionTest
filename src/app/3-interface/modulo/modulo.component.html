@@ -1,0 +1,18 @@
+<ng-template #carregando>
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</ng-template>
+
+<!-- <ng-container *ngIf="i.data.usuario.credenciais.modulo; else carregando"> -->
+<ng-container *ngIf="i.carregarModulo; else carregando">
+
+  <app-barra-celular-topo></app-barra-celular-topo>
+  <app-barra-modulo></app-barra-modulo>
+
+  <section (scroll)="i.ocultarBarraMenu($event,'modulo')">
+
+  <app-conteudo-celular></app-conteudo-celular>
+  <app-conteudo-modulo> </app-conteudo-modulo>
+
+  </section>
+
+</ng-container>

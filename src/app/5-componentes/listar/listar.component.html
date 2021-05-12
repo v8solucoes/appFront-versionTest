@@ -1,0 +1,20 @@
+  <li
+    *ngFor="let item of modulo.revenda.dados.lista | keyvalue"
+    [routerLink]="['/','interface', 'revenda','item', item.key]">
+
+    <div id="avatar"></div>
+
+    <div id="texto">
+      <span id="titulo"> {{ item.value.nome }}</span>
+      <span id="sub-titulo"> {{ item.value.id}}<br>  {{item.key}} </span>
+    </div>
+
+    <div id="opcoes">
+
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+
+    </div>
+
+  </li>

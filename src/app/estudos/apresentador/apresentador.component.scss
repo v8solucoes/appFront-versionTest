@@ -1,0 +1,169 @@
+@import '~src/sass/_construtor';
+
+@import "~src/sass/formulario";
+
+nav {
+  display: block;
+  margin-bottom: 16px;
+  text-align: center;
+ /*  background-color: cornflowerblue; */
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+/*     background-color: rgb(154, 151, 175); */
+}
+
+.formulario  {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 8px;
+  width: 90%;
+  background-color: rgb(85, 78, 78);
+}
+
+.formulario > section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+.a { @include formulario();}
+
+/* .grupo > section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+    background-color: rgb(154, 151, 175);
+} */
+
+/* app-lista, mat-form-field { width: 100%; } */
+
+/* app-grupo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+} */
+
+/* .formulario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(154, 151, 175);
+}
+
+.grupo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 8px;
+  width: 90%;
+  background-color: rgb(85, 78, 78);
+} */
+
+/* section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+    background-color: rgb(154, 151, 175);
+}
+app-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 8px;
+  width: 90%;
+  background-color: rgb(85, 78, 78);
+} */
+
+/* video{
+  background-color: beige;
+} */
+
+
+
+/* app-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0px;
+  width: 700px;
+  background-color: rgb(85, 78, 78);
+} */
+/* section > section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0px;
+  width: 700px;
+  background-color: rgb(85, 78, 78);
+}
+section > section > button {
+    width: 50%;
+    min-width: 150px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    box-sizing: border-box;
+    padding-left: 8px;
+    padding-right: 0px;
+} */
+
+/* #metade-esquerda {
+  width: 50%;
+  min-width: 150px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  box-sizing: border-box;
+  padding-left: 0px;
+  padding-right: 8px;
+}
+#metade-esquerda > audio {
+  width: 100%
+} */
+/* section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: blue;
+} */
+/* .maior{
+  width: 100%;
+  margin-left: 32px;
+  margin-right: 32px;
+
+} */
+/* mat-form-field {
+  min-width: 50px;
+  max-width: 450px;
+  @media (max-width: 600px) {
+     min-width: 50px;
+    margin-right: 0px;
+  }
+  margin-top: 16px;
+} */
+
+/* .linha {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+} */
+/* .divteste {
+  margin: 10px;
+  width: 100%;
+  flex-grow:0;
+  background-color: blue;
+  @media (max-width: 600px) {
+    min-width: 50px;
+    width: 50%;
+    background-color: red;
+  }
+} */
