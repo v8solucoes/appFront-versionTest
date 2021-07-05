@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import '~src/sass/tema-custom-cores';
 // https://material.io/resources/color/#!/?view.left=1&view.right=0&primary.color=212121&secondary.color=F9A825
 
@@ -55,15 +56,15 @@ $pad-white-cor-alerta-material: ( 500: $pad-white-cor-alerta, contrast: ( 500: $
 
 // PASSO 3 MONTAGEM CORES MATERIAL DESING
 
-$pad-black-primaria: mat-palette($pad-black-cor-primaria-material); 
-$pad-black-secundaria: mat-palette($pad-black-cor-secundaria-material, media, clara, escura);
-$pad-black-erro: mat-palette($pad-black-cor-alerta-material);
+$pad-black-primaria: mat.define-palette($pad-black-cor-primaria-material); 
+$pad-black-secundaria: mat.define-palette($pad-black-cor-secundaria-material, media, clara, escura);
+$pad-black-erro: mat.define-palette($pad-black-cor-alerta-material);
 
-$pad-white-primaria: mat-palette($pad-white-cor-primaria-material); 
-$pad-white-secundaria: mat-palette($pad-white-cor-secundaria-material, media, clara, escura);
-$pad-white-erro: mat-palette($pad-white-cor-alerta-material);
+$pad-white-primaria: mat.define-palette($pad-white-cor-primaria-material); 
+$pad-white-secundaria: mat.define-palette($pad-white-cor-secundaria-material, media, clara, escura);
+$pad-white-erro: mat.define-palette($pad-white-cor-alerta-material);
 
 // PASSO 4 CRIAÇÃO DOS TEMAS
 
-$pad-black-tema: mat-dark-theme($pad-black-primaria, $pad-black-secundaria, $pad-black-erro);
-$pad-white-tema: mat-light-theme($pad-white-primaria, $pad-white-secundaria, $pad-white-erro);
+$pad-black-tema: mat.define-dark-theme($pad-black-primaria, $pad-black-secundaria, $pad-black-erro);
+$pad-white-tema: mat.define-light-theme($pad-white-primaria, $pad-white-secundaria, $pad-white-erro);
