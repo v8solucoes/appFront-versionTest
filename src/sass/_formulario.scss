@@ -1,4 +1,4 @@
-@import "~src/sass/construtor";
+@import "/src/sass/construtor";
 
 // NUNCA usa margem na direita ou esquerda devido a RECURSIVIDADE.
 
@@ -7,7 +7,7 @@
   /* @extend %flex-linha; */
   display: flex;
   flex-direction: row;
-  width:  math.div(100%, $divisor) * ($multiplicador);
+  width:  (100% / $divisor) * ($multiplicador);
   min-width: 100px;
   /* min-width: (330px /$divisor) * ($multiplicador); */
   padding-top: 4px;

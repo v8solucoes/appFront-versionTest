@@ -50,7 +50,7 @@ export class AutenticarService {
   redireciona() {
  /*    this.router.setUpLocationChangeListener(); */
     const base = 'interface';
-    const rota =  localStorage.getItem('url') ? localStorage.getItem('url') : '';
+    const rota =  localStorage.getItem('url') ? localStorage.getItem('url') : 'revenda/lista';
 
  /*    this.router.createUrlTree([`${base}/${rota}`]); */
     this.router.navigateByUrl(`${base}/${rota}`);

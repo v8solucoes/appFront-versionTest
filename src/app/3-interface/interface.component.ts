@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { InterfaceService } from './interface.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-interface',
@@ -17,8 +18,16 @@ export class InterfaceComponent implements OnInit {
 
   constructor(
     public i: InterfaceService,
-    public tela: BreakpointObserver
+    public tela: BreakpointObserver,
+    public router: ActivatedRoute
   ) {
+
+    this.router.params.subscribe( o =>  {
+      alert('Interface')
+ /*      this.i.startModulo(this.router.snapshot) */
+    } 
+    )
+
     this.tela.observe([
       Breakpoints.Handset,
       Breakpoints.Tablet,
@@ -44,12 +53,12 @@ export class InterfaceComponent implements OnInit {
   ngOnInit() {
 
     this.iniciarInterface();
+   
   }
 
   iniciarInterface() {
     this.inscricaoEventos();
     this.iniciarTema();
-    /* this.i.startModulo(); */
   }
 
   inscricaoEventos() {

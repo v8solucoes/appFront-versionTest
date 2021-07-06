@@ -33,7 +33,7 @@ export class CriarDadosService {
       chaveDados: 'revendaV8dados',
       modulo: 'apresentador',
       nomeModulo: 'Apresentador',
-      acao: 'nova',
+      acao: 'lista',
       item: 'xxxxx'
     },
     design: {

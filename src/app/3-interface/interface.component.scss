@@ -16,6 +16,11 @@ app-menu {
 app-modulo {
   @extend %conteudo;
   width: 100%;
+  @media (min-width: 660px) {
+    max-width: 360px;
+    min-width: 280px;
+  }
+
 }
 
 :host app-desktop {
@@ -29,12 +34,67 @@ app-modulo {
   }
   @media (min-width: 660px) {
     max-width: 360px;
+    min-width: 340px;
+  }
+  @media (min-width: 680px) {
+    max-width: 380px;
+    min-width: 360px;
+  }
+  @media (min-width: 700px) {
+    max-width: 400px;
+    min-width: 380px;
+  }
+  @media (min-width: 720px) {
+    max-width: 420px;
+    min-width: 400px;
+  }
+  @media (min-width: 740px) {
+    max-width: 440px;
+    min-width: 420px;
+  }
+  @media (min-width: 760px) {
+    max-width: 460px;
+    min-width: 440px;
+  }
+  @media (min-width: 780px) {
+    max-width: 480px;
+    min-width: 460px;
+  }
+  @media (min-width: 800px) {
+    max-width: 480px;
+    min-width: 470px;
+  }
+  @media (min-width: 830px) {
+    max-width: 480px;
+    min-width: 460px;
+  }
+  @media (min-width: 840px) {
+    max-width: 300px;
     min-width: 280px;
+  }
+  @media (min-width: 860px) {
+    max-width: 560px;
+    min-width: 540px;
+  }
+  @media (min-width: 880px) {
+    max-width: 580px;
+    min-width: 560px;
+  }
+
+  @media (min-width: 900px) {
+    max-width: 600px;
+    min-width: 560px;
+  }
+  @media (min-width: 920px) {
+    max-width: 620px;
+    min-width: 560px;
+  }
+  @media (min-width: 940px) {
+    max-width: 560px;
+    min-width: 300px;
   }
 
 }
-
-
 
 mat-drawer-container, mat-sidenav-container {
   height: 100%;

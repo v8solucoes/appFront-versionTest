@@ -1,5 +1,5 @@
 import { ActivatedRouteSnapshot } from '@angular/router';
-import { ChaveModulo, Rotas } from './2-dados/interface';
+import { ChaveModulo, Credenciais, Rotas } from './2-dados/interface';
 
 export class Funcoes {
 
@@ -25,9 +25,20 @@ export class Funcoes {
     return this.convertePadraoJSON(transforma) as ChaveModulo;
   }
 
-  static gravarUrl(url: ActivatedRouteSnapshot): Rotas {
+  static gravarUrl(url: ActivatedRouteSnapshot, credenciais: Credenciais): Rotas {
 
-    // URL LazyLoAD CARREGA no nível parent da url.
+    let rota: any;
+    let rotaUrl: any;
+
+    if(localStorage.getItem('url') == undefined) {
+
+      rota = { "modulo": credenciais.modulo, "acao": credenciais.acao, "item":credenciais.item };
+      rotaUrl = `${credenciais.modulo}/${credenciais.acao}/${credenciais.item}`;
+      localStorage.setItem('url', rotaUrl);
+
+    } else {
+
+       // URL LazyLoAD CARREGA no nível parent da url.
 
     const lazyLoad = url.url.length === 0 ? true : false;
     const parametro = lazyLoad ? url.parent : url;
@@ -36,8 +47,10 @@ export class Funcoes {
     const acao = parametro.params.acao;
     const item = parametro.params.item;
 
-    const rota = { modulo, acao, item };
-    const rotaUrl = `${modulo}/${acao}/${item}`;
+     rota = { modulo, acao, item };
+     rotaUrl = `${modulo}/${acao}/${item}`;
+
+    }   
 
     localStorage.setItem('rotaUltima', JSON.stringify(rota));
     localStorage.setItem('urlUltima', localStorage.getItem('url'));

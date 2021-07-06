@@ -60,10 +60,18 @@ export class InterfaceService {
 
   async startModulo(url?: ActivatedRouteSnapshot) {
 
-    const rota = url ? Funcoes.gravarUrl(url) : JSON.parse(localStorage.getItem('rotaUltima'));
+    /* const credenciais = this.data.usuario.credenciais;
+   
+    Funcoes.gravarUrl(url, credenciais)
+
+    const rota = JSON.parse(localStorage.getItem('url')); */
+    const credenciais = this.data.usuario.credenciais;
+    Funcoes.gravarUrl(url, this.data.usuario.credenciais)
+
+    const rota = JSON.parse(localStorage.getItem('rotaUltima'));
 
     const modulo = this.data.usuario.modulo[rota.modulo]; /* modulo[rota.modulo]; ou modulo.revenda */
-    const credenciais = this.data.usuario.credenciais;
+    /* const credenciais = this.data.usuario.credenciais; */
 
     const form = () => CriarForm.grupo(modulo.permissao, modulo.modelo, modulo.dados.item);
 
