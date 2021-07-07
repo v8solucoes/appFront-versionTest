@@ -22,11 +22,11 @@ export class InterfaceComponent implements OnInit {
     public router: ActivatedRoute
   ) {
 
-    this.router.params.subscribe( o =>  {
+  /*   this.router.params.subscribe( o =>  {
       alert('Interface')
- /*      this.i.startModulo(this.router.snapshot) */
+      this.i.startModulo(this.router.snapshot)
     } 
-    )
+    ) */
 
     this.tela.observe([
       Breakpoints.Handset,

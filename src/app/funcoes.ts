@@ -30,7 +30,7 @@ export class Funcoes {
     let rota: any;
     let rotaUrl: any;
 
-    if(localStorage.getItem('url') == undefined) {
+    if(url == undefined || localStorage.getItem('url') == undefined ) {
 
       rota = { "modulo": credenciais.modulo, "acao": credenciais.acao, "item":credenciais.item };
       rotaUrl = `${credenciais.modulo}/${credenciais.acao}/${credenciais.item}`;
