@@ -66,7 +66,7 @@ export class InterfaceService {
 
     const rota = JSON.parse(localStorage.getItem('url')); */
     const credenciais = this.data.usuario.credenciais;
-    Funcoes.gravarUrl(url, this.data.usuario.credenciais)
+    Funcoes.gravarUrl(url, credenciais)
 
     const rota = JSON.parse(localStorage.getItem('rotaUltima'));
 
