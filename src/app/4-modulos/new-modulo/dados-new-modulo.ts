@@ -5,6 +5,7 @@ export class DadosNewModulo {
 
   chave: Chaves = {
     nome: 'New Modulo',
+    rotaBancoDados: 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/newModulo/lista/',
     url: 'new-modulo',
     chaveModulo: 'newModulo',
     chaveDados: 'newModuloV8rwrJsoYJbz5'

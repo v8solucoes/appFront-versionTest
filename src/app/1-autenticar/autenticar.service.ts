@@ -23,7 +23,7 @@ export class AutenticarService {
     public router: Router,
     public criarDados: CriarDadosService
   ) {
-    /* console.log('Autenticar'); */
+
     this.conectar();
   }
   async conectar() {
@@ -48,19 +48,10 @@ export class AutenticarService {
   }
 
   redireciona() {
- /*    this.router.setUpLocationChangeListener(); */
     const base = 'interface';
     const rota =  localStorage.getItem('url') ? localStorage.getItem('url') : 'revenda/lista';
 
- /*    this.router.createUrlTree([`${base}/${rota}`]); */
     this.router.navigateByUrl(`${base}/${rota}`);
-    /* this.router.navigate([rota ? `${base}/${rota}` : base]); */
-  /*   this.router.navigate(['interface/', rota]); */
-   /* this.router.navigate([base]); */
-
-  }
-  voltar(){
-
   }
 
   autenticado() {
@@ -100,4 +91,3 @@ export class AutenticarService {
     }
   }
 }
-

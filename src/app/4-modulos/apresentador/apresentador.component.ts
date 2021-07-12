@@ -48,6 +48,12 @@ export class ApresentadorComponent implements OnInit {
     public firebase: AngularFirestore,
     public http: HttpClient
   ) {
+
+        this.router.params.subscribe( o =>  {
+     
+      this.i.startModulo(this.router.snapshot)
+    } 
+    )
     this.start();
   }
   ngOnInit() { }
@@ -111,13 +117,13 @@ export class ApresentadorComponent implements OnInit {
 
   async start() {
 
-/*     try {
-      await this.i.getModulo(Funcoes.gravarUrl(this.router.snapshot));
+    try {
+      await await this.i.startModulo(this.router.snapshot);
       this.formulario = this.i.data.usuario.modulo.apresentador.form;
       this.atualizarDados();
       this.carregar = true;
 
-    } catch (error) { } */
+    } catch (error) { }
 
   }
 

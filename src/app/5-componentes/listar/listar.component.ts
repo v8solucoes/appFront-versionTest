@@ -12,7 +12,6 @@ import { Animacoes } from 'src/app/3-interface/animacao';
 export class ListarComponent implements OnInit {
 
   @Input() lista: any;
-  modulo: Modulo = this.i.data.usuario.modulo;
 
   constructor(
    public i: InterfaceService

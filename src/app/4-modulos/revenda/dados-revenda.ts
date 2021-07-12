@@ -3,8 +3,9 @@ import { Revenda, Chaves, ModuloCriar } from 'src/app/2-dados/interface';
 export class DadosRevenda {
 
   chave: Chaves = {
-    nome: 'Revenda sf sasdfad fadfaxdasdf',
+    nome: 'Revenda',
     url: 'revenda',
+    rotaBancoDados: 'revenda',
     chaveModulo: 'revenda',
     chaveDados: 'revendaV8dados'
   };
@@ -40,23 +41,15 @@ export class DadosRevenda {
       adm: {
         principal: [
           {
-            moduloNome: 'Revenda',
+            moduloNome: 'Administrador',
             url: 'revenda',
-            tipo: 'control',
-            acao: 'lista',
-            item: '',
-            icone: '',
-          },
-          {
-            moduloNome: 'Revenda',
-            url: 'revenda',
-            tipo: 'colecaoGaveta',
+            tipo: 'colecao',
             acao: 'lista',
             item: 'aasd',
             icone: '',
             grupo: [
               {
-                moduloNome: 'Criar',
+                moduloNome: 'Nova Revenda',
                 url: 'revenda',
                 tipo: 'control',
                 acao: 'nova',
@@ -64,15 +57,7 @@ export class DadosRevenda {
                 icone: '',
               },
               {
-                moduloNome: 'Documento',
-                url: 'revenda',
-                tipo: 'control',
-                acao: 'documento',
-                item: '',
-                icone: '',
-              },
-              {
-                moduloNome: 'Lista',
+                moduloNome: 'Revendas',
                 url: 'revenda',
                 tipo: 'control',
                 acao: 'lista',
@@ -84,7 +69,7 @@ export class DadosRevenda {
                 url: 'revenda',
                 tipo: 'control',
                 acao: 'item',
-                item: 'felix12',
+                item: '2ki5yFynaqQS3r3zZrK6',
                 icone: '',
               },
             ],

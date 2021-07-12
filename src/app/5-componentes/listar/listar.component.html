@@ -1,6 +1,6 @@
   <li
-    *ngFor="let item of modulo.revenda.dados.lista | keyvalue"
-    [routerLink]="['/','interface', 'revenda','item', item.key]">
+    *ngFor="let item of i.data.usuario?.modulo[this.i.data.usuario.credenciais.modulo].dados.lista | keyvalue"
+    [routerLink]="['/','interface', this.i.data.usuario.credenciais.modulo,'item', item.key]">
 
     <div id="avatar"></div>
 

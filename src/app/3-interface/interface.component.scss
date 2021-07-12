@@ -20,6 +20,14 @@ app-modulo {
     max-width: 360px;
     min-width: 280px;
   }
+  @media (min-width: 680px) {
+    max-width: 380px;
+    min-width: 280px;
+  }
+  @media (min-width: 700px) {
+    max-width: 410px;
+    min-width: 280px;
+  }
 
 }
 
@@ -65,12 +73,12 @@ app-modulo {
     min-width: 470px;
   }
   @media (min-width: 830px) {
-    max-width: 480px;
+    max-width: 680px;
     min-width: 460px;
   }
   @media (min-width: 840px) {
-    max-width: 300px;
-    min-width: 280px;
+    max-width: 480px;
+    min-width: 460px;
   }
   @media (min-width: 860px) {
     max-width: 560px;

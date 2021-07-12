@@ -1,4 +1,4 @@
-import { Usuario, ChaveModulo, Menu, Modelo, Modulo, Dados, ModuloUsuario } from './../2-dados/interface';
+import { Usuario, ChaveModulo, Menu, Modelo, Modulo, Dados, ModuloUsuario, RotaBancoDados } from './../2-dados/interface';
 
 import { Injectable } from '@angular/core';
 
@@ -24,12 +24,12 @@ export class CriarDadosService {
     credenciais: {
       tipo: 'adm',
       idUsuario: 'ZEjRkWCDc1PkuIaFyaWnYqmJY4q1',
-      revendas: ['ZEjRkWCDc1PkuIaFyaWnYqmJY4q1'],
-      clientes: ['C0JrcUWVqTQR3sPt8Qqo'],
+      revendas: ['C0JrcUWVqTQR3sPt8Qqo'],
+      clientes: ['gfFyiX5IU4OaoXm4BDzX'],
       usuarioNome: 'Emerson',
       usuarioEmail: 'teste@v8sites.com.br',
       idRevenda: 'C0JrcUWVqTQR3sPt8Qqo',
-      idCliente: 'd29xPsKlwsxxA8TgdvsT',
+      idCliente: 'gfFyiX5IU4OaoXm4BDzX',
       chaveDados: 'revendaV8dados',
       modulo: 'apresentador',
       nomeModulo: 'Apresentador',
@@ -77,6 +77,7 @@ export class CriarDadosService {
     this.listaModulo.forEach((modulos) => {
 
       const chaveModulo: ChaveModulo = modulos.dados.chave.chaveModulo;
+      const rotaBancoDados: RotaBancoDados = modulos.dados.chave.rotaBancoDados;
 
       modulo[modulos.chave.chaveModulo] = {
 
@@ -84,8 +85,8 @@ export class CriarDadosService {
         modelo: this.gravar<Modelo>('modelo', chaveModulo, modulos.dados.modelo[chaveModulo]),
         form: null,
         dados: {
-          item: this.gravar<Dados>(`revenda/${revenda}/dados/`, chaveModulo, modulos.dados.dados[chaveModulo].item),
-          lista: this.gravarLista<Modelo>(`revenda/${revenda}/dados/${chaveModulo}/lista/`, modulos.dados.dados[chaveModulo].lista)
+          item: null,
+          lista: this.gravarLista<Modelo>(rotaBancoDados, modulos.dados.dados[chaveModulo].item)
         }
       };
 
@@ -115,11 +116,10 @@ export class CriarDadosService {
   }
   gravarLista<T>(caminho, dados): T {
 
-    for (const key of Object.keys(dados)) {
+    const chave = Date.now().toString()
 
-      this.lote.set(this.fire.collection(`${caminho}`)
-        .doc(key), dados[key]);
-    }
+  this.lote.set(this.fire.collection(`${caminho}`)
+        .doc(chave), dados);
 
     return null;
   }

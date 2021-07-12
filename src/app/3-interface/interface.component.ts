@@ -22,8 +22,8 @@ export class InterfaceComponent implements OnInit {
     public router: ActivatedRoute
   ) {
 
-  /*   this.router.params.subscribe( o =>  {
-      alert('Interface')
+/*     this.router.params.subscribe( o =>  {
+     
       this.i.startModulo(this.router.snapshot)
     } 
     ) */

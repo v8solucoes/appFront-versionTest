@@ -56,9 +56,12 @@ export type NewModulo = {
 // TIPOS
 export type IdUsuario = 'ZEjRkWCDc1PkuIaFyaWnYqmJY4q1';
 export type IdRevenda = 'C0JrcUWVqTQR3sPt8Qqo';
-export type IdCliente = 'd29xPsKlwsxxA8TgdvsT';
-export type NomeModulo = 'Revenda sf sasdfad fadfaxdasdf' | 'Apresentador' | 'New Modulo';
-export type Urls = 'revenda' | 'new-modulo' | 'apresentador'  ;
+export type IdCliente = 'gfFyiX5IU4OaoXm4BDzX';
+export type NomeModulo = 'Revenda' | 'Apresentador' | 'New Modulo';
+export type Urls = 'revenda' | 'new-modulo' | 'apresentador';
+export type RotaBancoDados = 'revenda' 
+  | 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/newModulo/lista/' 
+  | 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/apresentador/lista/'  ;
 export type ChaveDados =  'revendaV8dados' | 'newModuloV8rwrJsoYJbz5' | 'apresentadorV8xapweiops' ;
 export type ChaveModulo = GetNomes<Modulos>;
 export type Acao = 'usuario' | 'nova' | 'lista' | 'listarColecao' |'documento' | 'rotaAPIusuario' | 'rotaAPIclienteUsuario' | 'rotaAPIclienteModelo' | 'lista' | 'item';
@@ -143,8 +146,8 @@ export type Tela = 'celuar' | 'tablet' | 'desktop' | 'modulo';
 export interface Credenciais {
   tipo?: 'adm' | 'revenda' | 'cliente';
   idUsuario: IdUsuario;
-  revendas: IdUsuario[];
-  clientes: IdRevenda[];
+  revendas: IdRevenda[];
+  clientes: IdCliente[];
   usuarioNome?: 'Emerson';
   usuarioEmail?: 'teste@v8sites.com.br';
   idRevenda: IdRevenda;
@@ -159,6 +162,7 @@ export interface Credenciais {
 export interface Chaves {
   nome: NomeModulo;
   url: Urls;
+  rotaBancoDados: RotaBancoDados;
   chaveDados: ChaveDados;
   chaveModulo: ChaveModulo;
   acao?: Acao;
@@ -172,11 +176,6 @@ export interface Rotas {
   chaveModelo?: ChaveModulo;
 }
 
-/* export interface AcaoApi {
-  chave: string;
-  acao: Acao;
-  modulo?: 'revenda';
-} */
 export interface RetornoServidor<T> {
   existe: boolean;
   error: string;

@@ -24,8 +24,7 @@ export class RevendaComponent implements OnInit {
     public firebase: AngularFirestore,
     public http: HttpClient */
   ) {
-    this.router.params.subscribe( o => {this.start()
-    alert('Revenda Router')} );
+    this.router.params.subscribe( o => this.start());
   }
 
   ngOnInit() {

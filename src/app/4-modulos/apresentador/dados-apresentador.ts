@@ -5,6 +5,7 @@ export class DadosApresentador {
   chave: Chaves = {
     nome: 'Apresentador',
     url: 'apresentador',
+    rotaBancoDados: 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/apresentador/lista/',
     chaveModulo: 'apresentador',
     chaveDados: 'apresentadorV8xapweiops'
   };
