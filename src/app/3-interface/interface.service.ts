@@ -69,7 +69,7 @@ export class InterfaceService {
     
     Funcoes.gravarUrl(url, this.data.usuario.credenciais)
 
-    const rota = JSON.parse(localStorage.getItem('rotaUltima'));
+    const rota = JSON.parse(localStorage.getItem('rota'));
 
     const modulo = this.data.usuario.modulo[rota.modulo]; /* modulo[rota.modulo]; ou modulo.revenda */
     /* const credenciais = this.data.usuario.credenciais; */
@@ -108,53 +108,48 @@ export class InterfaceService {
     return;
   }
 
-  /*  async getModulo(url: Rotas) {
-
-     try {
-       const chaveModulo = Funcoes.converteURLpadraoJSON(url.modulo);
-       const modulo = this.data.usuario.modulo[chaveModulo];
-       url.chaveDados = modulo.modelo.modulo.chaveDados;
-       this.data.usuario.credenciais.atualChaveModulo = chaveModulo;
-       this.data.usuario.credenciais.atualChaveDados = url.chaveDados;
-       this.data.usuario.credenciais.atualNomeModulo = this.data.usuario.modulo[chaveModulo].modelo.modulo.nome;
-       this.data.usuario.credenciais.atualAcao = url.acao;
-       const acao = url.acao;
-
-       if (acao === 'documento' || acao === 'item') {
-         modulo.dados[`${acao}`] = await this.data.getData('item');
-         const criarForm = CriarForm.grupo(modulo.permissao, modulo.modelo, modulo.dados[`${acao}`]);
-         modulo.form = criarForm;
-         this.debug([`${acao}`], modulo.dados.documento);
-       }
-
-       if (url.acao === 'lista') {
-         modulo.dados.lista = await this.data.getColecao(url);
-         this.debug([`${acao}`], modulo.dados.lista);
-       }
-
-       this.debug('DADOS', this.data.usuario);
-
-     } catch (error) {
-
-     }
-   } */
-
   voltar() {
 
-    this.data.autenticar.router.navigateByUrl('interface/' + localStorage.getItem('urlUltima'), { skipLocationChange: true });
+    this.data.autenticar.router.navigateByUrl('interface/' + localStorage.getItem('rotaUltima'), { skipLocationChange: true });
 
   }
-  async salvar() {
+  async novo() {
+    const modulo = this.data.usuario.credenciais.modulo;
+    const formulario = this.data.usuario.modulo[modulo];
+    const dados = formulario.form.value
+    
+    try {
+      
+      if (this.validar(formulario)) {
 
-    const modulo = this.data.usuario.modulo.revenda;
+        const chave = await this.data.getData('nova', dados);
+        this.data.autenticar.router.navigateByUrl(`interface/${modulo}/item/${chave}`);
+        this.data.usuario.modulo[modulo].dados.lista = { chave: dados }
+        this.debug(`Novo`, chave)
+
+      }
+
+    } catch (error) {
+
+    }
+
+  }
+
+  async update() {
+
+    const modulo = this.data.usuario.credenciais.modulo;
+    const chave = this.data.usuario.credenciais.item;
+    const formulario = this.data.usuario.modulo[modulo];
+    const dados = formulario.form.value
 
     try {
 
-      if (this.validar(modulo)) {
+      if (this.validar(formulario)) {
 
-        const chave = await this.data.getData('nova', modulo.form.value);
-        this.data.autenticar.router.navigateByUrl(`interface/revenda/item/${chave}`);
-        console.log(chave);
+        const data = await this.data.getData('update',dados);
+        this.data.autenticar.router.navigateByUrl(`interface/${modulo}/item/${chave}`);
+        this.debug(`Update`, dados)
+        this.data.usuario.modulo[modulo].dados.lista[chave] = dados
 
       }
 

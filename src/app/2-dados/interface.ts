@@ -64,7 +64,7 @@ export type RotaBancoDados = 'revenda'
   | 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/apresentador/lista/'  ;
 export type ChaveDados =  'revendaV8dados' | 'newModuloV8rwrJsoYJbz5' | 'apresentadorV8xapweiops' ;
 export type ChaveModulo = GetNomes<Modulos>;
-export type Acao = 'usuario' | 'nova' | 'lista' | 'listarColecao' |'documento' | 'rotaAPIusuario' | 'rotaAPIclienteUsuario' | 'rotaAPIclienteModelo' | 'lista' | 'item';
+export type Acao = 'usuario' | 'update' | 'nova' | 'lista' | 'listarColecao' |'documento' | 'rotaAPIusuario' | 'rotaAPIclienteUsuario' | 'rotaAPIclienteModelo' | 'lista' | 'item';
 export type nomeTodosCampos = GetNomes<Revenda> | GetNomes<ColecoesCampos> | GetNomes<NewModulo> | GetNomes<Apresentador>;
 
 

@@ -6,8 +6,8 @@
     <mat-icon>arrow_back</mat-icon>
   </button>
 
-  <div id="titulo"> {{ i.data.usuario.modulo[i.data.usuario.credenciais.modulo].dados?.item['nome'] }} </div>
+  <div id="titulo"> {{ i.data.usuario?.modulo[i.data.usuario.credenciais.modulo].dados.item?.nome }} </div>
 
-  <button mat-raised-button color="accent" (click)="i.salvar()"> Editar </button>
+  <button mat-raised-button color="accent" (click)="i.update()"> Editar </button>
 </section>
 

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ChaveModulo, Revenda } from 'src/app/2-dados/interface';
 
 import { InterfaceService } from 'src/app/3-interface/interface.service';
-import { Funcoes } from 'src/app/funcoes';
 import { Debug } from 'src/app/5-componentes/debug';
 
 @Component({
@@ -13,28 +14,31 @@ import { Debug } from 'src/app/5-componentes/debug';
 export class NewModuloComponent implements OnInit {
 
   carregar = false;
-  modulo = this.i.data.usuario;
-
-  debug = (pro: any, valor: any) => new Debug('ativo', 'New Modulo', pro, valor);
+  chaveModulo: ChaveModulo = 'newModulo';
+  dados: Revenda = null;
+  formulario: FormGroup = null;
 
   constructor(
+    public i: InterfaceService,
     public router: ActivatedRoute,
-    public i: InterfaceService
+/*     public caixaDialogo: CaixaDialogoService,
+    public firebase: AngularFirestore,
+    public http: HttpClient */
   ) {
-    this.start();
+    this.router.params.subscribe( o => this.start());
   }
 
-  ngOnInit() { }
+  ngOnInit() {
 
+  }
   async start() {
     try {
-/*
-      await this.i.getModulo(Funcoes.gravarUrl(this.router.snapshot));
+      await this.i.startModulo(this.router.snapshot);
+      this.formulario = this.i.data.usuario.modulo.newModulo.form;
       this.carregar = true;
-      this.debug('START', this.i.data.usuario.modulo.newModulo); */
-    } catch (error) {
 
-    }
+    } catch (error) { }
+
   }
 
 }

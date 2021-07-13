@@ -49,7 +49,7 @@ export class AutenticarService {
 
   redireciona() {
     const base = 'interface';
-    const rota =  localStorage.getItem('url') ? localStorage.getItem('url') : 'revenda/lista';
+    const rota =  localStorage.getItem('rotaUrl') ? localStorage.getItem('rotaUrl') : 'revenda/lista';
 
     this.router.navigateByUrl(`${base}/${rota}`);
   }

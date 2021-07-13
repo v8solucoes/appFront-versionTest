@@ -28,16 +28,21 @@ export class Funcoes {
   static gravarUrl(url: ActivatedRouteSnapshot, credenciais: Credenciais): Rotas {
 
     let rota: any;
-    let rotaUrl: any;
+    let rotaUrl: string;
 
-    if(url == undefined || localStorage.getItem('url') == undefined ) {
+    if (localStorage.getItem('rota') == undefined ) {
 
       rota = { "modulo": credenciais.modulo, "acao": credenciais.acao, "item":credenciais.item };
       rotaUrl = `${credenciais.modulo}/${credenciais.acao}/${credenciais.item}`;
-      localStorage.setItem('url', rotaUrl);
+
+    } 
+    else if (url == undefined ) {
+
+      rota = JSON.parse(localStorage.getItem('rota'))
+      rotaUrl = localStorage.getItem('rotaUrl') 
 
     } else {
-
+ 
        // URL LazyLoAD CARREGA no nível parent da url.
 
     const lazyLoad = url.url.length === 0 ? true : false;
@@ -52,9 +57,9 @@ export class Funcoes {
 
     }   
 
-    localStorage.setItem('rotaUltima', JSON.stringify(rota));
-    localStorage.setItem('urlUltima', localStorage.getItem('url'));
-    localStorage.setItem('url', rotaUrl);
+    localStorage.setItem('rotaUltima', localStorage.getItem('rotaUrl'));
+    localStorage.setItem('rota', JSON.stringify(rota));
+    localStorage.setItem('rotaUrl', rotaUrl);
 
     return rota;
   }

@@ -62,7 +62,7 @@ export class DadosApresentador {
       adm: {
         principal: [
           {
-            moduloNome: 'Apresentador',
+            moduloNome: 'Produto',
             url: 'apresentador',
             tipo: 'colecao',
             acao: 'lista',
@@ -70,27 +70,11 @@ export class DadosApresentador {
             icone: '',
             grupo: [
               {
-                moduloNome: 'Documento',
-                url: 'apresentador',
-                tipo: 'control',
-                acao: 'documento',
-                item: '',
-                icone: '',
-              },
-              {
-                moduloNome: 'Lista',
+                moduloNome: 'Apresentador',
                 url: 'apresentador',
                 tipo: 'control',
                 acao: 'lista',
                 item: '',
-                icone: '',
-              },
-              {
-                moduloNome: 'Item',
-                url: 'apresentador',
-                tipo: 'control',
-                acao: 'item',
-                item: 'felix12',
                 icone: '',
               },
             ],
