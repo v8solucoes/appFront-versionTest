@@ -2,7 +2,7 @@
   <mat-progress-bar mode="query"></mat-progress-bar>
 </ng-template>
 
-<ng-container *ngIf="i.data.usuario.credenciais.acao; else carregando">
+<ng-container *ngIf="carregar; else carregando">
 
   <section [ngSwitch]="i.data.usuario.credenciais.acao">
 
@@ -10,11 +10,14 @@
       <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario >
     </section>
     <section *ngSwitchCase="'item'" >
+      LISTA rdyr asdfadsfasdfa dfasdf asfasdfasdf
       <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario >
     </section>
     <section *ngSwitchCase="'lista'" >
-   LISTA
+  
     </section>
 
   </section>
+
+
 </ng-container>

@@ -1,9 +1,9 @@
-<!-- Conteúdo Módulo
+Conteúdo Módulo
 <br>
 Celular: {{ i.design.telaCelular }}<br>
 Tablet: {{ i.design.telaTablet }}<br>
 Desktop: {{ i.design.telaDesktop }}<br>
-Desktop&Tablet: {{ i.design.telaDesktopTablet }} -->
+Desktop&Tablet: {{ i.design.telaDesktopTablet }}
 
 <app-listar *ngIf="i.carregarModulo && i.design.telaDesktopTablet && i.data.usuario.modulo[i.data.usuario.credenciais.modulo].dados.lista" [lista]="i.data.usuario.modulo.revenda.dados.lista">
 </app-listar>

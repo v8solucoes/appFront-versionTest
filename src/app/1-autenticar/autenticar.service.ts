@@ -10,6 +10,7 @@ import { CriarDadosService } from '../0-criarDados/criarDados.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AutenticarService {
   login = new FormGroup({
     email: new FormControl('teste@v8sites.com.br', Validators.email),
@@ -22,10 +23,11 @@ export class AutenticarService {
     public auth: AngularFireAuth,
     public router: Router,
     public criarDados: CriarDadosService
-  ) {
-
+  ) 
+  {
     this.conectar();
   }
+
   async conectar() {
     try {
       await this.autenticar();

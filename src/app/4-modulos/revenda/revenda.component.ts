@@ -35,6 +35,7 @@ export class RevendaComponent implements OnInit {
       await this.i.startModulo(this.router.snapshot);
       this.formulario = this.i.data.usuario.modulo.revenda.form;
       this.carregar = true;
+      console.log(this.formulario)
 
     } catch (error) { }
 

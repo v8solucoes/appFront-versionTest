@@ -62,6 +62,7 @@ export class InterfaceComponent implements OnInit {
   }
 
   inscricaoEventos() {
+
     this.i.eventoEmitter.subscribe(evento => {
 
       switch (evento) {

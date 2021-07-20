@@ -6,7 +6,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Debug } from '../5-componentes/debug';
 import { DadosApresentador } from './../4-modulos/apresentador/dados-apresentador';
-import { DadosNewModulo } from '../4-modulos/new-modulo/dados-new-modulo';
 import { DadosRevenda } from '../4-modulos/revenda/dados-revenda';
 
 @Injectable({
@@ -15,7 +14,7 @@ import { DadosRevenda } from '../4-modulos/revenda/dados-revenda';
 
 export class CriarDadosService {
 
-  listaModulo = [new DadosRevenda(), new DadosApresentador(), new DadosNewModulo()];
+  listaModulo = [new DadosRevenda(), new DadosApresentador()];
 
   fire = this.firebase.firestore;
   lote = this.fire.batch();
@@ -118,127 +117,9 @@ export class CriarDadosService {
 
     const chave = Date.now().toString()
 
-    /*   this.lote.set(this.fire.collection(`${caminho}`)
-        .doc(chave), dados); */
+      this.lote.set(this.fire.collection(`${caminho}`)
+        .doc(chave), dados);
 
     return null;
   }
-
-  /* objeto<T>(dados: 'permissao' | 'modelo', acao: 'gravarUsuario' | 'gravarFirebaseModelo'): T {
-
-    const objeto = {};
-
-    this.listaModulo.forEach(modulos => {
-
-      const chaveModulo: ChaveModulo = modulos.dados.chave.chaveModulo;
-
-      if ( acao === 'gravarUsuario') {
-        objeto[chaveModulo] = modulos.dados[dados][chaveModulo];
-       }
-      if ( acao === 'gravarFirebaseModelo') {
-      this.lote.set(this.fire.collection(`modelo`).doc(chaveModulo), modulos.dados[dados][chaveModulo]);
-      }
-
-    });
-    if (acao === 'gravarUsuario') { return objeto as T; }
-    if (acao === 'gravarFirebaseModelo') { return objeto as T; }
-
-  }
-  permissao(): Permissao {
-
-    const permissao = {};
-
-    this.listaModulo.forEach(modulos => {
-
-      const chaveModulo: ChaveModulo = modulos.dados.chave.chaveModulo;
-
-      permissao[chaveModulo] = modulos.dados.permissao[chaveModulo];
-
-    });
-
-    return permissao;
-  }
-  modelo(): Modelo {
-
-    const modelo = {};
-
-    this.listaModulo.forEach(modulos => {
-
-      const chaveModulo: ChaveModulo = modulos.dados.chave.chaveModulo;
-
-      modelo[chaveModulo] = {
-        modelo: modulos.dados.modelo[chaveModulo],
-      };
-
-    });
-
-    return modelo as Modelo;
-  }
-
-  gravar(usuario: Usuario) {
-
-    const admChave = usuario.credenciais.chaveUsuarioGoogleAuth;
-    var admModelo = {};
-
-    this.lote.set(this.fire.collection('usuario').doc(admChave), usuario);
-
-    this.listaModulo.forEach(modulos => {
-
-      const chaveModulo = modulos.dados.chave.chaveModulo;
-      const chaveDados = modulos.dados.chave.chaveDados;
-
-      const modelo = modulos.dados.modelo[chaveModulo];
-      const documento = modulos.dados.dados[chaveModulo].documento;
-      const lista = modulos.dados.dados[chaveModulo].lista;
-      admModelo[chaveModulo] = modelo;
-
-      this.lote.set(this.fire
-        .collection(`modelo`)
-        .doc(chaveModulo), modelo);
-
-
-    });
-    return;
-
-  }
-  gravarUsuario(usuario: Usuario) {
-
-    const admChave = usuario.credenciais.chaveUsuarioGoogleAuth;
-
-    this.lote.set(this.fire.collection('usuario').doc(admChave), usuario);
-
-    return;
-  }
-  gravarDados(usuario: Usuario) {
-
-    const chaveUsuario = usuario.credenciais.chaveUsuarioGoogleAuth;
-    const chaveCliente = usuario.credenciais.chaveCliente;
-
-    this.lote.set(this.fire.collection('admUsuario/').doc(chaveUsuario), usuario);
-    this.lote.set(this.fire.collection(`admCliente/${chaveCliente}/usuario`).doc(chaveUsuario), usuario);
-
-    this.listaModulo.forEach(modulos => {
-
-      const chaveModulo = modulos.dados.chave.chaveModulo;
-      const chaveDados = modulos.dados.chave.chaveDados;
-
-      const modelo = modulos.dados.modelo[chaveModulo];
-      const documento = modulos.dados.dados[chaveModulo].documento;
-      const lista = modulos.dados.dados[chaveModulo].lista;
-
-      for (const key of Object.keys(lista)) {
-
-        this.lote.set(this.fire.collection(`admDados/${chaveDados}/lista/`)
-          .doc(key), lista[key]);
-      }
-
-      this.lote.set(this.fire.collection(`admModelo`).doc(chaveModulo), modelo);
-      this.lote.set(this.fire.collection(`admDados`).doc(chaveDados), documento);
-      this.lote.set(this.fire.collection(`adm`).doc('lista/revenda'), { id: 'xxxxasdfad', nome: 'V8 Sites', });
-    });
-
-  }
-
-}
- */
 }
