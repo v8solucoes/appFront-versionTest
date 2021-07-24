@@ -1,5 +1,6 @@
 {
-    "compileOnSave": false,
+  
+   "compileOnSave": false,
     "compilerOptions": {
       "types" : ["node", "dom-mediacapture-record", "WebGL2RenderingContext"],
       "baseUrl": "./",

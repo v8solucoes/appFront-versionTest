@@ -2,8 +2,13 @@
 
 // NUNCA usa margem na direita ou esquerda devido a RECURSIVIDADE.
 
-@mixin criar-tamanho($direita: false, $esquerda: false, $meio:false, $divisor: 1, $multiplicador: 1) {
-
+@mixin criar-tamanho(
+  $direita: false,
+  $esquerda: false,
+  $meio: false,
+  $divisor: 1,
+  $multiplicador: 1
+) {
   /* @extend %flex-linha; */
   display: flex;
   flex-direction: row;
@@ -15,18 +20,39 @@
   box-sizing: border-box;
   align-items: center;
 
-  @if $esquerda { padding-left: 0px; padding-right: 8px;}
-  @if $direita  { padding-left: 8px; padding-right: 0px;}
-  @if $meio     { padding-left: 8px; padding-right: 8px;}
-
-  @media (max-width: 351px) {
-    padding-left: 0px; padding-right: 0px; width: 100%;
+  @if $esquerda {
+    padding-left: 0px;
+    padding-right: 8px;
+  }
+  @if $direita {
+    padding-left: 8px;
+    padding-right: 0px;
+  }
+  @if $meio {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
-  & > audio { width: 100%; margin-bottom: 8px; }
-/*   & > button { margin-left: 8px; margin-bottom: 16px; width: 100%; } */
-  & > button { margin-left: 0px; margin-bottom: 8px; width: 100%; }
-  & > mat-icon { margin-right: 16px; margin-bottom: 16px; }
+  @media (max-width: 351px) {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+  }
+
+  & > audio {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  /*   & > button { margin-left: 8px; margin-bottom: 16px; width: 100%; } */
+  & > button {
+    margin-left: 0px;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+  & > mat-icon {
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
   & > app-input {
     width: 100%;
     min-width: 10px;
@@ -34,36 +60,34 @@
   }
 }
 @mixin formulario() {
-
   &-total {
-    @include criar-tamanho( $divisor: 1);
+    @include criar-tamanho($divisor: 1);
   }
 
   &-metade-esquerda {
-    @include criar-tamanho( $esquerda: true, $divisor: 2);
+    @include criar-tamanho($esquerda: true, $divisor: 2);
   }
 
   &-metade-direita {
-    @include criar-tamanho( $direita: true, $divisor: 2);
+    @include criar-tamanho($direita: true, $divisor: 2);
   }
 
   &-1-esquerda {
-    @include criar-tamanho( $esquerda: true, $divisor: 3);
+    @include criar-tamanho($esquerda: true, $divisor: 3);
   }
 
   &-1-meio {
-    @include criar-tamanho( $meio: true, $divisor: 3);
+    @include criar-tamanho($meio: true, $divisor: 3);
   }
 
   &-1-direita {
-    @include criar-tamanho( $direita: true, $divisor: 3);
+    @include criar-tamanho($direita: true, $divisor: 3);
   }
 
   &-2-direita {
-    @include criar-tamanho( $direita: true, $divisor: 3,  $multiplicador: 2);
+    @include criar-tamanho($direita: true, $divisor: 3, $multiplicador: 2);
   }
   &-2-esquerda {
-    @include criar-tamanho( $esquerda: true, $divisor: 3,  $multiplicador: 2);
+    @include criar-tamanho($esquerda: true, $divisor: 3, $multiplicador: 2);
   }
-
 }

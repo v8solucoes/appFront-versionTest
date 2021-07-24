@@ -1,19 +1,24 @@
 <section>
+  <button mat-icon-button (click)="this.i.eventoEmitter.emit('menuEsquerdo')">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
   <div id="titulo-lista"> {{ i.data.usuario.credenciais.nomeModulo }} </div>
 
   <button mat-icon-button>
     <mat-icon>search</mat-icon>
   </button>
 
-  <button mat-icon-button color="accent" [routerLink]="[ i.data.usuario.credenciais.modulo, 'nova', '']">
+  <button mat-icon-button color="accent" [disabled]="i.processandoCrud.nova"
+    [routerLink]="[ i.data.usuario.credenciais.modulo, 'nova', '']">
     <mat-icon>add</mat-icon>
+
   </button>
 
-  <button mat-icon-button (click)="this.i.eventoEmitter.emit('menuEsquerdo')">
-    <mat-icon>more_vert</mat-icon>
-  </button>
 
-<!--   <button mat-icon-button (click)="this.i.eventoEmitter.emit('menuDireito')">
+
+
+  <!--   <button mat-icon-button (click)="this.i.eventoEmitter.emit('menuDireito')">
     <mat-icon>more_vert</mat-icon>
   </button> -->
 </section>

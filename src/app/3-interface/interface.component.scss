@@ -1,9 +1,10 @@
-@import '~src/sass/construtor';
+@import "~src/sass/construtor";
 
 section {
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
   background-color: rgb(80, 80, 80);
   box-sizing: border-box;
 }
@@ -16,7 +17,7 @@ app-menu {
 app-modulo {
   @extend %conteudo;
   width: 100%;
-  
+
   @media (min-width: 660px) {
     max-width: 360px;
     min-width: 280px;
@@ -29,13 +30,11 @@ app-modulo {
     max-width: 410px;
     min-width: 280px;
   }
-
 }
 
 :host app-desktop {
-
-    max-width: 300px;
-    min-width: 280px;
+  max-width: 300px;
+  min-width: 280px;
   @extend %conteudo;
 
   @media (max-width: 600px) {
@@ -102,20 +101,30 @@ app-modulo {
     max-width: 560px;
     min-width: 280px;
   }
-
 }
 
-mat-drawer-container, mat-sidenav-container {
+mat-drawer-container,
+mat-sidenav-container {
   height: 100%;
 }
 
-.scroll { @extend %scroll; }
+.scroll {
+  @extend %scroll;
+}
 
 /* Remove cores de fundo das Diretivas Material Design */
-.mat-drawer-container { background-color: transparent;}
-.mat-drawer { background-color: transparent;}
-.mat-sidenav-container { background-color: transparent;}
-.mat-drawer-content { overflow: hidden;}
+.mat-drawer-container {
+  background-color: transparent;
+}
+.mat-drawer {
+  background-color: transparent;
+}
+.mat-sidenav-container {
+  background-color: transparent;
+}
+.mat-drawer-content {
+  overflow: hidden;
+}
 
 // Corrige scroll 100%
 /* :host ::ng-deep cdk-virtual-scroll-viewport .cdk-virtual-scroll-content-wrapper {
