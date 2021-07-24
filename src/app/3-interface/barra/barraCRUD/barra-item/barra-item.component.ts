@@ -1,3 +1,4 @@
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { InterfaceService } from '../../../interface.service';
 
@@ -10,9 +11,14 @@ export class BarraItemComponent implements OnInit {
 
   constructor(
     public i: InterfaceService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
   }
+
+  
+
+
 
 }

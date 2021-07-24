@@ -1,4 +1,4 @@
-@import '/src/sass/construtor';
+@import "/src/sass/construtor";
 
 @import "/src/sass/formulario";
 
@@ -6,7 +6,8 @@ nav {
   display: block;
   margin-bottom: 16px;
   text-align: center;
- /*  background-color: cornflowerblue; */
+
+  /*  background-color: cornflowerblue; */
 }
 
 section {
@@ -14,16 +15,16 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-/*     background-color: rgb(154, 151, 175); */
+  /*     background-color: rgb(154, 151, 175); */
 }
 
-.formulario  {
+.formulario {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: 8px;
   width: 90%;
-  background-color: rgb(85, 78, 78);
+  background-color: rgb(185, 185, 185);
 }
 
 .formulario > section {
@@ -32,6 +33,6 @@ section {
   justify-content: flex-start;
   width: 100%;
 }
-.a { @include formulario();}
-
-
+.a {
+  @include formulario();
+}

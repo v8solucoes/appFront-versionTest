@@ -1,6 +1,8 @@
 @import "~src/sass/construtor";
 
 section {
+  width: 430px;
+
   @extend %scroll;
 }
 

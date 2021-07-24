@@ -1,0 +1,8 @@
+{
+    "editor.inlineSuggest.enabled": true,
+    "angular.trace.server": "messages",
+    "angular.view-engine": true,
+    "eslint.lintTask.enable": true,
+    "eslint.format.enable": true,
+    "eslint.debug": true
+}

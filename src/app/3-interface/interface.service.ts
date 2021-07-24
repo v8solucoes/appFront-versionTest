@@ -1,3 +1,5 @@
+
+import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
@@ -8,6 +10,10 @@ import { DadosService } from '../2-dados/dados.service';
 import { Debug } from '../5-componentes/debug';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { CaixaDialogoService } from '../5-componentes/caixa-dialogo/caixa-dialogo.service';
+import { Acao } from '../2-dados/interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +24,12 @@ export class InterfaceService {
   eventoEmitter = new EventEmitter<'menuEsquerdo' | 'menuDireito'>();
 
   carregarModulo = false;
+
+  processandoCrud = {
+     update : false,
+     delete: false,
+     nova: false,
+  };
 
   designUser = {
     tema: 'pad-tema-black',
@@ -43,6 +55,8 @@ export class InterfaceService {
   constructor(
     public data: DadosService,
     public caixaDialogo: CaixaDialogoService,
+    private http: HttpClient,
+    private _snackBar: MatSnackBar
   ) {
 
     this.start()
@@ -114,6 +128,8 @@ export class InterfaceService {
 
   }
   async novo() {
+    this.processandoCrud.nova = true;
+    
     const modulo = this.data.usuario.credenciais.modulo;
     const formulario = this.data.usuario.modulo[modulo];
     const dados = formulario.form.value
@@ -125,7 +141,9 @@ export class InterfaceService {
         const chave = await this.data.getData('nova', dados);
         this.data.autenticar.router.navigateByUrl(`interface/${modulo}/item/${chave}`);
         this.data.usuario.modulo[modulo].dados.lista = { chave: dados }
-        this.debug(`Novo`, chave)
+        this.debug(`Novo`, chave);
+        dados ? this.processando('nova','Criado com Sucesso'): '';
+        
 
       }
 
@@ -136,11 +154,11 @@ export class InterfaceService {
   }
 
   async update() {
-
+    this.processandoCrud.update = true;
     const modulo = this.data.usuario.credenciais.modulo;
     const chave = this.data.usuario.credenciais.item;
     const formulario = this.data.usuario.modulo[modulo];
-    const dados = formulario.form.value
+    const dados = formulario.form.value;
 
     try {
 
@@ -150,21 +168,44 @@ export class InterfaceService {
         this.data.autenticar.router.navigateByUrl(`interface/${modulo}/item/${chave}`);
         this.debug(`Update`, dados)
         this.data.usuario.modulo[modulo].dados.lista[chave] = dados
-
+        dados ? this.processando('update','Editado com sucesso') : '';
+        
       }
-
-
     } catch (error) {
-
     }
-
   }
+
+  async delete(){
+    this.processandoCrud.delete = true;
+    const modulo = this.data.usuario.credenciais.modulo;
+    const chave = this.data.usuario.credenciais.item;
+    const formulario = this.data.usuario.modulo[modulo];
+    const dados = formulario.form.value;
+
+    try {
+
+      if (this.validar(formulario)) {
+        console.log('Deletado com Sucesso');
+        const data = await this.data.getData('delete',dados);
+        this.data.autenticar.router.navigateByUrl(`interface/${modulo}/lista/`);
+        this.debug(`delete`, dados)
+        this.data.usuario.modulo[modulo].dados.lista[chave] = dados
+        dados ? this.processando('delete','Deletado com Sucesso') : '';
+        
+        
+      }
+    } catch (error) {
+    }
+      
+}
+
 
   validar(modulo) {
 
     if (modulo.form.invalid) {
 
       this.caixaDialogo.validar('250px', this.verificaValidacao(modulo.form), modulo.modelo);
+      this.processandoCrud.nova = false;
 
     } else {
 
@@ -205,6 +246,21 @@ export class InterfaceService {
     this.design[nomeScroll + 'ScrollBarra'] = (this.design[nomeScroll + 'ScrollUltimo'] > scrollAtual) ? true : false;
     this.design[nomeScroll + 'ScrollUltimo'] = scrollAtual;
 
+  }
+
+  processando(acao: Acao, mensagem?: string ) {
+   setTimeout(() => {
+    this.processandoCrud[acao] = false;
+    this.openSnackBar(mensagem,'x')
+    }, 3000);  
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action,{
+      duration: 5000,
+      horizontalPosition : 'center',
+      verticalPosition: 'top',
+    });
   }
 
 /*   get tela() {
