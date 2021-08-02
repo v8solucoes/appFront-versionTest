@@ -24,6 +24,7 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { MatSelectModule} from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
 
@@ -54,7 +55,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSelectModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSliderModule
   ]
 })
 export class CompartilhadoModule { }

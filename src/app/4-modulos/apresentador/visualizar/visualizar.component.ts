@@ -30,6 +30,7 @@ export class VisualizarComponent implements OnInit {
 
   pause(){
     this.video.nativeElement.pause();
+    
   }
 
   excluir(){
@@ -57,8 +58,10 @@ export class VisualizarComponent implements OnInit {
       let r = frame.data[i * 4 + 0];
       let g = frame.data[i * 4 + 1];
       let b = frame.data[i * 4 + 2];
-      if (g > 100 && r > 100 && b < 43)
-        frame.data[i * 4 + 3] = 0;
+      if ( g > 100  && r > 100 && b < 43){
+         frame.data[i * 4 + 3] = 0;
+      }
+       
     }
 
    exibir.putImageData(frame, 0, 0);

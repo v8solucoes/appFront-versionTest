@@ -1,61 +1,66 @@
 import { ActivatedRouteSnapshot } from '@angular/router';
-import { ChaveModulo, Credenciais, Rotas } from './2-dados/interface';
+import { ChaveModulo, Credenciais, Rotas, Urls } from './2-dados/interface';
 
 export class Funcoes {
-
   static convertePadraoURL(texto: string): string {
-
     return texto.trim().replace(/ /g, '-').toLowerCase();
   }
 
   static convertePadraoJSON(texto: string): string {
-
-    const transforma = texto.trim()
-      .replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); })
+    const transforma = texto
+      .trim()
+      .replace(/(?:^|\s)\S/g, function (a) {
+        return a.toUpperCase();
+      })
       .replace(/ /g, '');
 
-    return transforma.charAt(0).toLowerCase() + transforma.substr(1)
-
+    return transforma.charAt(0).toLowerCase() + transforma.substr(1);
   }
   static converteURLpadraoJSON(texto: string): ChaveModulo {
-
-    const transforma = texto.trim()
-      .replace(/-/g, ' ');
+    const transforma = texto.trim().replace(/-/g, ' ');
 
     return this.convertePadraoJSON(transforma) as ChaveModulo;
   }
 
   static gravarUrl(url: ActivatedRouteSnapshot, credenciais: Credenciais): Rotas {
 
-    let rota: any;
+    let rota: Rotas;
     let rotaUrl: string;
 
-    if (localStorage.getItem('rota') == undefined ) {
+    if (localStorage.getItem('rota') == undefined) {
 
-      rota = { "modulo": credenciais.modulo, "acao": credenciais.acao, "item":credenciais.item };
-      rotaUrl = `${credenciais.modulo}/${credenciais.acao}/${credenciais.item}`;
+      rota = {
+        modulo: credenciais.modulo,
+        moduloUrl: credenciais.moduloUrl,
+        acao: credenciais.acao,
+        item: credenciais.item,
+      };
 
-    } 
-    else if (url == undefined ) {
+      rotaUrl = `${credenciais.moduloUrl}/${credenciais.acao}/${credenciais.item}`;
 
-      rota = JSON.parse(localStorage.getItem('rota'))
-      rotaUrl = localStorage.getItem('rotaUrl') 
+    } else
 
-    } else {
- 
-       // URL LazyLoAD CARREGA no nível parent da url.
+      if (url == undefined) {
 
-    const lazyLoad = url.url.length === 0 ? true : false;
-    const parametro = lazyLoad ? url.parent : url;
+        rota = JSON.parse(localStorage.getItem('rota'));
+        rotaUrl = localStorage.getItem('rotaUrl');
 
-    const modulo: any = parametro.url[0].path;
-    const acao = parametro.params.acao;
-    const item = parametro.params.item;
+      } else {
+        // URL LazyLoAD CARREGA no nível parent da url.
 
-     rota = { modulo, acao, item };
-     rotaUrl = `${modulo}/${acao}/${item}`;
+        const lazyLoad = url.url.length === 0 ? true : false;
+        const parametro = lazyLoad ? url.parent : url;
 
-    }   
+        const modulo: any = this.converteURLpadraoJSON(parametro.url[0].path);
+        const moduloUrl: any = parametro.url[0].path
+        /* const modulo: any = parametro.url[0].path; */
+        const acao = parametro.params.acao;
+        const item = parametro.params.item;
+
+
+        rota = { modulo, moduloUrl, acao, item };
+        rotaUrl = `${modulo}/${moduloUrl}/${item}`;
+      }
 
     localStorage.setItem('rotaUltima', localStorage.getItem('rotaUrl'));
     localStorage.setItem('rota', JSON.stringify(rota));

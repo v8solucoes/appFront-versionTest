@@ -1,20 +1,19 @@
-  <li
-    *ngFor="let item of i.data.usuario?.modulo[this.i.data.usuario.credenciais.modulo].dados.lista | keyvalue"
-    [routerLink]="['/','interface', this.i.data.usuario.credenciais.modulo,'item', item.key]">
+<li *ngFor="let item of i.data.usuario?.modulo[this.i.data.usuario.credenciais.modulo].dados.lista | keyvalue"
+  [routerLink]="['/','interface', this.i.data.usuario.credenciais.moduloUrl,'item', item.key]">
 
-    <div id="avatar"></div>
+  <div id="avatar"></div>
 
-    <div id="texto">
-      <span id="titulo"> {{ item.value.nome }}</span>
-      <span id="sub-titulo"> {{ item.value.id}}<br>  {{item.key}} </span>
-    </div>
+  <div id="texto">
+    <span id="titulo"> {{ item.value.nome }}</span>
+    <span id="sub-titulo"> {{ item.value.id}}<br> {{item.key}} </span>
+  </div>
 
-    <div id="opcoes">
+  <div id="opcoes">
 
-      <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
 
-    </div>
+  </div>
 
-  </li>
+</li>

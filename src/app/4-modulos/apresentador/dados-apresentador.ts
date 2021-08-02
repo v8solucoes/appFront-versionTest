@@ -1,13 +1,15 @@
-import { Apresentador, Chaves, ModuloCriar, Validar } from 'src/app/2-dados/interface';
+import {
+  Apresentador,
+  Chaves,
+  ModuloCriar,
+  Validar,
+} from 'src/app/2-dados/interface';
 
 export class DadosApresentador {
-
   chave: Chaves = {
     nome: 'Apresentador',
-    url: 'apresentador',
     rotaBancoDados: 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/apresentador/lista/',
     chaveModulo: 'apresentador',
-    chaveDados: 'apresentadorV8xapweiops'
   };
 
   documento: Apresentador = {
@@ -17,48 +19,61 @@ export class DadosApresentador {
     texto: 'Olá meu nome é Emerson Felix',
     api: 'amazom',
     idioma: 'pt-BR',
-    nome: 'Ricardo'
+    nome: 'Ricardo',
+    velocidade: 0,
+    entonacao: 0,
   };
 
   validar: Validar = {
     apresentador: {
-
-      sugestao:
-        [
-          { funcao: 'popularCampo', destino: ['texto'] },
-        ],
+      sugestao: [{ funcao: 'popularCampo', destino: ['texto'] }],
 
       texto: [
         { funcao: 'nativoRequerido', valor: true },
         { funcao: 'nativoTextoMinimo', valor: 5 },
-        { funcao: 'nativoTextoMaximo', valor: 100 }
+        { funcao: 'nativoTextoMaximo', valor: 100 },
       ],
 
       vozColecao: [
         { funcao: 'nativoRequerido', valor: true },
         {
           funcao: 'popularColecaoObjeto',
-          destino: ['api'],
-          colecao: ['api']
-        }
-      ]
-    }
-
+          destino: ['api', 'tipo'],
+          colecao: ['api', 'tipo'],
+        },
+      ],
+    },
   };
 
   colecoes: Pick<Apresentador, 'colecao'> = {
     colecao: {
       voz: {
-        'Ricardo': { 'nome': 'Ricardo', 'api': 'amazom' },
-        'Polly': { 'nome': 'Polly', 'api': 'google' }
-      }
-    }
-  }
+        Ricardo: { nome: 'Ricardo', tipo: 'standard', api: 'amazom' },
+        Vitoria: { nome: 'Vitória', tipo: 'standard', api: 'amazom' },
+        Camila: { nome: 'Camila', tipo: 'neural', api: 'amazom' },
+        Francisca: {
+          nome: 'Francisca',
+          tipo: 'pt-BR-FranciscaNeural',
+          api: 'microsoft',
+        },
+        Antonio: {
+          nome: 'Antonio',
+          tipo: 'pt-BR-AntonioNeural',
+          api: 'microsoft',
+        },
+        Daniel: {
+          nome: 'Daniel',
+          tipo: 'pt-BR-Daniel',
+          api: 'microsoft',
+        },
+        Heloisa: { nome: 'Heloisa', tipo: 'pt-BR-Heloisa', api: 'microsoft' },
+      },
+    },
+  };
 
   dados: ModuloCriar = {
     chave: this.chave,
-    menu:
-    {
+    menu: {
       adm: {
         principal: [
           {
@@ -77,10 +92,26 @@ export class DadosApresentador {
                 item: '',
                 icone: '',
               },
+              {
+                moduloNome: 'Gravar Vídeo',
+                url: 'gravar-video',
+                tipo: 'control',
+                acao: 'lista',
+                item: '',
+                icone: '',
+              },
+              {
+                moduloNome: 'Stream Vídeo',
+                url: 'stream-video',
+                tipo: 'control',
+                acao: 'lista',
+                item: '',
+                icone: '',
+              },
             ],
           },
-        ]
-      }
+        ],
+      },
     },
     permissao: {
       apresentador: [
@@ -90,12 +121,35 @@ export class DadosApresentador {
         { id: 'sugestao', editar: false, visualizar: true },
         { id: 'texto', editar: false, visualizar: true },
         { id: 'api', editar: false, visualizar: false },
-        /*         { id: 'nome', editar: false, visualizar: true }, */
-      ]
+        { id: 'velocidade', editar: false, visualizar: true },
+        { id: 'entonacao', editar: false, visualizar: true },
+        { id: 'tipo', editar: false, visualizar: false },
+      ],
     },
     modelo: {
       apresentador: {
         modulo: this.chave,
+        velocidade: {
+          nome: 'Velocidade',
+          tipo: 'control',
+          inputTipo: 'range',
+          requerido: false,
+          valor: [0],
+          valorMinimo: -100,
+          valorMaximo: 200,
+          cssColuna: 'f-metade-direita',
+        },
+
+        entonacao: {
+          nome: 'Entonação',
+          tipo: 'control',
+          inputTipo: 'range',
+          requerido: false,
+          valor: [0],
+          valorMinimo: -50,
+          valorMaximo: 50,
+          cssColuna: 'f-metade-esquerda',
+        },
         apresentadorGaleria: {
           nome: 'Apresentador Galeria',
           tipo: 'control',
@@ -114,10 +168,10 @@ export class DadosApresentador {
               { id: 'apresentador05', nome: 'Apresentador 5' },
             ],
             pasta: 'assets/modulo/apresentador/modelo/',
-            extensao: '.png'
+            extensao: '.png',
           },
           validarSincrono: [{ funcao: 'nativoRequerido', valor: true }],
-          validarAssincrono: []
+          validarAssincrono: [],
         },
         vozColecao: {
           nome: 'Voz',
@@ -132,7 +186,7 @@ export class DadosApresentador {
             objeto: this.colecoes.colecao.voz,
           },
           validarSincrono: this.validar.apresentador.vozColecao,
-          validarAssincrono: []
+          validarAssincrono: [],
         },
         idioma: {
           nome: 'Idioma',
@@ -147,11 +201,11 @@ export class DadosApresentador {
             lista: [
               { id: 'pt-BR', nome: 'Português' },
               { id: 'US', nome: 'Ingês' },
-              { id: 'ES', nome: 'Espanhol' }
-            ]
+              { id: 'ES', nome: 'Espanhol' },
+            ],
           },
           validarSincrono: [{ funcao: 'nativoRequerido', valor: true }],
-          validarAssincrono: []
+          validarAssincrono: [],
         },
         sugestao: {
           nome: 'Sugestão de Textos',
@@ -164,12 +218,18 @@ export class DadosApresentador {
           colecao: {
             tipo: 'lista',
             lista: [
-              { id: 'Esse mês estamos com uma oferta imperdível na compra de ...', nome: 'Oferta Imperdível...' },
-              { id: 'Promoção na compra de 2 kits ganhe um desconto de 50% no segundo.', nome: 'Promoção !...' }
-            ]
+              {
+                id: 'Esse mês estamos com uma oferta imperdível na compra de ...',
+                nome: 'Oferta Imperdível...',
+              },
+              {
+                id: 'Promoção na compra de 2 kits ganhe um desconto de 50% no segundo.',
+                nome: 'Promoção !...',
+              },
+            ],
           },
           validarSincrono: this.validar.apresentador.sugestao,
-          validarAssincrono: []
+          validarAssincrono: [],
         },
         texto: {
           nome: 'Texto',
@@ -181,7 +241,7 @@ export class DadosApresentador {
           cssInput: 'fill',
           inputContador: 100,
           validarSincrono: this.validar.apresentador.texto,
-          validarAssincrono: []
+          validarAssincrono: [],
         },
         api: {
           nome: 'API',
@@ -194,19 +254,27 @@ export class DadosApresentador {
           validarSincrono: [{ funcao: 'nativoRequerido', valor: true }],
           validarAssincrono: [],
         },
-
-      }
+        tipo: {
+          nome: 'Tipo',
+          tipo: 'control',
+          inputTipo: 'input',
+          requerido: true,
+          valor: [null],
+          cssColuna: 'f-total',
+          cssInput: 'fill',
+          validarSincrono: [{ funcao: 'nativoRequerido', valor: true }],
+          validarAssincrono: [],
+        },
+      },
     },
     dados: {
       apresentador: {
         item: this.documento,
         lista: {
           felix12: this.documento,
-          felix520: this.documento
-        }
-      }
+          felix520: this.documento,
+        },
+      },
     },
   };
-
 }
-

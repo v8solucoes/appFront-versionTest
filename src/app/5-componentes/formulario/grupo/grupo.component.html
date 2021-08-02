@@ -1,4 +1,4 @@
-<ng-container *ngFor="let campo of permissao; index as i;" >
+<ng-container *ngFor="let campo of permissao; index as i;">
 
   <ng-container *ngIf="campo.visualizar">
 
@@ -14,8 +14,12 @@
           [modelo]="modelo[campo.id]" [id]="campo.id" [ngClass]="modelo[campo.id].cssColuna">
         </app-galeria-horizontal>
 
+
+
         <app-input *ngSwitchCase="'input'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
         </app-input>
+        <app-range *ngSwitchCase="'range'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
+        </app-range>
         <app-input *ngSwitchCase="'texto-area'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
         </app-input>
         <app-input *ngSwitchCase="'select'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
@@ -35,6 +39,7 @@
 
     <ng-container *ngIf="modelo[campo.id].tipo== 'grupo' || modelo[campo.id].tipo == 'grupoLista'">
 
+
       <div *ngIf="modelo[campo.id].tipo== 'grupo' || modelo[campo.id].tipo == 'grupoLista'"
         [ngClass]="modelo[campo.id].cssColuna" (click)="modelo[campo.id].abrirGrupo = !modelo[campo.id].abrirGrupo">
 
@@ -47,7 +52,6 @@
         <button mat-icon-button>
           <mat-icon [@icone]="modelo[campo.id].abrirGrupo">expand_more</mat-icon>
         </button>
-
       </div>
 
       <!-- CONTEÚDO GRUPO OU GRUPO LISTA-->
@@ -67,6 +71,8 @@
         </div>
 
       </div>
+
+
 
     </ng-container>
 

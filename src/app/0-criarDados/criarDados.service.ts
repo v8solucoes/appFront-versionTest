@@ -1,4 +1,15 @@
-import { Usuario, ChaveModulo, Menu, Modelo, Modulo, Dados, ModuloUsuario, RotaBancoDados } from './../2-dados/interface';
+import { DadosNewModulo } from './../4-modulos/new-modulo/dados-new-modulo';
+import {
+  Usuario,
+  ChaveModulo,
+  Menu,
+  Modelo,
+  Modulo,
+  Dados,
+  ModuloUsuario,
+  RotaBancoDados,
+  NewModulo,
+} from './../2-dados/interface';
 
 import { Injectable } from '@angular/core';
 
@@ -9,12 +20,14 @@ import { DadosApresentador } from './../4-modulos/apresentador/dados-apresentado
 import { DadosRevenda } from '../4-modulos/revenda/dados-revenda';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class CriarDadosService {
-
-  listaModulo = [new DadosRevenda(), new DadosApresentador()];
+  listaModulo = [
+    new DadosNewModulo(),
+    new DadosRevenda(),
+    new DadosApresentador(),
+  ];
 
   fire = this.firebase.firestore;
   lote = this.fire.batch();
@@ -31,9 +44,10 @@ export class CriarDadosService {
       idCliente: 'gfFyiX5IU4OaoXm4BDzX',
       chaveDados: 'revendaV8dados',
       modulo: 'apresentador',
+      moduloUrl: 'apresentador',
       nomeModulo: 'Apresentador',
       acao: 'lista',
-      item: 'xxxxx'
+      item: 'xxxxx',
     },
     design: {
       tema: 'pad-tema-black',
@@ -42,83 +56,82 @@ export class CriarDadosService {
     },
     menu: {
       adm: {
-        principal: this.menu()
+        principal: this.menu(),
       },
       revenda: null,
       cliente: null,
     },
-    modulo: this.modulo()
+    modulo: this.modulo(),
   };
 
-  debug = (pro: any, valor: any) => new Debug('ativo', 'CriarDados', pro, valor);
+  debug = (pro: any, valor: any) =>
+    new Debug('ativo', 'CriarDados', pro, valor);
 
-  constructor(public firebase: AngularFirestore) { this.debug('Dados', this.usuario); }
+  constructor(public firebase: AngularFirestore) {
+    this.debug('Dados', this.usuario);
+  }
 
   async criar() {
-
     try {
-
-      this.gravar<Usuario>('usuario', 'ZEjRkWCDc1PkuIaFyaWnYqmJY4q1', this.usuario);
+      this.gravar<Usuario>(
+        'usuario',
+        'ZEjRkWCDc1PkuIaFyaWnYqmJY4q1',
+        this.usuario
+      );
 
       await this.lote.commit();
 
       return this.debug('Gravou', this.usuario);
-
-
-    } catch (error) { }
+    } catch (error) {}
   }
 
   modulo(): Modulo {
-
     const modulo = {} as ModuloUsuario;
     const revenda = 'C0JrcUWVqTQR3sPt8Qqo';
 
     this.listaModulo.forEach((modulos) => {
-
       const chaveModulo: ChaveModulo = modulos.dados.chave.chaveModulo;
       const rotaBancoDados: RotaBancoDados = modulos.dados.chave.rotaBancoDados;
 
       modulo[modulos.chave.chaveModulo] = {
-
         permissao: modulos.dados.permissao[chaveModulo],
-        modelo: this.gravar<Modelo>('modelo', chaveModulo, modulos.dados.modelo[chaveModulo]),
+        modelo: this.gravar<Modelo>(
+          'modelo',
+          chaveModulo,
+          modulos.dados.modelo[chaveModulo]
+        ),
         form: null,
         dados: {
           item: null,
-          lista: this.gravarLista<Modelo>(rotaBancoDados, modulos.dados.dados[chaveModulo].item)
-        }
+          lista: this.gravarLista<Modelo>(
+            rotaBancoDados,
+            modulos.dados.dados[chaveModulo].item
+          ),
+        },
       };
-
     });
 
     return modulo as Modulo;
-
   }
 
   menu(): Menu[] {
-
     const principal = [] as Menu[];
 
-    this.listaModulo.forEach(modulos => {
-
-      modulos.dados.menu.adm.principal.forEach(menu => principal.push(menu));
-
+    this.listaModulo.forEach((modulos) => {
+      modulos.dados.menu.adm.principal.forEach((menu) => principal.push(menu));
     });
 
     return principal;
   }
 
   gravar<T>(caminho, chave, dados): T {
-
-    this.lote.set(this.fire.collection(caminho).doc(chave), dados );
+    this.lote.set(this.fire.collection(caminho).doc(chave), dados);
     return null;
   }
   gravarLista<T>(caminho, dados): T {
+    const chave = Date.now().toString();
 
-    const chave = Date.now().toString()
-
-      this.lote.set(this.fire.collection(`${caminho}`)
-        .doc(chave), dados);
+    this.lote.set(this.fire.collection(`${caminho}`).doc(chave), dados);
 
     return null;
   }
