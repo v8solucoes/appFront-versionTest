@@ -1,0 +1,4 @@
+<mat-label>{{ modelo.nome }}: {{formulario.value}} </mat-label>
+<mat-slider [formControl]="formulario" max="{{modelo.valorMaximo}}" min="{{modelo.valorMinimo}}" step="1"
+    value="{{formulario.value}}">
+</mat-slider>

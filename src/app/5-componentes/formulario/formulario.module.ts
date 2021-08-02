@@ -7,6 +7,7 @@ import { InputComponent } from 'src/app/5-componentes/formulario/input/input.com
 import { InputErroComponent } from 'src/app/5-componentes/formulario/input/input-erro/input-erro.component';
 import { ListaComponent } from 'src/app/5-componentes/formulario/lista/lista.component';
 import { GaleriaHorizontalComponent } from './input/galeria-horizontal/galeria-horizontal.component';
+import { RangeComponent } from './input/range/range.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { GaleriaHorizontalComponent } from './input/galeria-horizontal/galeria-h
     ListaComponent,
     InputComponent,
     InputErroComponent,
-    GaleriaHorizontalComponent
+    GaleriaHorizontalComponent,
+    RangeComponent
   ],
   providers: [ ]
 })

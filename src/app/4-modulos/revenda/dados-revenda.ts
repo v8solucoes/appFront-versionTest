@@ -4,10 +4,8 @@ export class DadosRevenda {
 
   chave: Chaves = {
     nome: 'Revenda',
-    url: 'revenda',
     rotaBancoDados: 'revenda',
     chaveModulo: 'revenda',
-    chaveDados: 'revendaV8dados'
   };
 
   documento: Revenda = {
@@ -48,14 +46,14 @@ export class DadosRevenda {
             item: 'aasd',
             icone: '',
             grupo: [
-          /*     {
-                moduloNome: 'Nova Revenda',
-                url: 'revenda',
-                tipo: 'control',
-                acao: 'nova',
-                item: '',
-                icone: '',
-              }, */
+              /*     {
+                    moduloNome: 'Nova Revenda',
+                    url: 'revenda',
+                    tipo: 'control',
+                    acao: 'nova',
+                    item: '',
+                    icone: '',
+                  }, */
               {
                 moduloNome: 'Revendas',
                 url: 'revenda',
@@ -64,14 +62,14 @@ export class DadosRevenda {
                 item: '',
                 icone: '',
               },
-       /*        {
-                moduloNome: 'Item',
-                url: 'revenda',
-                tipo: 'control',
-                acao: 'item',
-                item: '2ki5yFynaqQS3r3zZrK6',
-                icone: '',
-              }, */
+              /*        {
+                       moduloNome: 'Item',
+                       url: 'revenda',
+                       tipo: 'control',
+                       acao: 'item',
+                       item: '2ki5yFynaqQS3r3zZrK6',
+                       icone: '',
+                     }, */
             ],
           },
         ]

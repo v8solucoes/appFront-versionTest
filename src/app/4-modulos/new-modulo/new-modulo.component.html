@@ -4,8 +4,21 @@
 
 <ng-container *ngIf="carregar; else carregando">
 
-  <app-formulario modulo='newModulo'></app-formulario>
+  <section [ngSwitch]="i.data.usuario.credenciais.acao">
+
+    <section *ngSwitchCase="'nova'">
+      <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario>
+    </section>
+    <section *ngSwitchCase="'item'">
+
+      <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario>
+    </section>
+    <section *ngSwitchCase="'lista'">
+
+
+    </section>
+
+  </section>
+
 
 </ng-container>
-
-

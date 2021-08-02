@@ -2,13 +2,10 @@ import { Chaves } from './../../2-dados/interface';
 import { ModuloCriar, NewModulo } from 'src/app/2-dados/interface';
 
 export class DadosNewModulo {
-
   chave: Chaves = {
     nome: 'New Modulo',
     rotaBancoDados: 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/newModulo/lista/',
-    url: 'new-modulo',
     chaveModulo: 'newModulo',
-    chaveDados: 'newModuloV8rwrJsoYJbz5'
   };
 
   documento: NewModulo = {
@@ -19,14 +16,16 @@ export class DadosNewModulo {
       control: 'souControl',
       lista: ['souLista1', 'souLista2', 'souLista3'],
     },
-    grupoLista: [{
-      control: 'souControl',
-      lista: ['souLista'],
-      grupo: {
+    grupoLista: [
+      {
         control: 'souControl',
-        lista: ['souLista1', 'souLista2', 'souLista3']
-      }
-    }],
+        lista: ['souLista'],
+        grupo: {
+          control: 'souControl',
+          lista: ['souLista1', 'souLista2', 'souLista3'],
+        },
+      },
+    ],
     selecao: 'colecao02',
     total: 'total',
     direita: 'direita',
@@ -39,68 +38,70 @@ export class DadosNewModulo {
   };
 
   dados: ModuloCriar = {
-    chave: this.chave, menu:
-    {adm: { principal: [
-      {
-        moduloNome: 'New Modulo2',
-        url: 'new-modulo',
-        tipo: 'colecao',
-        acao: 'lista',
-        item: 'aasd',
-        icone: '',
-        grupo: [
+    chave: this.chave,
+    menu: {
+      adm: {
+        principal: [
           {
-            moduloNome: 'Documento',
+            moduloNome: 'New Modulo2',
             url: 'new-modulo',
-            tipo: 'control',
-            acao: 'documento',
-            item: '',
-            icone: '',
-          },
-          {
-            moduloNome: 'Lista',
-            url: 'new-modulo',
-            tipo: 'control',
+            tipo: 'colecao',
             acao: 'lista',
-            item: '',
+            item: 'aasd',
             icone: '',
-          },
-          {
-            moduloNome: 'Item',
-            url: 'new-modulo',
-            tipo: 'control',
-            acao: 'item',
-            item: 'felix12',
-            icone: '',
+            grupo: [
+              {
+                moduloNome: 'Lista',
+                url: 'new-modulo',
+                tipo: 'control',
+                acao: 'lista',
+                item: '',
+                icone: '',
+              },
+              {
+                moduloNome: 'Item',
+                url: 'new-modulo',
+                tipo: 'control',
+                acao: 'item',
+                item: '1627583819372',
+                icone: '',
+              },
+            ],
           },
         ],
       },
-    ]}},
+    },
     permissao: {
       newModulo: [
         { id: 'galeriaHorizontal', editar: false, visualizar: true },
         { id: 'control', editar: false, visualizar: true },
         { id: 'lista', editar: false, visualizar: true },
         {
-          id: 'grupo', editar: false, visualizar: true,
+          id: 'grupo',
+          editar: false,
+          visualizar: true,
           grupo: [
             { id: 'control', editar: false, visualizar: true },
-            { id: 'lista', editar: false, visualizar: true }
-          ]
+            { id: 'lista', editar: false, visualizar: true },
+          ],
         },
         {
-          id: 'grupoLista', editar: false, visualizar: true,
+          id: 'grupoLista',
+          editar: false,
+          visualizar: true,
           grupo: [
             { id: 'control', editar: false, visualizar: true },
             { id: 'lista', editar: false, visualizar: true },
             {
-              id: 'grupo', editar: false, visualizar: true,
+              id: 'grupo',
+              editar: false,
+              visualizar: true,
               grupo: [
                 { id: 'control', editar: false, visualizar: true },
-                { id: 'lista', editar: false, visualizar: true }
-              ]
-            }
-          ]
+                { id: 'lista', editar: false, visualizar: true },
+              ],
+            },
+          ],
         },
         { id: 'selecao', editar: false, visualizar: true },
         { id: 'total', editar: false, visualizar: true },
@@ -113,8 +114,7 @@ export class DadosNewModulo {
         { id: 'umDireita', editar: false, visualizar: true },
         { id: 'umEsquerda', editar: false, visualizar: true },
         { id: 'doisDireita', editar: false, visualizar: true },
-
-      ]
+      ],
     },
     modelo: {
       newModulo: {
@@ -134,7 +134,7 @@ export class DadosNewModulo {
               { id: 'apresentador05', nome: 'Apresentador 5' },
             ],
             pasta: 'assets/modulo/apresentador/modelo/',
-            extensao: '.png'
+            extensao: '.png',
           },
           icone: false,
           inputContador: false,
@@ -235,11 +235,11 @@ export class DadosNewModulo {
           requerido: false,
           abrirGrupo: false,
           colecao: {
-            tipo:'lista',
+            tipo: 'lista',
             lista: [
               { id: 'colecao01', nome: 'Coleção 1' },
-              { id: 'colecao02', nome: 'Coleção 2' }
-            ]
+              { id: 'colecao02', nome: 'Coleção 2' },
+            ],
           },
           cssColuna: 'f-total',
           cssInput: 'fill',
@@ -418,18 +418,16 @@ export class DadosNewModulo {
           validarSincrono: [],
           valor: ['xxx'],
         },
-      }
+      },
     },
     dados: {
       newModulo: {
         item: this.documento,
         lista: {
           felix12: this.documento,
-          felix520: this.documento
-        }
-      }
+          felix520: this.documento,
+        },
+      },
     },
   };
-
 }
-

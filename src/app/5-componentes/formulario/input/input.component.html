@@ -6,7 +6,8 @@
   <span *ngIf="modelo.inputTextoEsquerdo" matPrefix> {{ modelo.inputTextoEsquerdo }}</span>
 
   <!-- INPUT -->
-  <input *ngIf="modelo?.inputTipo == 'input'"      [formControl]="formulario" matInput [required]='modelo?.requerido'>
+
+  <input *ngIf="modelo?.inputTipo == 'input'" [formControl]="formulario" matInput [required]='modelo?.requerido'>
 
   <!-- TEXT ÁREA -->
   <input *ngIf="modelo?.inputTipo == 'texto-area'" [formControl]="formulario" matInput [required]='modelo?.requerido'>

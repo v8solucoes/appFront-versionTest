@@ -6,6 +6,8 @@ import { AutenticarComponent } from './1-autenticar/autenticar.component';
 import { InterfaceComponent } from './3-interface/interface.component';
 import { RevendaComponent } from './4-modulos/revenda/revenda.component';
 import { ApresentadorComponent } from './4-modulos/apresentador/apresentador.component';
+import { VideoGravarComponent } from './estudos/video-gravar/video-gravar.component';
+import { StreamVideoComponent } from './estudos/stream-video/stream-video.component';
 
 const routes: Routes = [
   { path: '', component: AutenticarComponent },
@@ -18,6 +20,10 @@ const routes: Routes = [
       { path: 'new-modulo/:acao/:item', loadChildren: () => import('./4-modulos/new-modulo/new-modulo.module').then(m => m.NewModuloModule) },
       { path: 'apresentador', component: ApresentadorComponent },
       { path: 'apresentador/:acao/:item', component: ApresentadorComponent },
+      { path: 'gravar-video', component: VideoGravarComponent },
+      { path: 'gravar-video/:acao/:item', component: VideoGravarComponent },
+      { path: 'stream-video', component: StreamVideoComponent },
+      { path: 'stream-video/:acao/:item', component: StreamVideoComponent },
       { path: 'revenda', loadChildren: () => import('./4-modulos/revenda/revenda.module').then(m => m.RevendaModule) },
       { path: 'revenda/:acao/:item', loadChildren: () => import('./4-modulos/revenda/revenda.module').then(m => m.RevendaModule) },
       { path: '**', component: PaginaNaoEncontradaComponent },

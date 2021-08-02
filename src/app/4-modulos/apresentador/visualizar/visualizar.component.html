@@ -1,8 +1,7 @@
 <mat-dialog-content>
 
-  <video *ngIf="ecluirSessao"
-   #video width="320px" controls crossorigin="anonymous"
-   poster="{{'assets/modulo/apresentador/modelo/' + data.nome + '.png'}}">
+  <video *ngIf="ecluirSessao" #video width="320px" controls crossorigin="anonymous"
+    poster="{{'assets/modulo/apresentador/modelo/' + data.nome + '.png'}}">
     <source src="{{'assets/modulo/apresentador/modelo/' + data.nome + '.mp4'}}" type="video/mp4">
     Vídeo não suportado!
   </video>
@@ -12,14 +11,14 @@
     <button mat-raised-button color="accent" (click)="pause()">PAUSE</button>
   </nav>
 
-  <canvas #exibir id="exibir" width="320" height="192"></canvas>
-  <canvas #processando id="processando" width="320" height="192"></canvas>
+  <canvas #exibir id="exibir" width="320" height="170"></canvas>
+  <canvas #processando id="processando" width="320" height="170"></canvas>
 
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
 
-  <button mat-raised-button color="accent"
-  (click)="excluir()" [mat-dialog-close]="true" cdkFocusInitial>CANCELAR</button>
+  <button mat-raised-button color="accent" (click)="excluir()" [mat-dialog-close]="true"
+    cdkFocusInitial>CANCELAR</button>
 
 </mat-dialog-actions>

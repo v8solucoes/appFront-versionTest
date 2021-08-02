@@ -43,16 +43,22 @@
     width: 100%;
     margin-bottom: 8px;
   }
-  /*   & > button { margin-left: 8px; margin-bottom: 16px; width: 100%; } */
+
   & > button {
-    margin-left: 0px;
+    margin-left: 8px;
     margin-bottom: 8px;
-    width: 100%;
   }
+
   & > mat-icon {
     margin-right: 16px;
     margin-bottom: 16px;
   }
+
+  & > mat-form-field,
+  app-lista {
+    width: 100%;
+  }
+
   & > app-input {
     width: 100%;
     min-width: 10px;
@@ -87,6 +93,7 @@
   &-2-direita {
     @include criar-tamanho($direita: true, $divisor: 3, $multiplicador: 2);
   }
+
   &-2-esquerda {
     @include criar-tamanho($esquerda: true, $divisor: 3, $multiplicador: 2);
   }

@@ -1,9 +1,21 @@
 @import "/src/sass/formulario";
-
 .f {
   @include formulario();
 }
 
+div,
+app-input {
+  width: 100%;
+}
+
+div,
 mat-form-field {
   width: 100%;
 }
+
+/*div,
+button,
+mat-icon {
+  float: right;
+  margin-top: -7px;
+}*/

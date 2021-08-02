@@ -28,21 +28,16 @@
             (click)="caixaDialogo.apresentador('500px',formulario.get('apresentadorGaleria').value)"
             [disabled]="!formulario.valid">
             VISUALIZAR</button>
-          <button mat-raised-button color="accent" (click)="playAudio()" [disabled]="!formulario.valid">
+          <button mat-raised-button color="accent" (click)="playAudio()">
 
             OUVIR</button>
-       <!--    <button mat-raised-button color="accent" (click)="zure()" [disabled]="!formulario.valid">
+          <!--  <button mat-raised-button color="accent" (click)="playAudio()" [disabled]="!formulario.valid">
 
-            ZURE</button> -->
+            OUVIR</button> -->
 
-        </div>
-        <div class='a-total'>
-
-          <button mat-raised-button color="accent" (click)="salvar()" [disabled]="!formulario.valid">
-
-            SALVAR</button>
 
         </div>
+
 
       </section>
 
