@@ -82,7 +82,8 @@ export class CriarDadosService {
       await this.lote.commit();
 
       return this.debug('Gravou', this.usuario);
-    } catch (error) {}
+
+    } catch (error) { }
   }
 
   modulo(): Modulo {
@@ -108,6 +109,8 @@ export class CriarDadosService {
             modulos.dados.dados[chaveModulo].item
           ),
         },
+        listarTitulo: modulos.dados.listarTitulo[chaveModulo],
+        listarSubTitulo: modulos.dados.listarSubTitulo[chaveModulo],
       };
     });
 

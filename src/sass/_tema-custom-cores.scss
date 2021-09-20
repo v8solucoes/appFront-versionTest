@@ -31,10 +31,18 @@ $cus-white-cor-alerta: #f44336;
 %cus-cores-black {
   --cor-secundaria: #{$cus-black-cor-secundaria};
   --cor-ativo: #{$cus-white};
+
+    --cor-fundo-ativo: #{rgba($cus-white, 0.040)};
+    --cor-fundo-selecionado: #{rgba($cus-white, 0.040)};
+    --cor-fundo-desabilitado:  #{rgba($cus-white, 0.87)};
+
   --cor-inativo: #{rgba($cus-white, 0.87)};
   --cor-background: #{$cus-black-background};
   --cor-background-ativo: #{rgba($cus-white, 0.12)};
   --cor-divisor:  #{rgba($cus-white, 0.30)};
+  --cor-1dp:      #{rgba($cus-white, 0.050)};
+  --cor-2dp:      #{rgba($cus-white, 0.070)};
+  --cor-3dp:      #{rgba($cus-white, 0.080)};
   --cor-4dp:      #{rgba($cus-white, 0.090)};
 }
 
@@ -45,5 +53,8 @@ $cus-white-cor-alerta: #f44336;
   --cor-background: #{$cus-white-background};
   --cor-background-ativo: #{rgba($cus-black, 0.12)};
   --cor-divisor:  #{rgba($cus-black, 0.30)};
+  --cor-1dp:      #{rgba($cus-black, 0.050)};
+  --cor-2dp:      #{rgba($cus-black, 0.070)};
+  --cor-3dp:      #{rgba($cus-black, 0.080)};
   --cor-4dp:      #{rgba($cus-black, 0.090)};
 }

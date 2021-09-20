@@ -1,6 +1,7 @@
 @import '~src/sass/construtor';
 
 nav {
+  background-color: #171717;
   @extend %nav-topo;
   
     & > [id=avatar] {

@@ -2,13 +2,11 @@
 
 <nav (scroll)="i.ocultarBarraMenu($event,'menu')">
   <ng-container *ngIf="i.data.usuario?.menu?.adm.principal">
-  <app-menu-lista
-  *ngFor="let menu of i.data.usuario.menu?.adm.principal; let i=index let first let last"
-   [menu]="menu"
-   [ultimo]="last"
-   [primeiro]="first"
-   [divisor]="first ? false : i.data.usuario.menu?.adm.principal[i-1].tipo == 'control'? false : true"
-  ></app-menu-lista>
+    <app-menu-lista *ngFor="let menu of i.data.usuario.menu?.adm.principal; let i=index let first let last"
+      [menu]="menu" [ultimo]="last" [primeiro]="first"
+      [penultimo]="last ? true : i.data.usuario.menu?.adm.principal[i-1].tipo == 'control'? true : false"
+      [divisor]="first ? false : i.data.usuario.menu?.adm.principal[i-1].tipo == 'control'? false : true">
+    </app-menu-lista>
   </ng-container>
 </nav>
 

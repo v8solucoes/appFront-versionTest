@@ -126,6 +126,12 @@ export class DadosApresentador {
         { id: 'tipo', editar: false, visualizar: false },
       ],
     },
+    listarTitulo: {
+      apresentador: ['nome']
+    },
+    listarSubTitulo: {
+      apresentador: ['tipo']
+    },
     modelo: {
       apresentador: {
         modulo: this.chave,

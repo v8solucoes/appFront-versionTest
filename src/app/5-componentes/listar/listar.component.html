@@ -1,19 +1,65 @@
-<li *ngFor="let item of i.data.usuario?.modulo[this.i.data.usuario.credenciais.modulo].dados.lista | keyvalue"
-  [routerLink]="['/','interface', this.i.data.usuario.credenciais.moduloUrl,'item', item.key]">
+<li *ngIf="(1 == 1)" routerLinkActive="ativo" matRipple
+  [routerLink]="[i.data.usuario.credenciais.moduloUrl,'item', chave]">
 
   <div id="avatar"></div>
 
   <div id="texto">
-    <span id="titulo"> {{ item.value.nome }}</span>
-    <span id="sub-titulo"> {{ item.value.id}}<br> {{item.key}} </span>
+
+    <span id="titulo">
+      <div style="display:inline-block"
+        *ngFor="let item of i.data.usuario.modulo[i.data.usuario.credenciais.modulo].listarTitulo">
+
+        {{ i.data.usuario?.modulo[i.data.usuario?.credenciais.modulo].dados.lista[chave][item] }}
+      </div>
+    </span>
+
+    <span id="sub-titulo">
+      <div style="display:inline-block"
+        *ngFor="let item of i.data.usuario.modulo[i.data.usuario.credenciais.modulo].listarSubTitulo">
+
+        {{ i.data.usuario?.modulo[i.data.usuario?.credenciais.modulo].dados.lista[chave][item] }}
+
+      </div>
+    </span>
+
   </div>
 
-  <div id="opcoes">
-
-    <button mat-icon-button>
-      <mat-icon>menu</mat-icon>
-    </button>
-
-  </div>
+  <mat-icon [@icone]="botaoAbrirFecharMenu">keyboard_arrow_right</mat-icon>
 
 </li>
+
+<li (click)="botaoAbrirFecharMenu = !botaoAbrirFecharMenu" class="{{ botaoAbrirFecharMenu ? 'sombra' : ''}}">
+
+  <div id="avatar"></div>
+
+  <div id="texto">
+
+    <span id="titulo">
+      <div style="display:inline-block"
+        *ngFor="let item of i.data.usuario.modulo[i.data.usuario.credenciais.modulo].listarTitulo">
+
+        {{ i.data.usuario?.modulo[i.data.usuario?.credenciais.modulo].dados.lista[chave][item] }}
+      </div>
+    </span>
+
+    <span id="sub-titulo">
+      <div style="display:inline-block"
+        *ngFor="let item of i.data.usuario.modulo[i.data.usuario.credenciais.modulo].listarSubTitulo">
+
+        {{ i.data.usuario?.modulo[i.data.usuario?.credenciais.modulo].dados.lista[chave][item] }}
+
+      </div>
+    </span>
+
+  </div>
+
+  <mat-icon [@icone]="botaoAbrirFecharMenu">expand_more</mat-icon>
+
+</li>
+
+<div id="drop" [@conteudoMenu]="botaoAbrirFecharMenu">
+  <button mat-raised-button>Basic</button>
+  <button mat-raised-button color="primary">Primary</button>
+  <button mat-raised-button color="accent">Accent</button>
+  <button mat-raised-button color="warn">Warn</button>
+</div>

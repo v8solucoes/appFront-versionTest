@@ -9,7 +9,7 @@
 
   <section (scroll)="i.ocultarBarraMenu($event,'modulo')">
 
-    <app-conteudo-celular></app-conteudo-celular>
+    <app-conteudo-celular *ngIf='i.design.telaCelular'></app-conteudo-celular>
     <app-conteudo-modulo> </app-conteudo-modulo>
 
   </section>
