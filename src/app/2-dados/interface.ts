@@ -12,6 +12,7 @@ export interface Modulos {
 export type Revenda = {
   id: string;
   nome: string;
+
 };
 export type Apresentador = {
   apresentadorGaleria?: string;
@@ -28,6 +29,7 @@ export type Apresentador = {
     voz: { [x: string]: Pick<ColecoesCampos, 'api' | 'nome' | 'tipo'> };
   };
 };
+
 export type NewModulo = {
   galeriaHorizontal: string;
   control: string;
@@ -91,6 +93,8 @@ export type GetModulos<T> = {
   modelo: GetModelo<T>;
   dados: GetDados<T>;
   form?: FormGroup;
+  listarTitulo: GetNomes<T>[];
+  listarSubTitulo: GetNomes<T>[];
 };
 
 // Permissão
@@ -129,6 +133,8 @@ export type FuncoesSincronas =
 
 export type MenuPrincipal = Menu[];
 export type Permissao = { [K in keyof Modulos]?: GetPermissao<Modulos[K]> };
+export type ListarTitulo = { [K in keyof Modulos]?: GetNomes<Modulos[K]>[] };
+export type ListarSubTitulo = { [K in keyof Modulos]?: GetNomes<Modulos[K]>[] };
 export type Modelo = { [K in keyof Modulos]?: GetModelo<Modulos[K]> };
 export type Modulo = { [K in keyof Modulos]?: GetModulos<Modulos[K]> };
 export type ModuloUsuario = {
@@ -141,7 +147,7 @@ export type Validar = { [K in keyof Modulos]?: GetValidar<Modulos[K]> };
 
 export type ModuloCriar = Pick<
   TudoModulo,
-  'chave' | 'menu' | 'permissao' | 'modelo' | 'dados'
+  'chave' | 'menu' | 'permissao' | 'modelo' | 'dados' | 'listarTitulo' | 'listarSubTitulo'
 >;
 
 export type Usuario = Pick<
@@ -158,6 +164,8 @@ export interface TudoModulo {
     cliente?: { principal: Menu[] } | null;
   };
   permissao: Permissao;
+  listarTitulo: ListarTitulo;
+  listarSubTitulo: ListarSubTitulo;
   modelo: Modelo;
   modulo?: Modulo;
   validar: Validar;

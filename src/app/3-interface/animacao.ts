@@ -84,8 +84,8 @@ export const Animacoes = [
       animate('0.3.5s ease-in-out')
     ]),
     transition('* => void', [
-       animate('0.1.5s ease-in-out', style({ transform: 'translateY(50%)', opacity: 0, })),
-        animate('0.1.5s ease-in-out', style({ height: 0 }))
+      animate('0.1.5s ease-in-out', style({ transform: 'translateY(50%)', opacity: 0, })),
+      animate('0.1.5s ease-in-out', style({ height: 0 }))
     ])
   ]),
   trigger('entrarSair', [
@@ -96,8 +96,8 @@ export const Animacoes = [
       animate('0.3.5s ease-in-out')
     ]),
     transition('* => void', [
-       animate('0.3.5s ease-in-out', style({ transform: 'translateX(50%)', opacity: 0, })),
-        animate('0.3.5s ease-in-out', style({ height: 0 }))
+      animate('0.3.5s ease-in-out', style({ transform: 'translateX(50%)', opacity: 0, })),
+      animate('0.3.5s ease-in-out', style({ height: 0 }))
     ])
   ]),
 
@@ -156,18 +156,18 @@ export const Animacoes = [
 
   ]),
 
-   /*      state('entrar-sair', style({ transform: 'translateX(0)', opacity: 1, })),
+  /*      state('entrar-sair', style({ transform: 'translateX(0)', opacity: 1, })),
 
-      transition('void => *', [
-        style({ transform: 'translateY(-100%)', opacity: 0, }),
-        animate('0.3.5s ease-in-out', style({ height: '56px' })),
-        animate('0.3.5s ease-in-out')
-      ]),
+     transition('void => *', [
+       style({ transform: 'translateY(-100%)', opacity: 0, }),
+       animate('0.3.5s ease-in-out', style({ height: '56px' })),
+       animate('0.3.5s ease-in-out')
+     ]),
 
-      transition('* => void', [
-        animate('0.3.5s ease-in-out', style({ transform: 'translateX(50%)', opacity: 0, })),
-        animate('0.3.5s ease-in-out', style({ height: 0 }))
-      ]), */
+     transition('* => void', [
+       animate('0.3.5s ease-in-out', style({ transform: 'translateX(50%)', opacity: 0, })),
+       animate('0.3.5s ease-in-out', style({ height: 0 }))
+     ]), */
 
 
 ]

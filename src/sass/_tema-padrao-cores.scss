@@ -28,14 +28,45 @@ $pad-white-cor-secundaria-escura: #000051;
 $pad-black-cor-alerta: #ffd95a;
 $pad-white-cor-alerta: #f44336;
 
+// ##################################### NOVO
+$padrao-cor-background:black;
+$padrao-cor-background-on: white;
+$padrao-cor-superficie: rgb(85, 84, 84);
+$padrao-cor-superficie-on: white;
+
+$padrao-cor-primaria:#00004f;
+$padrao-cor-primaria-on:#FFFFFF ;
+$padrao-cor-primaria-clara:#362280;
+$padrao-cor-primaria-clara-on:#FFFFFF ;
+$padrao-cor-primaria-escura: #000028;
+$padrao-cor-primaria-escura-on:#FFFFFF ;
+
+$padrao-cor-secundaria:#00F400 ;
+$padrao-cor-secundaria-on:#000000;
+$padrao-cor-secundaria-clara:#6Eff54 ;
+$padrao-cor-secundaria-clara-on:#000000 ;
+$padrao-cor-secundaria-escura:#00c000 ;
+$padrao-cor-secundaria-escura-on:#000000 ;
+
+$padrao-cor-error: #B00020;
+$padrao-cor-error-on:#FFFFFF;
+
 %pad-cores-black {
+  --cor-background: #{$padrao-cor-background};
+  --cor-background-on: #{$padrao-cor-background-on};
+  --cor-superficie: #{$padrao-cor-superficie};
+  --cor-superficie-on:#{$padrao-cor-superficie-on};
+  
   --cor-secundaria: #{$pad-black-cor-secundaria};
   --cor-ativo: #{$pad-white};
   --cor-inativo: #{rgba($pad-white, 0.87)};
-  --cor-background: #{$pad-black-background};
   --cor-background-ativo: #{rgba($pad-white, 0.12)};
   --cor-divisor:  #{rgba($pad-white, 0.30)};
+  --cor-1dp:      #{rgba($pad-white, 0.050)};
+  --cor-2dp:      #{rgba($pad-white, 0.070)};
+  --cor-3dp:      #{rgba($pad-white, 0.080)};
   --cor-4dp:      #{rgba($pad-white, 0.090)};
+  
 }
 
 %pad-cores-white {
@@ -45,5 +76,8 @@ $pad-white-cor-alerta: #f44336;
   --cor-background: #{$pad-white-background};
   --cor-background-ativo: #{rgba($pad-black, 0.12)};
   --cor-divisor:  #{rgba($pad-black, 0.30)};
+  --cor-1dp:      #{rgba($pad-black, 0.050)};
+  --cor-2dp:      #{rgba($pad-black, 0.070)};
+  --cor-3dp:      #{rgba($pad-black, 0.080)};
   --cor-4dp:      #{rgba($pad-black, 0.090)};
 }

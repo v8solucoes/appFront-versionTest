@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { InterfaceService } from '../../../3-interface/interface.service';
 import { Animacoes } from 'src/app/3-interface/animacao';
 import { Menu } from 'src/app/2-dados/interface';
@@ -18,11 +18,12 @@ export class MenuListaComponent implements OnInit {
   @Input() primeiro: boolean;
   @Input() ultimo: boolean;
   @Input() divisor: string;
+  @Input() penultimo: boolean;
 
   constructor(
     public i: InterfaceService,
   ) { }
 
-  ngOnInit() {  }
+  ngOnInit() { }
 
 }

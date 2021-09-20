@@ -1,17 +1,17 @@
-@import "~src/sass/construtor";
+@import "/src/sass/construtor";
 
 section {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: rgb(80, 80, 80);
   box-sizing: border-box;
 }
 
 app-menu {
   width: 260px;
   @extend %conteudo;
+  background-color: var(--cor-superficie);
 }
 
 app-modulo {

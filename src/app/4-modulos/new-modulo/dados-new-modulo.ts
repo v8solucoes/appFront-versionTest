@@ -45,7 +45,7 @@ export class DadosNewModulo {
           {
             moduloNome: 'New Modulo2',
             url: 'new-modulo',
-            tipo: 'colecao',
+            tipo: 'colecaoGaveta',
             acao: 'lista',
             item: 'aasd',
             icone: '',
@@ -115,6 +115,12 @@ export class DadosNewModulo {
         { id: 'umEsquerda', editar: false, visualizar: true },
         { id: 'doisDireita', editar: false, visualizar: true },
       ],
+    },
+    listarTitulo: {
+      newModulo: ['doisDireita', 'esquerda']
+    },
+    listarSubTitulo: {
+      newModulo: ['control']
     },
     modelo: {
       newModulo: {

@@ -10,11 +10,12 @@ import { Animacoes } from 'src/app/3-interface/animacao';
   animations: [Animacoes]
 })
 export class ListarComponent implements OnInit {
+  botaoAbrirFecharMenu = false;
 
-  @Input() lista: any;
+  @Input() chave: string;
 
   constructor(
-   public i: InterfaceService
+    public i: InterfaceService
   ) { }
 
   ngOnInit() {

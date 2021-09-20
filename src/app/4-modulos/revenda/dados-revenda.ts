@@ -39,37 +39,14 @@ export class DadosRevenda {
       adm: {
         principal: [
           {
-            moduloNome: 'Administrador',
+            moduloNome: 'Revenda',
             url: 'revenda',
-            tipo: 'colecao',
+            tipo: 'control',
             acao: 'lista',
-            item: 'aasd',
+            item: '',
             icone: '',
             grupo: [
-              /*     {
-                    moduloNome: 'Nova Revenda',
-                    url: 'revenda',
-                    tipo: 'control',
-                    acao: 'nova',
-                    item: '',
-                    icone: '',
-                  }, */
-              {
-                moduloNome: 'Revendas',
-                url: 'revenda',
-                tipo: 'control',
-                acao: 'lista',
-                item: '',
-                icone: '',
-              },
-              /*        {
-                       moduloNome: 'Item',
-                       url: 'revenda',
-                       tipo: 'control',
-                       acao: 'item',
-                       item: '2ki5yFynaqQS3r3zZrK6',
-                       icone: '',
-                     }, */
+
             ],
           },
         ]
@@ -81,6 +58,14 @@ export class DadosRevenda {
         { id: 'nome', editar: false, visualizar: true },
       ]
     },
+
+    listarTitulo: {
+      revenda: ['id', 'nome']
+    },
+    listarSubTitulo: {
+      revenda: ['id', 'nome']
+    },
+
     modelo: {
       revenda: {
         modulo: this.chave,

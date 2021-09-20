@@ -1,4 +1,4 @@
-@import "~src/sass/construtor";
+@import "src/sass/construtor";
 
 ul {
   @include menu-lista;
@@ -9,5 +9,3 @@ ul {
 .menu-divisor {
   @include menu-divisor;
 }
-
-

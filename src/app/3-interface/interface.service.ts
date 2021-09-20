@@ -97,7 +97,9 @@ export class InterfaceService {
       if (rota.acao === 'lista') {
         console.log('lista');
         console.log(modulo.modelo);
+        /* JSON.parse(await this.data.getData('lista')) */
         modulo.dados.lista = await this.data.getData('lista');
+
         modulo.form = form();
       }
     } catch (error) {

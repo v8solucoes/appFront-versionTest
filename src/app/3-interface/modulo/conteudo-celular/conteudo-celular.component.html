@@ -1,11 +1,12 @@
-Conteudo Celular
+<!-- Conteudo Celular
 <br>
 Celular: {{ i.design.telaCelular }}<br>
 Tablet: {{ i.design.telaTablet }}<br>
 Desktop: {{ i.design.telaDesktop }}
-Desktop&Tablet: {{ i.design.telaDesktopTablet }}
-<router-outlet *ngIf='i.design.telaCelular'></router-outlet>
-
-<app-listar *ngIf="(i.design.telaCelular && i.data.usuario.credenciais.acao == 'lista') ? true :
-              (i.design.telaDesktop) ? true : false" [lista]="i.data.usuario.modulo.revenda.dados.lista">
-</app-listar>
+Desktop&Tablet: {{ i.design.telaDesktopTablet }} -->
+<router-outlet></router-outlet>
+<div *ngIf="i.data.usuario.credenciais.acao == 'lista'">
+    <app-listar *ngFor="let item of i.data.usuario?.modulo[i.data.usuario.credenciais.modulo].dados.lista | keyvalue"
+        [chave]="item.key">
+    </app-listar>
+</div>

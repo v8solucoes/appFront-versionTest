@@ -59,7 +59,7 @@ export class Funcoes {
 
 
         rota = { modulo, moduloUrl, acao, item };
-        rotaUrl = `${modulo}/${moduloUrl}/${item}`;
+        rotaUrl = `${moduloUrl}/${acao}/${item}`;
       }
 
     localStorage.setItem('rotaUltima', localStorage.getItem('rotaUrl'));

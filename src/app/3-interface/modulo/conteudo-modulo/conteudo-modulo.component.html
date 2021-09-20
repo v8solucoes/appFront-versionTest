@@ -8,7 +8,24 @@ Desktop&Tablet: {{ i.design.telaDesktopTablet }} -->
 <!-- <pre> {{ i.data.usuario?.modulo[i.data.usuario?.credenciais.modulo].form.valid | json }} </pre>
 <pre> {{ i.data.usuario?.modulo[i.data.usuario?.credenciais.modulo].form.value | json }} </pre> -->
 
-<app-listar
+
+
+<!-- 
+<div *ngFor="let item of i.data.usuario?.modulo[this.i.data.usuario.credenciais.modulo].dados.lista | keyvalue"
+    [routerLink]="['/','interface', this.i.data.usuario.credenciais.moduloUrl,'item', item.key]">
+
+
+</div> -->
+<div
+    *ngIf="i.carregarModulo && i.design.telaDesktopTablet && i.data.usuario.modulo[i.data.usuario.credenciais.modulo].dados.lista">
+    <app-listar *ngFor="let item of i.data.usuario?.modulo[i.data.usuario.credenciais.modulo].dados.lista | keyvalue"
+        [chave]="item.key">
+    </app-listar>
+
+</div>
+
+
+<!-- <app-listar
     *ngIf="i.carregarModulo && i.design.telaDesktopTablet && i.data.usuario.modulo[i.data.usuario.credenciais.modulo].dados.lista"
     [lista]="i.data.usuario?.modulo[i.data.usuario?.credenciais.modulo].dados.lista">
-</app-listar>
+</app-listar> -->
