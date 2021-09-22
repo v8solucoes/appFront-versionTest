@@ -2,7 +2,7 @@
   
    "compileOnSave": false,
     "compilerOptions": {
-      "types" : ["node", "dom-mediacapture-record", "WebGL2RenderingContext"],
+      "types" : ["node", "dom-mediacapture-record"],
       "baseUrl": "./",
       "outDir": "./dist/out-tsc",
       "sourceMap": true,

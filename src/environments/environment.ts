@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API:'http://localhost:3000/',
+  API:'https://servico.meuapresentador.app/',
    firebaseConfig : {
     apiKey: "AIzaSyB7_rYWLJ3s97jJOP9SH37hcvE_6m-brXU",
     authDomain: "v8app-888cd.firebaseapp.com",
@@ -41,7 +41,6 @@ export const environment = {
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/v8-text-to-speech%40v8app-888cd.iam.gserviceaccount.com"
   } */
 };
-
 
 /*
  * For easier debugging in development mode, you can import the following file

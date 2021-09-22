@@ -15,7 +15,10 @@ app-menu {
 }
 
 app-modulo {
+  
   @extend %conteudo;
+  background-color: var(--cor-superficie);
+
   width: 100%;
 
   @media (min-width: 660px) {
@@ -36,6 +39,7 @@ app-modulo {
   max-width: 300px;
   min-width: 280px;
   @extend %conteudo;
+  background-color: var(--cor-superficie);
 
   @media (max-width: 600px) {
     display: none;
@@ -106,6 +110,7 @@ app-modulo {
 mat-drawer-container,
 mat-sidenav-container {
   height: 100%;
+ 
 }
 
 .scroll {

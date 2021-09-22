@@ -59,7 +59,7 @@
     "@types/webgl2": "0.0.5",
     "aws-sdk": "^2.783.0",
     "codelyzer": "^6.0.0",
-    "firebase-tools": "^9.9.0",
+    "firebase-tools": "^9.18.0",
     "fuzzy": "^0.1.3",
     "inquirer": "^6.2.2",
     "inquirer-autocomplete-prompt": "^1.0.1",

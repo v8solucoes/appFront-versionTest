@@ -15,15 +15,11 @@
 
 %conteudo {
   border-left: 1px dotted var(--cor-divisor);
-  background-color: var(--cor-background);
   box-sizing: border-box;
-  /* @extend %flex-coluna; */
 
   height: 100%;
   display: flex;
   flex-direction: column;
-  /*   justify-content: center;
-  list-style-type: none; */
 }
 
 @mixin texto-limita($desconto) {

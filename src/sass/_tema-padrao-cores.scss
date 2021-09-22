@@ -28,10 +28,10 @@ $pad-white-cor-secundaria-escura: #000051;
 $pad-black-cor-alerta: #ffd95a;
 $pad-white-cor-alerta: #f44336;
 
-// ##################################### NOVO
-$padrao-cor-background:black;
+// CORES PADRÃO - Black
+$padrao-cor-background:rgb(58, 0, 0);
 $padrao-cor-background-on: white;
-$padrao-cor-superficie: rgb(85, 84, 84);
+$padrao-cor-superficie: #00004f;
 $padrao-cor-superficie-on: white;
 
 $padrao-cor-primaria:#00004f;
@@ -52,16 +52,34 @@ $padrao-cor-error: #B00020;
 $padrao-cor-error-on:#FFFFFF;
 
 %pad-cores-black {
+
   --cor-background: #{$padrao-cor-background};
   --cor-background-on: #{$padrao-cor-background-on};
   --cor-superficie: #{$padrao-cor-superficie};
   --cor-superficie-on:#{$padrao-cor-superficie-on};
+
+  --cor-primaria: #{$padrao-cor-primaria};
+  --cor-primaria-on: #{$padrao-cor-primaria-on};
+  --cor-primaria-clara: #{$padrao-cor-primaria-clara};
+  --cor-primaria-clara-on: #{$padrao-cor-primaria-clara-on};
+  --cor-primaria-escura: #{$padrao-cor-primaria-escura};
+  --cor-primaria-escura-on: #{$padrao-cor-primaria-escura-on};
+
+  --cor-secundaria: #{$padrao-cor-secundaria};
+  --cor-secundaria-on: #{$padrao-cor-secundaria-on};
+  --cor-secundaria-clara: #{$padrao-cor-secundaria-clara};
+  --cor-secundaria-clara-on: #{$padrao-cor-secundaria-clara-on};
+  --cor-secundaria-escura: #{$padrao-cor-secundaria-escura};
+  --cor-secundaria-escura-on: #{$padrao-cor-secundaria-escura-on};
+   
+  --cor-error: #{$padrao-cor-error};
+  --cor-error-on: #{$padrao-cor-error-on};
   
-  --cor-secundaria: #{$pad-black-cor-secundaria};
+  --cor-divisor:  #{rgba($padrao-cor-superficie-on, 0.30)};
+ 
   --cor-ativo: #{$pad-white};
   --cor-inativo: #{rgba($pad-white, 0.87)};
   --cor-background-ativo: #{rgba($pad-white, 0.12)};
-  --cor-divisor:  #{rgba($pad-white, 0.30)};
   --cor-1dp:      #{rgba($pad-white, 0.050)};
   --cor-2dp:      #{rgba($pad-white, 0.070)};
   --cor-3dp:      #{rgba($pad-white, 0.080)};
