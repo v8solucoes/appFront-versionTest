@@ -2,14 +2,18 @@
   <mat-progress-bar mode="query"></mat-progress-bar>
 </ng-template>
 
+
 <section>
+
 
   <mat-drawer-container [ngClass]="i.designUser.tema" [hasBackdrop]="i.design.telaCelular"
     *ngIf="i.data.usuario; else carregando">
 
     <mat-drawer #menuEsquerdo mode="side" [opened]="this.i.design.telaDesktop">
 
-      <app-menu></app-menu>
+      <app-menu>
+ 
+      </app-menu>
 
     </mat-drawer>
 
