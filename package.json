@@ -16,7 +16,7 @@
     "@angular/common": "^12.2.7",
     "@angular/compiler": "^12.2.7",
     "@angular/core": "^12.2.7",
-    "@angular/fire": "^6.1.4",
+    "@angular/fire": "^7.0.4",
     "@angular/forms": "^12.2.7",
     "@angular/material": "^12.2.7",
     "@angular/platform-browser": "^12.2.7",
@@ -31,8 +31,8 @@
     "@tensorflow/tfjs-node-gpu": "^2.6.0",
     "@uppy/robodog": "1.10.0",
     "@uppy/transloadit": "^1.7.0",
-    "firebase": "^8.10.0",
-    "firebase-admin": "^9.11.1",
+    "firebase": "^9.0.0",
+    "firebase-admin": "^8.10.0",
     "microsoft-cognitiveservices-speech-sdk": "^1.18.1",
     "npm": "^7.24.1",
     "readline": "^1.3.0",
@@ -42,10 +42,11 @@
     "uppy-angular": "^0.1.6",
     "util": "^0.12.4",
     "video-stream-merger": "^3.6.3",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "rxfire": "^6.0.0"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.1201.4",
+    "@angular-devkit/architect": "^0.1200.0",
     "@angular-devkit/build-angular": "^12.2.7",
     "@angular/cli": "^12.2.7",
     "@angular/compiler-cli": "^12.2.7",
@@ -58,10 +59,10 @@
     "@types/webgl2": "0.0.5",
     "aws-sdk": "^2.994.0",
     "codelyzer": "^6.0.0",
-    "firebase-tools": "^9.18.0",
+    "firebase-tools": "^9.0.0",
     "fuzzy": "^0.1.3",
     "inquirer": "^6.2.2",
-    "inquirer-autocomplete-prompt": "^1.4.0",
+    "inquirer-autocomplete-prompt": "^1.0.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.3.4",
@@ -73,6 +74,8 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.3.5",
-    "video-stream-merger": "^3.6.3"
+    "video-stream-merger": "^3.6.3",
+    "open": "^7.0.3",
+    "jsonc-parser": "^3.0.0"
   }
 }

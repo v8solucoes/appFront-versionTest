@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Debug } from 'src/app/5-componentes/debug';
 import { Apresentador, ChaveModulo } from 'src/app/2-dados/interface';
 import { CaixaDialogoService } from 'src/app/5-componentes/caixa-dialogo/caixa-dialogo.service';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 import * as AWS from 'aws-sdk';
 
