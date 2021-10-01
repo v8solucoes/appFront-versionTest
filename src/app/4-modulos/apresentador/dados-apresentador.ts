@@ -27,6 +27,7 @@ export class DadosApresentador {
 
   validar: Validar = {
     apresentador: {
+
       sugestao: [{ funcao: 'popularCampo', destino: ['texto'] }],
 
       texto: [
@@ -39,9 +40,19 @@ export class DadosApresentador {
         { funcao: 'nativoRequerido', valor: true },
         {
           funcao: 'popularColecaoObjeto',
-          destino: ['api', 'tipo'],
-          colecao: ['api', 'tipo'],
+          destino: ['api', 'tipo', 'velocidade', 'entonacao'],
+          colecao: ['api', 'tipo', 'velocidade', 'entonacao'],
         },
+      ],
+
+      apresentadorGaleria: [
+        { funcao: 'nativoRequerido', valor: true },
+        {
+          funcao: 'popularColecaoLista',
+          origem:  ['apresentadorGaleria'],
+          destino: ['vozColecao'],
+          colecao: ['voz'],
+        }
       ],
     },
   };
@@ -49,25 +60,24 @@ export class DadosApresentador {
   colecoes: Pick<Apresentador, 'colecao'> = {
     colecao: {
       voz: {
-        Ricardo: { nome: 'Ricardo', tipo: 'standard', api: 'amazom' },
-        Vitoria: { nome: 'Vitória', tipo: 'standard', api: 'amazom' },
-        Camila: { nome: 'Camila', tipo: 'neural', api: 'amazom' },
+        Ricardo: { nome: 'Ricardo', tipo: 'standard', api: 'amazom', entonacao: 10, velocidade: 1 },
+        Vitoria: { nome: 'Vitória', tipo: 'standard', api: 'amazom', entonacao: 20, velocidade: 2 },
         Francisca: {
           nome: 'Francisca',
           tipo: 'pt-BR-FranciscaNeural',
-          api: 'microsoft',
+          api: 'microsoft', entonacao: 40, velocidade: 4 
         },
         Antonio: {
           nome: 'Antonio',
           tipo: 'pt-BR-AntonioNeural',
-          api: 'microsoft',
+          api: 'microsoft', entonacao: 0, velocidade: 0 
         },
         Daniel: {
           nome: 'Daniel',
           tipo: 'pt-BR-Daniel',
-          api: 'microsoft',
+          api: 'microsoft', entonacao: 0, velocidade: 0 
         },
-        Heloisa: { nome: 'Heloisa', tipo: 'pt-BR-Heloisa', api: 'microsoft' },
+        Heloisa: { nome: 'Heloisa', tipo: 'pt-BR-Heloisa', api: 'microsoft', entonacao: 0, velocidade: 0 }, 
       },
     },
   };
@@ -168,16 +178,16 @@ export class DadosApresentador {
           colecao: {
             tipo: 'lista',
             lista: [
-              { id: 'apresentador01', nome: 'Apresentador 1' },
-              { id: 'apresentador02', nome: 'Apresentador 2' },
-              { id: 'apresentador03', nome: 'Apresentador 3' },
-              { id: 'apresentador04', nome: 'Apresentador 4' },
-              { id: 'apresentador05', nome: 'Apresentador 5' },
+              { id: 'apresentador01', nome: 'Apresentador 1', voz: 'Antonio' },
+              { id: 'apresentador02', nome: 'Apresentador 2', voz: 'Daniel' },
+              { id: 'apresentador03', nome: 'Apresentador 3', voz: 'Francisca' },
+              { id: 'apresentador04', nome: 'Apresentador 4', voz: 'Ricardo' },
+              { id: 'apresentador05', nome: 'Apresentador 5', voz: 'Vitoria'},
             ],
             pasta: 'assets/modulo/apresentador/modelo/',
             extensao: '.png',
           },
-          validarSincrono: [{ funcao: 'nativoRequerido', valor: true }],
+          validarSincrono: this.validar.apresentador.apresentadorGaleria,
           validarAssincrono: [],
         },
         vozColecao: {
