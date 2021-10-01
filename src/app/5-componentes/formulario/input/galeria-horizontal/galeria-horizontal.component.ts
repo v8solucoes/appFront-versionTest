@@ -51,9 +51,10 @@ export class GaleriaHorizontalComponent implements AfterViewChecked {
   }
 
   proximo() {
-     
+
     const atual = this.scroll.nativeElement.scrollLeft += this.scrollAtual + Math.round(this.scroll.nativeElement.offsetWidth);
     this.exibirBotao(atual);
+
   }
 
   anterior() {
