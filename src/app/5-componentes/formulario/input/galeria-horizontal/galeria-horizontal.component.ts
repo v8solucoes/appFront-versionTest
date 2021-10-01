@@ -67,6 +67,7 @@ export class GaleriaHorizontalComponent implements AfterViewChecked {
 
     const lista = this.modelo.colecao.lista;
 
+<<<<<<< HEAD
     lista.forEach((item, indice) => {
 
       if ( item.id === this.formulario.get(this.id).value) {
@@ -80,10 +81,25 @@ export class GaleriaHorizontalComponent implements AfterViewChecked {
         /* this.exibirBotao(this.larguraTotal * indice) */
 /*         lista.unshift(lista[indice]);
         lista.splice(indice + 1, 1); */
+=======
+    lista.forEach((item, i) => {
+      if (item.id === 'apresentador02') {
+        indice = i;
+        lista.unshift(this.modelo.colecao.lista[indice]);
+        lista.splice(indice + 1, 1);
+>>>>>>> c3f5e818fb9fddfe72eb29182ab92c9806314c5c
         return;
       }
       
     });
+<<<<<<< HEAD
+=======
+
+    /*    let nome = this.selecaoAtual;
+       let indice: number
+       this.lista.forEach((item, i) => { if (item['id'] == nome) indice = i; });
+       this.scroll.nativeElement.scrollLeft += (indice) * this.larguraTotal */
+>>>>>>> c3f5e818fb9fddfe72eb29182ab92c9806314c5c
   }
 
   exibirBotao(atual) {

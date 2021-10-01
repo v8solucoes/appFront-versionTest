@@ -6,6 +6,7 @@ section {
   padding-top: 8px;
   padding-bottom: 8px;
   @extend %flex-linha;
+  box-shadow: var(--sombra-4dp);
 /*   background-color: brown; */
 }
 button {

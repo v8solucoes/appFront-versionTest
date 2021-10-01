@@ -1,3 +1,4 @@
+import { Colecao } from './../../2-dados/interface';
 import {
   Apresentador,
   Chaves,
