@@ -28,10 +28,12 @@ $pad-white-cor-secundaria-escura: #000051;
 $pad-black-cor-alerta: #ffd95a;
 $pad-white-cor-alerta: #f44336;
 
-// CORES PADRÃO - Black
-$padrao-cor-background:rgb(58, 0, 0);
+// CORES PADRÃO - Black----------------------------------------------------------------
+$padrao-sombra: #000000;
+
+$padrao-cor-background:#121212;
 $padrao-cor-background-on: white;
-$padrao-cor-superficie: #00004f;
+$padrao-cor-superficie: #262626;
 $padrao-cor-superficie-on: white;
 
 $padrao-cor-primaria:#00004f;
@@ -50,6 +52,9 @@ $padrao-cor-secundaria-escura-on:#000000 ;
 
 $padrao-cor-error: #B00020;
 $padrao-cor-error-on:#FFFFFF;
+
+$shadow-1: box-shadow 0px 12px 16px;
+
 
 %pad-cores-black {
 
@@ -76,14 +81,18 @@ $padrao-cor-error-on:#FFFFFF;
   --cor-error-on: #{$padrao-cor-error-on};
   
   --cor-divisor:  #{rgba($padrao-cor-superficie-on, 0.30)};
- 
-  --cor-ativo: #{$pad-white};
-  --cor-inativo: #{rgba($pad-white, 0.87)};
-  --cor-background-ativo: #{rgba($pad-white, 0.12)};
-  --cor-1dp:      #{rgba($pad-white, 0.050)};
-  --cor-2dp:      #{rgba($pad-white, 0.070)};
-  --cor-3dp:      #{rgba($pad-white, 0.080)};
-  --cor-4dp:      #{rgba($pad-white, 0.090)};
+  --cor-inativo: #{$padrao-cor-superficie-on};
+  --cor-ativo: #{rgba($padrao-cor-superficie-on, 0.12)};
+  
+  --cor-hover: #{rgba($padrao-cor-superficie-on, 0.12)};
+   
+  --sombra-2dp: #{0px 6px 8px   rgba($padrao-sombra, 0.87)};
+  --sombra-4dp: #{0px 12px 16px rgba($padrao-sombra, 0.87)};
+  --sombra-6dp: #{0px 17px 20px rgba($padrao-sombra, 0.87)};
+  --sombra-8dp: #{0px 19px 23px rgba($padrao-sombra, 0.87)};
+  --sombra-12dp:#{0px 26px 28px rgba($padrao-sombra, 0.87)};
+  --sombra-24dp:#{0px 40px 50px rgba($padrao-sombra, 0.87)};
+  
   
 }
 

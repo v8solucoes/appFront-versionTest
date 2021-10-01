@@ -54,15 +54,15 @@ export class ApresentadorComponent implements OnInit {
     });
     this.start();
   }
-  ngOnInit() {}
+  ngOnInit() { }
 
   async start() {
     try {
-      await await this.i.startModulo(this.router.snapshot);
+      await this.i.startModulo(this.router.snapshot);
       this.formulario = this.i.data.usuario.modulo.apresentador.form;
       this.atualizarDados();
       this.carregar = true;
-    } catch (error) {}
+    } catch (error) { }
   }
 
   atualizarDados() {
@@ -76,7 +76,7 @@ export class ApresentadorComponent implements OnInit {
       this.atualizarDados();
       await this.baixarAudio();
       this.carregarAudio = false;
-    } catch (error) {}
+    } catch (error) { }
   }
 
   async baixarAudio() {
@@ -98,8 +98,7 @@ export class ApresentadorComponent implements OnInit {
     return api;
   }
   async baixarAudioMicrosoft() {
-    let url =
-      'https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1';
+    let url = 'https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1';
 
     let headers = new HttpHeaders({
       'Ocp-Apim-Subscription-Key': '66afc545afc54ce88190047dc3c8aceb',
@@ -107,19 +106,18 @@ export class ApresentadorComponent implements OnInit {
       'X-Microsoft-OutputFormat': 'webm-24khz-16bit-mono-opus',
     });
 
-    return await this.http
-      .post(
-        `${url}`,
-        `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
-    xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="pt-BR">
+    return await this.http.post(
+      `${url}`,
+      `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+    xmlns:mstts="https://www.w3.org/2001/mstts"  xml:lang="pt-BR">
   <voice name="${this.dados.tipo}"><prosody rate="${this.dados.velocidade}%" pitch="${this.dados.entonacao}%">
     <mstts:express-as style="cheerful">
     ${this.dados.texto}
     </mstts:express-as>
   </prosody></voice>
 </speak>`,
-        { headers, responseType: 'blob' }
-      )
+      { headers, responseType: 'blob' }
+    )
       .toPromise()
       .then((res) => {
         this.audio.nativeElement.src = URL.createObjectURL(res);

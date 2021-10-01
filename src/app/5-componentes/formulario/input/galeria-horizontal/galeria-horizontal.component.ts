@@ -54,7 +54,7 @@ export class GaleriaHorizontalComponent implements OnInit {
     const lista = this.modelo.colecao.lista;
 
     lista.forEach((item, i) => {
-      if ( item.id === 'apresentador02') {
+      if (item.id === 'apresentador02') {
         indice = i;
         lista.unshift(this.modelo.colecao.lista[indice]);
         lista.splice(indice + 1, 1);
@@ -62,10 +62,10 @@ export class GaleriaHorizontalComponent implements OnInit {
       }
     });
 
- /*    let nome = this.selecaoAtual;
-    let indice: number
-    this.lista.forEach((item, i) => { if (item['id'] == nome) indice = i; });
-    this.scroll.nativeElement.scrollLeft += (indice) * this.larguraTotal */
+    /*    let nome = this.selecaoAtual;
+       let indice: number
+       this.lista.forEach((item, i) => { if (item['id'] == nome) indice = i; });
+       this.scroll.nativeElement.scrollLeft += (indice) * this.larguraTotal */
   }
 
   exibirBotao(atual) {

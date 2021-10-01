@@ -2,20 +2,20 @@
 
 <nav [@barra]="i.design.moduloScrollBarra">
 
-  <div [@conteudoMenu]="(i.data.usuario.credenciais.acao == 'lista')" id="barra-dupla">
+  <section [@conteudoMenu]="(i.data.usuario.credenciais.acao == 'lista')">
 
     <app-barra-lista></app-barra-lista>
     <app-barra-abas></app-barra-abas>
 
-  </div>
+  </section>
 
-  <div [@conteudoMenu]="(i.data.usuario.credenciais.acao == 'nova')" id="barra-unica">
+  <div [@conteudoMenu]="(i.data.usuario.credenciais.acao == 'nova')">
 
     <app-barra-cria></app-barra-cria>
 
   </div>
 
-  <div [@conteudoMenu]="(i.data.usuario.credenciais.acao == 'item')" id="barra-unica">
+  <div [@conteudoMenu]="(i.data.usuario.credenciais.acao == 'item')">
 
     <app-barra-item></app-barra-item>
 
