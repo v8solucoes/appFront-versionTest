@@ -1,20 +1,5 @@
 @import "~src/sass/construtor";
 
-nav {
-  margin: 0px;
-  padding: 0px;
-  background-color: var(--cor-4dp);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+nav > div {@extend %nav-dupla;}
 
-/*  @media (max-width: 360px) {
-  padding-left: 0px;
-  padding-right: 0px;
-} */
-}
 
-#barra-unica {
-  height: 56px;
-}
-#barra-dupla {
-  height: 112px;
-}

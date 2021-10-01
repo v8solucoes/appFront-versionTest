@@ -1,6 +1,6 @@
 // INTERFACE
 @mixin janela-interface($largura) {
-  border-left: 1px dotted var(--cor-divisor);
+  //border-left: 1px dotted var(--cor-divisor);
   background-color: var(--cor-background);
   box-sizing: border-box;
 
@@ -14,16 +14,12 @@
 }
 
 %conteudo {
-  border-left: 1px dotted var(--cor-divisor);
-  background-color: var(--cor-background);
+  //border-left: 1px dotted var(--cor-divisor);
   box-sizing: border-box;
-  /* @extend %flex-coluna; */
 
   height: 100%;
   display: flex;
   flex-direction: column;
-  /*   justify-content: center;
-  list-style-type: none; */
 }
 
 @mixin texto-limita($desconto) {
@@ -51,7 +47,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: var(--cor-background-ativo);
+      background-color: var(--cor-hover);
     }
     &:focus {
       outline: 0;
@@ -73,14 +69,17 @@
   }
 }
 @mixin ativo() {
+ 
   &-fundo {
-    background-color: var(--cor-background-ativo);
+    background-color: var(--cor-ativo);
+   
   }
   &-icone {
     color: var(--cor-secundaria);
   }
   &-texto {
-    color: var(--cor-ativo);
+    color: var(--cor-superficie-on);
+    
   }
 }
 @mixin menu-divisor() {
@@ -103,9 +102,7 @@
 }
 
 @mixin nav-rodape() {
-  background-color: var(--cor-4dp);
-  border-top: 0.5px solid var(--cor-divisor);
-  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px -6px 8px rgba($color: #000000, $alpha: 0.87);
 }
 
 // GLOBAL
@@ -133,12 +130,20 @@
   }
 }
 
+%nav-unica{
+  height: 56px;
+  box-shadow: var(--sombra-4dp); 
+}
+
+%nav-dupla{
+  height: 132px;
+  box-shadow: var(--sombra-4dp); 
+}
+
 %nav-topo {
   @extend %flex-linha;
   @extend %margens;
-  height: 56px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  background-color: var(--cor-4dp);
+  @extend %nav-unica;
 }
 
 %nav-bottom {
@@ -146,7 +151,6 @@
   @extend %margens;
   height: 56px;
   box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
-  background-color: var(--cor-4dp);
 }
 
 %card-imagem-40px {

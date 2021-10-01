@@ -6,7 +6,7 @@
 
   <div id="titulo"> {{ i.data.usuario.credenciais.nomeModulo }} </div>
 
-  <button mat-raised-button color="accent" (click)="i.novo()" [disabled]="i.processandoCrud.nova">Criar </button>
+  <button mat-raised-button color="accent" (click)="i.novo()" [disabled]="i.processandoCrud.nova">Criar</button>
   <button mat-mini-fab *ngIf="i.processandoCrud.nova">
     <mat-spinner [diameter]="25"></mat-spinner>
   </button>

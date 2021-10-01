@@ -13,7 +13,7 @@ import {
 
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 import { Debug } from '../5-componentes/debug';
 import { DadosApresentador } from './../4-modulos/apresentador/dados-apresentador';

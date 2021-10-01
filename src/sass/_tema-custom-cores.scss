@@ -32,9 +32,9 @@ $cus-white-cor-alerta: #f44336;
   --cor-secundaria: #{$cus-black-cor-secundaria};
   --cor-ativo: #{$cus-white};
 
-    --cor-fundo-ativo: #{rgba($cus-white, 0.040)};
-    --cor-fundo-selecionado: #{rgba($cus-white, 0.040)};
-    --cor-fundo-desabilitado:  #{rgba($cus-white, 0.87)};
+  --cor-fundo-ativo: #{rgba($cus-white, 0.040)};
+  --cor-fundo-selecionado: #{rgba($cus-white, 0.040)};
+  --cor-fundo-desabilitado:  #{rgba($cus-white, 0.87)};
 
   --cor-inativo: #{rgba($cus-white, 0.87)};
   --cor-background: #{$cus-black-background};

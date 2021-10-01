@@ -4,6 +4,8 @@
 @import '~src/sass/tema-padrao';
 @import '~src/sass/tema-custom';
 
+@include angular-material-theme($pad-black-tema);
+
 $pad-black-configuracao-fonte-material: mat.define-typography-config(
   $font-family: 'Roboto, monospace',
   $headline: mat.define-typography-level(32px, 48px, 700),
@@ -28,7 +30,7 @@ $pad-black-configuracao-fonte-material: mat.define-typography-config(
 }
 .pad-tema-white {
   @extend %pad-cores-white;
-  @include mat.all-component-themes($pad-white-tema);
+  @include mat.all-component-colors($pad-white-tema);
 }
 .cus-tema-black {
   @extend %cus-cores-black;
@@ -36,7 +38,7 @@ $pad-black-configuracao-fonte-material: mat.define-typography-config(
 }
 .cus-tema-white {
   @extend %cus-cores-white;
-  @include mat.all-component-themes($pad-white-tema);
+  @include mat.all-component-colors($pad-white-tema);
 }
 
 html, body {
