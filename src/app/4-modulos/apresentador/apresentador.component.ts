@@ -59,11 +59,6 @@ export class ApresentadorComponent implements OnInit {
   async start() {
     try {
       await this.i.startModulo(this.router.snapshot);
-<<<<<<< HEAD
-=======
-      this.formulario = this.i.data.usuario.modulo.apresentador.form;
-      this.atualizarDados();
->>>>>>> c3f5e818fb9fddfe72eb29182ab92c9806314c5c
       this.carregar = true;
     } catch (error) { }
   }
@@ -78,13 +73,8 @@ export class ApresentadorComponent implements OnInit {
     try {
       this.atualizarDados();
       await this.baixarAudio();
-<<<<<<< HEAD
       this.carregarAudio = true;
     } catch (error) {}
-=======
-      this.carregarAudio = false;
-    } catch (error) { }
->>>>>>> c3f5e818fb9fddfe72eb29182ab92c9806314c5c
   }
 
   async baixarAudio() {
