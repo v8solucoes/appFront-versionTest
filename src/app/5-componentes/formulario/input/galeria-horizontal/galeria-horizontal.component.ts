@@ -1,5 +1,6 @@
-import { Component, ElementRef, Input, ViewChild, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, AfterViewChecked } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ModeloCampos } from 'src/app/2-dados/interface';
 import { Animacoes } from 'src/app/3-interface/animacao';
 
@@ -9,7 +10,7 @@ import { Animacoes } from 'src/app/3-interface/animacao';
   styleUrls: ['./galeria-horizontal.component.scss'],
   animations: [Animacoes]
 })
-export class GaleriaHorizontalComponent implements OnInit {
+export class GaleriaHorizontalComponent implements AfterViewChecked {
 
   @Input() formulario: FormGroup;
   @Input() modelo: ModeloCampos;
@@ -31,41 +32,57 @@ export class GaleriaHorizontalComponent implements OnInit {
 
   exibirProximo = false;
   exibirAnterior = false;
+  numero = 1
+  scrollAtual: number;
 
-  constructor() {
-
+  constructor( public router: ActivatedRoute) {
+    this.router.params.subscribe((o) => {
+      
+      if( this.id != undefined) {
+        this.abrirSelecaoAtual()
+      }
+     
+    });
   }
-  ngOnInit() {
+   
+  ngAfterViewChecked() {
+
     this.abrirSelecaoAtual();
   }
 
   proximo() {
-    const atual = this.scroll.nativeElement.scrollLeft += Math.round(this.scroll.nativeElement.offsetWidth);
+     
+    const atual = this.scroll.nativeElement.scrollLeft += this.scrollAtual + Math.round(this.scroll.nativeElement.offsetWidth);
     this.exibirBotao(atual);
   }
 
   anterior() {
-    const atual = this.scroll.nativeElement.scrollLeft -= Math.round(this.scroll.nativeElement.offsetWidth);
+    const atual = this.scroll.nativeElement.scrollLeft -= this.scrollAtual - Math.round(this.scroll.nativeElement.offsetWidth);
     this.exibirBotao(atual);
   }
 
+
   abrirSelecaoAtual() {
-    let indice = 0;
+
     const lista = this.modelo.colecao.lista;
 
-    lista.forEach((item, i) => {
-      if ( item.id === 'apresentador02') {
-        indice = i;
-        lista.unshift(this.modelo.colecao.lista[indice]);
-        lista.splice(indice + 1, 1);
+    lista.forEach((item, indice) => {
+
+      if ( item.id === this.formulario.get(this.id).value) {
+
+        this.scroll.nativeElement.scrollLeft = 0
+        this.scroll.nativeElement.scrollLeft = this.larguraTotal * indice
+
+        this.scrollAtual = this.larguraTotal * indice
+     /*    this.exibirBotao(this.scrollAtual); */
+
+        /* this.exibirBotao(this.larguraTotal * indice) */
+/*         lista.unshift(lista[indice]);
+        lista.splice(indice + 1, 1); */
         return;
       }
+      
     });
-
- /*    let nome = this.selecaoAtual;
-    let indice: number
-    this.lista.forEach((item, i) => { if (item['id'] == nome) indice = i; });
-    this.scroll.nativeElement.scrollLeft += (indice) * this.larguraTotal */
   }
 
   exibirBotao(atual) {
@@ -82,7 +99,9 @@ export class GaleriaHorizontalComponent implements OnInit {
 
     return tamanhoScrooll;
   }
-  selecionar(indice: string) {
-    this.formulario.get(this.id).setValue(indice);
+  selecionar(idImagem: string,) {
+
+    this.formulario.get(this.id).setValue(idImagem);
+    
   }
 }

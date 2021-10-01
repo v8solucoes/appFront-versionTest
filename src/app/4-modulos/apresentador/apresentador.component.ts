@@ -58,24 +58,22 @@ export class ApresentadorComponent implements OnInit {
 
   async start() {
     try {
-      await await this.i.startModulo(this.router.snapshot);
-      this.formulario = this.i.data.usuario.modulo.apresentador.form;
-      this.atualizarDados();
+      await this.i.startModulo(this.router.snapshot);
       this.carregar = true;
     } catch (error) {}
   }
 
   atualizarDados() {
-    this.dados = this.formulario.value;
+    this.dados = this.i.data.usuario.modulo.apresentador.form.value;
   }
 
   async playAudio() {
-    this.carregarAudio = true;
+    this.carregarAudio = false;
 
     try {
       this.atualizarDados();
       await this.baixarAudio();
-      this.carregarAudio = false;
+      this.carregarAudio = true;
     } catch (error) {}
   }
 
@@ -85,9 +83,11 @@ export class ApresentadorComponent implements OnInit {
     switch (this.dados.api) {
       case 'amazom':
         api = this.baixarAudioAmazom();
+
         break;
       case 'microsoft':
         api = this.baixarAudioMicrosoft();
+
         break;
 
       default:
@@ -132,7 +132,7 @@ export class ApresentadorComponent implements OnInit {
       LanguageCode: this.dados.idioma, //'pt-BR'
       VoiceId: this.dados.vozColecao, // Ricardo
       Text: `<speak >
-  <prosody rate="x-fast" pitch="x-high">
+  <prosody rate="${this.dados.velocidade + 100}%" pitch="${this.dados.entonacao}%">
     ${this.dados.texto}
   </prosody>
 </speak>`, // 'Teste 123'/*${this.dados.velocidade + 50}% ${this.dados.entonacao}%*/,

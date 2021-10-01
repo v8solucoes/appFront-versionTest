@@ -57,7 +57,7 @@ export class CriarForm {
       }
     });
 
-   /*  console.log('Form', new FormGroup(grupo)); */
+    /*  console.log('Form', new FormGroup(grupo)); */
 
     return new FormGroup(grupo);
   }
@@ -75,6 +75,7 @@ export class Funcao {
       case 'nativoTextoMaximo': return Validators.maxLength(dados.valor);
       case 'popularCampo': return Funcao.validar(Funcao.popular, dados, modelo, id);
       case 'popularColecaoObjeto': return Funcao.validar(Funcao.popularObjeto, dados, modelo, id);
+      case 'popularColecaoLista': return Funcao.validar(Funcao.popularLista, dados, modelo, id);
 
       default: alert('Função Sincrona com no nome: >> ' + dados.funcao + ' << não existe!'); return null;
     }
@@ -116,6 +117,29 @@ export class Funcao {
         const valor = modelo.colecao.objeto[origem][destino];
 
         controle.get(destino).setValue(valor);
+      });
+    }
+  }
+  static popularLista(controle: FormGroup, dados: ValidarSincrono, modelo?: ModeloCampos) {
+
+    if (controle.get(dados.origem[0]) != null) {
+      dados.origem.forEach((itemOrigem, indice) => {
+
+        const origemValor = controle.get(itemOrigem).value
+        const colecao = dados.colecao[indice]
+        const destino = dados.destino[indice]
+
+        modelo.colecao.lista.forEach((item) => {
+
+          if (origemValor == item['id']) {
+
+            controle.get(destino).setValue(item[colecao]);
+            controle.get(destino).markAsDirty({ onlySelf: true })
+
+          }
+        }
+
+        )
       });
     }
   }

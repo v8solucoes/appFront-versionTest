@@ -16,7 +16,7 @@ export type Revenda = {
 };
 export type Apresentador = {
   apresentadorGaleria?: string;
-  vozColecao?: string;
+  vozColecao?: VozApresentador;
   sugestao?: string;
   texto?: string;
   idioma?: string;
@@ -26,7 +26,7 @@ export type Apresentador = {
   velocidade?: number;
   entonacao?: number;
   colecao?: {
-    voz: { [x: string]: Pick<ColecoesCampos, 'api' | 'nome' | 'tipo'> };
+    voz: { [x: string]: Pick<ColecoesCampos, 'api' | 'nome' | 'tipo' | 'velocidade' | 'entonacao'> };
   };
 };
 
@@ -85,6 +85,9 @@ export type nomeTodosCampos =
   | GetNomes<NewModulo>
   | GetNomes<Apresentador>;
 
+  // TIPOS MÓDULOS
+  export type VozApresentador = 'Ricardo' | 'Vitoria' | 'Francisca' | 'Antonio' | 'Daniel';
+
 // CONSTRUTORES ########################
 
 // Modulos
@@ -125,6 +128,7 @@ export type GetValidarDados<T> = {
 export type GetNomes<T> = { [K in keyof T]: K }[keyof T]; // Retorna> type teste = tese | assf |
 export type FuncoesSincronas =
   | 'popularColecaoObjeto'
+  | 'popularColecaoLista'
   | 'popularCampo'
   | 'nativoRequeridoTrue'
   | 'nativoRequerido'
@@ -274,11 +278,14 @@ export interface ModeloCampos {
   inputContador?: number | boolean;
 }
 export interface ColeçãoDados {
-  id?: any;
+  id: any;
   nome?: string;
   dados?: any;
+  voz?: VozApresentador;
 }
-
+export interface apresentadorGaleriaColecao {
+  
+}
 export interface Colecao {
   tipo: 'lista' | 'objeto';
   lista?: ColeçãoDados[];
@@ -310,4 +317,7 @@ export type ColecoesCampos = {
   | 'pt-BR-Daniel'
   | 'neural'
   | 'pt-BR-Heloisa';
+  velocidade: number;
+  entonacao: number;
+  voz: VozApresentador
 };
