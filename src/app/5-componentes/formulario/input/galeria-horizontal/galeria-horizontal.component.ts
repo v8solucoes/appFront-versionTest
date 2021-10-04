@@ -33,14 +33,8 @@ export class GaleriaHorizontalComponent implements OnChanges {
   exibirProximo = false;
   exibirAnterior = false;
 
-  constructor(public router: ActivatedRoute) {
-    this.router.params.subscribe((o) => {
-
-      if (this.id != undefined) {
-        this.abrirSelecaoAtual()
-      }
-
-    });
+  constructor() {
+    
   }
 
   ngOnChanges() {
