@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, ViewChild, OnChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { ModeloCampos } from 'src/app/2-dados/interface';
 import { Animacoes } from 'src/app/3-interface/animacao';
 
