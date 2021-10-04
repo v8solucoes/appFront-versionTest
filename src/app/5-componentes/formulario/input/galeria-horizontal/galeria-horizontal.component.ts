@@ -39,7 +39,6 @@ export class GaleriaHorizontalComponent implements OnChanges {
   ngOnChanges() {
     this.abrirSelecaoAtual();
   }
-
   proximo() {
     const atual = this.scroll.nativeElement.scrollLeft += Math.round(this.scroll.nativeElement.offsetWidth);
 
@@ -52,11 +51,11 @@ export class GaleriaHorizontalComponent implements OnChanges {
     this.exibirBotao(atual);
   }
 
-    console.log(this.scroll.nativeElement.scrollLeft)
+  selecionar(idImagem: string) {
 
-    this.scroll.nativeElement.scrollLeft -= Math.round(this.scroll.nativeElement.offsetWidth)
-    this.exibirBotao(Math.round(this.scroll.nativeElement.scrollLeft))
-  }
+    this.formulario.get(this.id).setValue(idImagem);
+
+  } 
 
   abrirSelecaoAtual() {
 
@@ -83,7 +82,6 @@ export class GaleriaHorizontalComponent implements OnChanges {
     this.exibirAnterior = atual > 1 ? false : true;
     this.exibirProximo = atual < this.calcular() ? false : true;
   }
-
   calcular() {
 
     const totalLista = this.modelo.colecao.lista.length;
@@ -93,9 +91,5 @@ export class GaleriaHorizontalComponent implements OnChanges {
 
     return tamanhoScroll;
   }
-  selecionar(idImagem: string) {
 
-    this.formulario.get(this.id).setValue(idImagem);
-
-  }
 }
