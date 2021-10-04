@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ModeloCampos } from 'src/app/2-dados/interface';
@@ -10,7 +10,7 @@ import { Animacoes } from 'src/app/3-interface/animacao';
   styleUrls: ['./galeria-horizontal.component.scss'],
   animations: [Animacoes]
 })
-export class GaleriaHorizontalComponent implements AfterViewChecked {
+export class GaleriaHorizontalComponent implements OnInit {
 
   @Input() formulario: FormGroup;
   @Input() modelo: ModeloCampos;
@@ -35,54 +35,91 @@ export class GaleriaHorizontalComponent implements AfterViewChecked {
   numero = 1
   scrollAtual: number;
 
-  constructor( public router: ActivatedRoute) {
-    this.router.params.subscribe((o) => {
-      
-      if( this.id != undefined) {
-        this.abrirSelecaoAtual()
-      }
-     
-    });
+  constructor() {
+    /*     public router: ActivatedRoute */
+    /*     this.router.params.subscribe((o) => {
+    
+          if (this.id != undefined) {
+            this.abrirSelecaoAtual()
+          }
+    
+        }); */
+        console.log('reculculando')
+        this.teste('selecionar');
   }
-   
-  ngAfterViewChecked() {
+ngOnInit (){
+  console.log('reculculando')
+  this.teste('selecionar');
+}
+/*   ngAfterViewChecked() {
 
-    this.abrirSelecaoAtual();
+    this.teste('selecionar');
+    console.log('reculculando')
+  } */
+  teste(quem) {
+    switch (quem) {
+
+      case 'proximo':
+          this.proximo()
+        break;
+
+      case 'anterior':
+        this.anterior()
+        break;
+      case 'selecionar':
+this.abrirSelecaoAtual()
+        break;
+
+      default:
+        break;
+    }
   }
 
   proximo() {
+    console.log(this.scroll.nativeElement.scrollLeft)
 
-    const atual = this.scroll.nativeElement.scrollLeft += this.scrollAtual + Math.round(this.scroll.nativeElement.offsetWidth);
-    this.exibirBotao(atual);
+    this.scroll.nativeElement.scrollLeft += Math.round(this.scroll.nativeElement.scrollLeft)
 
+    this.exibirBotao(Math.round(this.scroll.nativeElement.scrollLeft))
   }
 
   anterior() {
-    const atual = this.scroll.nativeElement.scrollLeft -= this.scrollAtual - Math.round(this.scroll.nativeElement.offsetWidth);
-    this.exibirBotao(atual);
-  }
 
+    console.log(this.scroll.nativeElement.scrollLeft)
+
+    this.scroll.nativeElement.scrollLeft -= Math.round(this.scroll.nativeElement.offsetWidth)
+    this.exibirBotao(Math.round(this.scroll.nativeElement.scrollLeft))
+  }
 
   abrirSelecaoAtual() {
 
+    console.log('abrir seleção')
+  
     const lista = this.modelo.colecao.lista;
-
+    this.scroll.nativeElement.scrollLeft = 0;
     lista.forEach((item, indice) => {
 
-      if ( item.id === this.formulario.get(this.id).value) {
+      if (item.id === this.formulario.get(this.id).value) {
+        lista.unshift(lista[indice]);
+        lista.splice(indice + 1, 1);
+        /* this.scroll.nativeElement.scrollLeft = 0 */
+        /*     this.scroll.nativeElement.scrollLeft = this.larguraTotal * indice; */
 
-        this.scroll.nativeElement.scrollLeft = 0
-        this.scroll.nativeElement.scrollLeft = this.larguraTotal * indice
+        /*     console.log( this.scroll.nativeElement.scrollLeft) */
 
-        this.scrollAtual = this.larguraTotal * indice
-     /*    this.exibirBotao(this.scrollAtual); */
+        /*      this.scrollAtual = this.larguraTotal * indice */
+
+        /*       this.scroll.nativeElement.scrollLeft = 0
+      
+              this.scroll.nativeElement.scrollLeft = this.larguraTotal * indice
+      
+              this.scrollAtual = this.larguraTotal * indice */
 
         /* this.exibirBotao(this.larguraTotal * indice) */
-/*         lista.unshift(lista[indice]);
-        lista.splice(indice + 1, 1); */
+
         return;
       }
-      
+
     });
   }
 
@@ -103,6 +140,6 @@ export class GaleriaHorizontalComponent implements AfterViewChecked {
   selecionar(idImagem: string,) {
 
     this.formulario.get(this.id).setValue(idImagem);
-    
+
   }
 }
