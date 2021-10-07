@@ -18,8 +18,10 @@
   <section #scroll [@listaHorizontalScroll]="true">
 
     <img *ngFor="let imagem of modelo.colecao.lista; index as i; first as primeiro"
-      src="{{ modelo.colecao.pasta + imagem.id + modelo.colecao.extensao }}" [ngStyle]="cssImagem"
-      [ngClass]="formulario.get(id).value == imagem.id ? 'ativo': ''" (click)="selecionar(imagem.id)">
+      src="{{ modelo.colecao.pasta + imagem.id + modelo.colecao.extensao }}"
+       [ngStyle]="cssImagem"
+      [ngClass]="formulario.get(id).value == imagem.id ? 'ativo': ''" 
+      (click)="selecionar(imagem.id)">
 
   </section>
 

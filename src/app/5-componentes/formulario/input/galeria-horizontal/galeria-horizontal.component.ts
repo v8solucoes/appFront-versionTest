@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild, OnChanges } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, OnChanges, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ModeloCampos } from 'src/app/2-dados/interface';
 import { Animacoes } from 'src/app/3-interface/animacao';
@@ -9,12 +9,14 @@ import { Animacoes } from 'src/app/3-interface/animacao';
   styleUrls: ['./galeria-horizontal.component.scss'],
   animations: [Animacoes]
 })
-export class GaleriaHorizontalComponent implements OnChanges {
+export class GaleriaHorizontalComponent implements OnChanges, OnInit {
 
   @Input() formulario: FormGroup;
   @Input() modelo: ModeloCampos;
   @Input() id: string;
   @ViewChild('scroll') scroll: ElementRef<HTMLElement>;
+
+  iniciou = true;
 
   largura = 200;
   altura = 200;
@@ -36,9 +38,21 @@ export class GaleriaHorizontalComponent implements OnChanges {
     
   }
 
-  ngOnChanges() {
-    this.abrirSelecaoAtual();
+  ngOnInit() {
+
+    setTimeout(() => {
+      this.iniciou ? this.abrirSelecaoAtual() : '';
+      this.iniciou = false;
+    }, 500);
+    
   }
+  
+  ngOnChanges() {
+
+    this.iniciou ? '' : this.abrirSelecaoAtual();
+
+  }
+
   proximo() {
     const atual = this.scroll.nativeElement.scrollLeft += Math.round(this.scroll.nativeElement.offsetWidth);
 
@@ -55,7 +69,7 @@ export class GaleriaHorizontalComponent implements OnChanges {
 
     this.formulario.get(this.id).setValue(idImagem);
 
-  } 
+  }
 
   abrirSelecaoAtual() {
 
