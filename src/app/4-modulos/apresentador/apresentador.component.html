@@ -29,6 +29,11 @@
             [disabled]="!i.data.usuario.modulo.apresentador.form.valid">
             VISUALIZAR</button>
           <button mat-raised-button color="accent" (click)="playAudio()">OUVIR</button>
+          <button mat-raised-button color="accent" (click)="i.salvar()"
+            [disabled]="i.processandoCrud.salvar">SALVAR</button>
+          <button mat-mini-fab *ngIf="i.processandoCrud.salvar">
+            <mat-spinner [diameter]="25"></mat-spinner>
+          </button>
           <!--  <button mat-raised-button color="accent" (click)="playAudio()" [disabled]="!formulario.valid">OUVIR</button> -->
 
         </div>

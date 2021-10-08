@@ -24,6 +24,7 @@ export class InterfaceService {
     update: false,
     delete: false,
     nova: false,
+    salvar: false,
   };
 
   designUser = {
@@ -187,6 +188,7 @@ export class InterfaceService {
         modulo.modelo
       );
       this.processandoCrud.nova = false;
+      this.processandoCrud.salvar = false;
     } else {
       return true;
     }
@@ -238,6 +240,35 @@ export class InterfaceService {
       horizontalPosition: 'center',
       verticalPosition: 'top',
     });
+  }
+
+
+
+  //Incluir uma variável "Processamento".
+  //Coletar valores do form group para enviar como dados. Enviar os dados. 
+  //Criar um serviço que a cada 5 segundos busca confirmação de concluído = true.
+
+  async salvar() {
+    this.processandoCrud.salvar = true;
+    const modulo = this.data.usuario.credenciais.modulo;
+    const chave = this.data.usuario.credenciais.item;
+    const formulario = this.data.usuario.modulo[modulo];
+    const dados = formulario.form.value;
+
+    try {
+      if (this.validar(formulario)) {
+
+        const data = this.data.getData('salvar', dados);
+        this.data.autenticar.router.navigateByUrl(
+          `interface/${modulo}/item/${chave}`
+        );
+        this.debug(`Salvar`, dados);
+        this.data.usuario.modulo[modulo].dados.lista[chave] = dados;
+        dados ? this.processando('salvar', 'Salvo com sucesso') : '';
+      }
+    } catch (error) { }
+
+
   }
 
   /*   get tela() {

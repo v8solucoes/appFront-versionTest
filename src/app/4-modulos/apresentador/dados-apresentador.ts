@@ -21,8 +21,11 @@ export class DadosApresentador {
     api: 'amazom',
     idioma: 'pt-BR',
     nome: 'Ricardo',
+    processamento: false,
     velocidade: 0,
     entonacao: 0,
+
+
   };
 
   validar: Validar = {
@@ -49,7 +52,7 @@ export class DadosApresentador {
         { funcao: 'nativoRequerido', valor: true },
         {
           funcao: 'popularColecaoLista',
-          origem:  ['apresentadorGaleria'],
+          origem: ['apresentadorGaleria'],
           destino: ['vozColecao'],
           colecao: ['voz'],
         }
@@ -65,19 +68,19 @@ export class DadosApresentador {
         Francisca: {
           nome: 'Francisca',
           tipo: 'pt-BR-FranciscaNeural',
-          api: 'microsoft', entonacao: 40, velocidade: 4 
+          api: 'microsoft', entonacao: 40, velocidade: 4
         },
         Antonio: {
           nome: 'Antonio',
           tipo: 'pt-BR-AntonioNeural',
-          api: 'microsoft', entonacao: 0, velocidade: 0 
+          api: 'microsoft', entonacao: 0, velocidade: 0
         },
         Daniel: {
           nome: 'Daniel',
           tipo: 'pt-BR-Daniel',
-          api: 'microsoft', entonacao: 0, velocidade: 0 
+          api: 'microsoft', entonacao: 0, velocidade: 0
         },
-        Heloisa: { nome: 'Heloisa', tipo: 'pt-BR-Heloisa', api: 'microsoft', entonacao: 0, velocidade: 0 }, 
+        Heloisa: { nome: 'Heloisa', tipo: 'pt-BR-Heloisa', api: 'microsoft', entonacao: 0, velocidade: 0 },
       },
     },
   };
@@ -135,6 +138,7 @@ export class DadosApresentador {
         { id: 'velocidade', editar: false, visualizar: true },
         { id: 'entonacao', editar: false, visualizar: true },
         { id: 'tipo', editar: false, visualizar: false },
+        { id: 'processamento', editar: false, visualizar: true },
       ],
     },
     listarTitulo: {
@@ -182,7 +186,7 @@ export class DadosApresentador {
               { id: 'apresentador02', nome: 'Apresentador 2', voz: 'Daniel' },
               { id: 'apresentador03', nome: 'Apresentador 3', voz: 'Francisca' },
               { id: 'apresentador04', nome: 'Apresentador 4', voz: 'Ricardo' },
-              { id: 'apresentador05', nome: 'Apresentador 5', voz: 'Vitoria'},
+              { id: 'apresentador05', nome: 'Apresentador 5', voz: 'Vitoria' },
             ],
             pasta: 'assets/modulo/apresentador/modelo/',
             extensao: '.png',
@@ -282,6 +286,14 @@ export class DadosApresentador {
           validarSincrono: [{ funcao: 'nativoRequerido', valor: true }],
           validarAssincrono: [],
         },
+        processamento: {
+          nome: 'Processamento',
+          tipo: 'control',
+          inputTipo: 'input',
+          requerido: false,
+          valor: [false],
+        }
+
       },
     },
     dados: {

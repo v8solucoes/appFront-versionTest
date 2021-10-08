@@ -25,6 +25,7 @@ export type Apresentador = {
   nome?: string;
   velocidade?: number;
   entonacao?: number;
+  processamento?: boolean;
   colecao?: {
     voz: { [x: string]: Pick<ColecoesCampos, 'api' | 'nome' | 'tipo' | 'velocidade' | 'entonacao'> };
   };
@@ -78,15 +79,16 @@ export type Acao =
   | 'rotaAPIclienteUsuario'
   | 'rotaAPIclienteModelo'
   | 'lista'
-  | 'item';
+  | 'item'
+  | 'salvar';
 export type nomeTodosCampos =
   | GetNomes<Revenda>
   | GetNomes<ColecoesCampos>
   | GetNomes<NewModulo>
   | GetNomes<Apresentador>;
 
-  // TIPOS MÓDULOS
-  export type VozApresentador = 'Ricardo' | 'Vitoria' | 'Francisca' | 'Antonio' | 'Daniel';
+// TIPOS MÓDULOS
+export type VozApresentador = 'Ricardo' | 'Vitoria' | 'Francisca' | 'Antonio' | 'Daniel';
 
 // CONSTRUTORES ########################
 
@@ -250,7 +252,7 @@ export interface ModeloCampos {
   tipo: 'control' | 'lista' | 'grupo' | 'grupoLista';
   nome: string | boolean | [];
   requerido: boolean;
-  valor?: string[] | number[];
+  valor?: string[] | number[] | boolean[];
   valorMinimo?: number;
   valorMaximo?: number;
   inputTipo?: 'range' | 'input' | 'texto-area' | 'select' | 'galeriaHorizontal';
@@ -284,7 +286,7 @@ export interface ColeçãoDados {
   voz?: VozApresentador;
 }
 export interface apresentadorGaleriaColecao {
-  
+
 }
 export interface Colecao {
   tipo: 'lista' | 'objeto';
