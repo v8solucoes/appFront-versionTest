@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { InterfaceService } from 'src/app/3-interface/interface.service';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { ActivatedRoute } from '@angular/router';
@@ -25,7 +25,7 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({
   templateUrl: './apresentador.component.html',
   styleUrls: ['./apresentador.component.scss'],
 })
-export class ApresentadorComponent implements OnInit {
+export class ApresentadorComponent implements OnInit, OnChanges {
   @ViewChild('audio') audio: ElementRef<HTMLAudioElement>;
 
   carregar = false;
@@ -53,6 +53,8 @@ export class ApresentadorComponent implements OnInit {
       this.i.startModulo(this.router.snapshot);
     });
     this.start();
+
+
   }
   ngOnInit() { }
 
@@ -74,7 +76,7 @@ export class ApresentadorComponent implements OnInit {
       this.atualizarDados();
       await this.baixarAudio();
       this.carregarAudio = true;
-    } catch (error) {}
+    } catch (error) { }
   }
 
   async baixarAudio() {
@@ -159,4 +161,13 @@ export class ApresentadorComponent implements OnInit {
       );
     });
   }
+
+  ngOnChanges() {
+
+
+  }
+
+
+
+
 }

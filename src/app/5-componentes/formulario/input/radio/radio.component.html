@@ -1,0 +1,5 @@
+<mat-label>{{modelo.nome}}</mat-label><br>
+<mat-radio-button [formControl]="formulario" (click)="clickTrue()" value="{{modelo.valor}}">True
+</mat-radio-button>
+<mat-radio-button [formControl]="formulario" (click)="clickFalse()" value="{{modelo.valor}}">False
+</mat-radio-button>

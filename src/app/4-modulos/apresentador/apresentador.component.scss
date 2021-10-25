@@ -1,9 +1,7 @@
-@use 'sass:math';
+@use "sass:math";
 @import "/src/sass/construtor";
 
 @import "/src/sass/formulario";
-
-
 
 nav {
   display: block;
@@ -20,14 +18,20 @@ section {
   width: 100%;
   /*     background-color: rgb(154, 151, 175); */
 }
-
+mat-spinner {
+  display: flex;
+  flex-direction: row;
+  float: left;
+  margin-top: 8px;
+  margin-right: 5px;
+  margin-left: 0px;
+}
 .formulario {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: 8px;
   width: 90%;
-  background-color: rgb(136, 136, 136);
 }
 
 .formulario > section {

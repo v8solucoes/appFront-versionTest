@@ -67,25 +67,8 @@ export type Urls = | 'revenda' | 'stream-video' | 'gravar-video' | 'new-modulo' 
 export type RotaBancoDados = | 'revenda' | 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/newModulo/lista/' | 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/apresentador/lista/';
 export type ChaveDados = | 'revendaV8dados' | 'newModuloV8rwrJsoYJbz5' | 'apresentadorV8xapweiops';
 export type ChaveModulo = GetNomes<Modulos>;
-export type Acao =
-  | 'usuario'
-  | 'delete'
-  | 'update'
-  | 'nova'
-  | 'lista'
-  | 'listarColecao'
-  | 'documento'
-  | 'rotaAPIusuario'
-  | 'rotaAPIclienteUsuario'
-  | 'rotaAPIclienteModelo'
-  | 'lista'
-  | 'item'
-  | 'salvar';
-export type nomeTodosCampos =
-  | GetNomes<Revenda>
-  | GetNomes<ColecoesCampos>
-  | GetNomes<NewModulo>
-  | GetNomes<Apresentador>;
+export type Acao = 'usuario' | 'delete' | 'update' | 'salvar' | 'nova' | 'lista' | 'listarColecao' | 'documento' | 'rotaAPIusuario' | 'rotaAPIclienteUsuario' | 'rotaAPIclienteModelo' | 'lista' | 'item';
+export type nomeTodosCampos = | GetNomes<Revenda> | GetNomes<ColecoesCampos> | GetNomes<NewModulo> | GetNomes<Apresentador>;
 
 // TIPOS MÓDULOS
 export type VozApresentador = 'Ricardo' | 'Vitoria' | 'Francisca' | 'Antonio' | 'Daniel';
@@ -255,7 +238,7 @@ export interface ModeloCampos {
   valor?: string[] | number[] | boolean[];
   valorMinimo?: number;
   valorMaximo?: number;
-  inputTipo?: 'range' | 'input' | 'texto-area' | 'select' | 'galeriaHorizontal';
+  inputTipo?: 'range' | 'input' | 'radio' | 'texto-area' | 'select' | 'galeriaHorizontal';
   cssInput?: 'fill' | 'outline';
   cssColuna?:
   | 'f-total'
@@ -321,5 +304,6 @@ export type ColecoesCampos = {
   | 'pt-BR-Heloisa';
   velocidade: number;
   entonacao: number;
-  voz: VozApresentador
+  voz: VozApresentador;
+  processamento: boolean;
 };

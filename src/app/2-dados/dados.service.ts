@@ -8,7 +8,7 @@ import { Debug } from '../5-componentes/debug';
 
 import { AutenticarService } from 'src/app/1-autenticar/autenticar.service';
 import { HttpClient } from '@angular/common/http';
-import { Usuario, Acao, RetornoServidor } from './interface';
+import { Usuario, Acao, RetornoServidor, Credenciais } from './interface';
 
 
 @Injectable({
@@ -30,7 +30,7 @@ export class DadosService {
     public http: HttpClient,
 
   ) {
-    
+
   }
 
   async usuarioCredenciais() {
@@ -48,10 +48,13 @@ export class DadosService {
     catch (error) { console.log(error); }
   }
 
-  async getData<T>(acao: Acao, dados?: any): Promise<T> {
+  async getData<T>(acao: Acao, dados?: any, credencialServico: Credenciais = null): Promise<T> {
 
     const chave = this.chaveUsuario;
-    const credenciais = this.usuario ? this.usuario.credenciais : null;
+    /*   const credenciais = this.usuario ? this.usuario.credenciais : null; */
+    const credenciais = this.usuario ? credencialServico ? credencialServico : this.usuario.credenciais : null
+    /*    
+        alert(this.usuario ? credencialServico ? credencialServico : this.usuario.credenciais : null) */
 
     return await this.http.post<RetornoServidor<T>>(`${environment.API}firebase`,
       { chave, acao, credenciais, dados })

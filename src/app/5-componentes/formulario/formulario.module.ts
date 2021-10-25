@@ -8,6 +8,7 @@ import { InputErroComponent } from 'src/app/5-componentes/formulario/input/input
 import { ListaComponent } from 'src/app/5-componentes/formulario/lista/lista.component';
 import { GaleriaHorizontalComponent } from './input/galeria-horizontal/galeria-horizontal.component';
 import { RangeComponent } from './input/range/range.component';
+import { RadioComponent } from './input/radio/radio.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { RangeComponent } from './input/range/range.component';
     InputComponent,
     InputErroComponent,
     GaleriaHorizontalComponent,
-    RangeComponent
+    RangeComponent,
+    RadioComponent
   ],
   providers: [ ]
 })

@@ -21,7 +21,6 @@ export class DadosApresentador {
     api: 'amazom',
     idioma: 'pt-BR',
     nome: 'Ricardo',
-    processamento: false,
     velocidade: 0,
     entonacao: 0,
 
@@ -292,6 +291,9 @@ export class DadosApresentador {
           inputTipo: 'input',
           requerido: false,
           valor: [false],
+
+
+
         }
 
       },
