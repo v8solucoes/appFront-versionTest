@@ -25,7 +25,7 @@
         <div class='a-total'>
 
           <button mat-raised-button color="accent"
-            (click)="caixaDialogo.apresentador('500px',formulario.get('apresentadorGaleria').value)"
+            (click)="caixaDialogo.apresentador('500px',i.data.usuario.modulo.apresentador.form.value.apresentadorGaleria)"
             [disabled]="!i.data.usuario.modulo.apresentador.form.valid">
             VISUALIZAR</button>
           <button mat-raised-button color="accent" (click)="playAudio()">OUVIR</button>
