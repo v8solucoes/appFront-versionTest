@@ -26,6 +26,19 @@ export type Apresentador = {
   velocidade?: number;
   entonacao?: number;
   processamento?: boolean;
+  cssAlinhamento?: string;
+  videoWidth?: number;
+  videoHeight?: number;
+  videoDuplo?: boolean;
+  videoPause?: boolean;
+  videoAlgoritimo?: string;
+  cssBackground?: string;
+  alinhamentoHorizontal?: number;
+  alinhamentoVertical?: number;
+  corTolerancia?: number;
+  corTransparencia?: number;
+  corReferencia?: string;
+  corRgb?: string;
   colecao?: {
     voz: { [x: string]: Pick<ColecoesCampos, 'api' | 'nome' | 'tipo' | 'velocidade' | 'entonacao'> };
   };
@@ -73,6 +86,7 @@ export type nomeTodosCampos = | GetNomes<Revenda> | GetNomes<ColecoesCampos> | G
 // TIPOS MÓDULOS
 export type VozApresentador = 'Ricardo' | 'Vitoria' | 'Francisca' | 'Antonio' | 'Daniel';
 
+
 // CONSTRUTORES ########################
 
 // Modulos
@@ -118,7 +132,8 @@ export type FuncoesSincronas =
   | 'nativoRequeridoTrue'
   | 'nativoRequerido'
   | 'nativoTextoMaximo'
-  | 'nativoTextoMinimo';
+  | 'nativoTextoMinimo'
+  | 'converterRgb';
 
 export type MenuPrincipal = Menu[];
 export type Permissao = { [K in keyof Modulos]?: GetPermissao<Modulos[K]> };
@@ -238,7 +253,7 @@ export interface ModeloCampos {
   valor?: string[] | number[] | boolean[];
   valorMinimo?: number;
   valorMaximo?: number;
-  inputTipo?: 'range' | 'input' | 'radio' | 'texto-area' | 'select' | 'galeriaHorizontal';
+  inputTipo?: 'range' | 'input' | 'radio' | 'texto-area' | 'select' | 'galeriaHorizontal' | 'color';
   cssInput?: 'fill' | 'outline';
   cssColuna?:
   | 'f-total'
@@ -306,4 +321,18 @@ export type ColecoesCampos = {
   entonacao: number;
   voz: VozApresentador;
   processamento: boolean;
+  cssAlinhamento: string;
+  videoWidth: number;
+  videoHeight: number;
+  videoDuplo: boolean;
+  videoPause: boolean;
+  videoAlgoritimo: string;
+  cssBackground: string;
+  alinhamentoHorizontal: number;
+  alinhamentoVertical: number;
+  corTolerancia: number;
+  corTransparencia: number;
+  corReferencia: string;
+  corRgb: string;
+
 };

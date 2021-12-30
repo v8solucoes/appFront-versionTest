@@ -20,6 +20,7 @@ export class InputComponent implements OnInit {
 
   ngOnInit() {
 
+
   }
   ola() {
     alert('oi');

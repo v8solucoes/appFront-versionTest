@@ -9,6 +9,8 @@ import { ListaComponent } from 'src/app/5-componentes/formulario/lista/lista.com
 import { GaleriaHorizontalComponent } from './input/galeria-horizontal/galeria-horizontal.component';
 import { RangeComponent } from './input/range/range.component';
 import { RadioComponent } from './input/radio/radio.component';
+import { ColorInputComponent } from './input/color-input/color-input.component';
+import { ConverterRgbPipe } from './input/converter-rgb.pipe';
 
 @NgModule({
   imports: [
@@ -31,8 +33,10 @@ import { RadioComponent } from './input/radio/radio.component';
     InputErroComponent,
     GaleriaHorizontalComponent,
     RangeComponent,
-    RadioComponent
+    RadioComponent,
+    ColorInputComponent,
+    ConverterRgbPipe
   ],
-  providers: [ ]
+  providers: []
 })
 export class FormularioModule { }

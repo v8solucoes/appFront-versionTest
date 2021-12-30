@@ -1,9 +1,11 @@
+
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Debug } from 'src/app/5-componentes/debug';
 import { GetPermissao, DadosFuncao, GetModelo, ValidarSincrono, ModeloCampos } from 'src/app/2-dados/interface';
 
 export class CriarForm {
+
 
   static grupo(campos: GetPermissao<any>, modelo: any, dados?: any): FormGroup {
 
@@ -74,10 +76,11 @@ export class Funcao {
       case 'nativoTextoMinimo': return Validators.minLength(dados.valor);
       case 'nativoTextoMaximo': return Validators.maxLength(dados.valor);
       case 'popularCampo': return Funcao.validar(Funcao.popular, dados, modelo, id);
+      case 'converterRgb': return Funcao.validar(Funcao.converteRgb, dados, modelo, id);
       case 'popularColecaoObjeto': return Funcao.validar(Funcao.popularObjeto, dados, modelo, id);
       case 'popularColecaoLista': return Funcao.validar(Funcao.popularLista, dados, modelo, id);
 
-      default: alert('Função Sincrona com no nome: >> ' + dados.funcao + ' << não existe!'); return null;
+      default: alert('Função Sincrona com o nome: >> ' + dados.funcao + ' << não existe!'); return null;
     }
   }
 
@@ -96,6 +99,54 @@ export class Funcao {
     };
   }
 
+
+  static converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any) {
+    // Acessar Campo
+    const tipo = modelo.tipo
+
+    console.log(controle.get(dados.destino));
+
+    // if (controle || controle.controls) {
+    //   alert('sdo')
+    //   if (controle.get(dados.destino[0]) != null) {
+    //     alert('segundo if')
+    // Aplicar Filtro
+    function filtro(value: String) {
+      var hex = value;
+      var red = parseInt(hex[1] + hex[2], 16);
+      var green = parseInt(hex[3] + hex[4], 16);
+      var blue = parseInt(hex[5] + hex[6], 16);
+      return `{r:${red},g:${green},b:${blue}}`;
+    }
+
+    // Salvar no Destino
+    controle.get(dados.destino).setValue(filtro(controle.get(dados.origem).value));
+
+    //   }
+
+    // }
+    return null;
+
+  }
+
+
+
+  // if (controle.get(dados.destino[0]) != null && controle.get(dados.origem[0]).pristine !== true) {
+
+  //   dados.origem.forEach((origem, index) => {
+
+  //     function transformColor(value: string) {
+  //       var hex = value;
+  //       var red = parseInt(hex[1] + hex[2], 16);
+  //       var green = parseInt(hex[3] + hex[4], 16);
+  //       var blue = parseInt(hex[5] + hex[6], 16);
+  //       return `{r:${red},g:${green},b:${blue}}`;
+  //     }
+  //     controle.get(dados.destino[index]).setValue(transformColor(controle.get(origem).value));
+  //   });
+  // }
+
+
   static popular(controle: FormGroup, dados: ValidarSincrono) {
 
     if (controle.get(dados.destino[0]) != null && controle.get(dados.origem[0]).pristine !== true) {
@@ -107,6 +158,20 @@ export class Funcao {
       });
     }
   }
+  static popularControl(controle: FormGroup, dados: ValidarSincrono) {
+
+    if (controle.get(dados.destino[0]) != null && controle.get(dados.origem[0]).pristine !== true) {
+
+      dados.origem.forEach((origem, index) => {
+
+        return controle.get(dados.destino[index]).setValue(controle.get(origem).value);
+
+
+      });
+    }
+  }
+
+
 
   static popularObjeto(controle: FormGroup, dados: ValidarSincrono, modelo?: ModeloCampos) {
 
@@ -166,6 +231,8 @@ export class Funcao {
 
     return validar;
   }
+
+
 
   /*     static testeAssincrono(control, dadosFuncao: DadosFuncao[]): Observable<{ [s: string]: boolean }> {
 
