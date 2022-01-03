@@ -20,10 +20,14 @@
         </app-input>
         <app-range *ngSwitchCase="'range'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
         </app-range>
+        <app-radio *ngSwitchCase="'radio'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
+        </app-radio>
         <app-input *ngSwitchCase="'texto-area'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
         </app-input>
         <app-input *ngSwitchCase="'select'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
         </app-input>
+        <app-color-input *ngSwitchCase="'color'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
+        </app-color-input>
 
       </ng-container>
 

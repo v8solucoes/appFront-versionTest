@@ -1,6 +1,5 @@
-import { Component, ElementRef, Input, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, OnChanges, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { ModeloCampos } from 'src/app/2-dados/interface';
 import { Animacoes } from 'src/app/3-interface/animacao';
 
@@ -10,12 +9,14 @@ import { Animacoes } from 'src/app/3-interface/animacao';
   styleUrls: ['./galeria-horizontal.component.scss'],
   animations: [Animacoes]
 })
-export class GaleriaHorizontalComponent implements AfterViewChecked {
+export class GaleriaHorizontalComponent implements OnChanges, OnInit {
 
   @Input() formulario: FormGroup;
   @Input() modelo: ModeloCampos;
   @Input() id: string;
   @ViewChild('scroll') scroll: ElementRef<HTMLElement>;
+
+  iniciou = true;
 
   largura = 200;
   altura = 200;
@@ -32,57 +33,62 @@ export class GaleriaHorizontalComponent implements AfterViewChecked {
 
   exibirProximo = false;
   exibirAnterior = false;
-  numero = 1
-  scrollAtual: number;
 
-  constructor( public router: ActivatedRoute) {
-    this.router.params.subscribe((o) => {
-      
-      if( this.id != undefined) {
-        this.abrirSelecaoAtual()
-      }
-     
-    });
+  constructor() {
+    
   }
-   
-  ngAfterViewChecked() {
 
-    this.abrirSelecaoAtual();
+  ngOnInit() {
+
+    setTimeout(() => {
+      this.iniciou ? this.abrirSelecaoAtual() : '';
+      this.iniciou = false;
+    }, 500);
+    
+  }
+  
+  ngOnChanges() {
+
+    this.iniciou ? '' : this.abrirSelecaoAtual();
+
   }
 
   proximo() {
+    const atual = this.scroll.nativeElement.scrollLeft += Math.round(this.scroll.nativeElement.offsetWidth);
 
-    const atual = this.scroll.nativeElement.scrollLeft += this.scrollAtual + Math.round(this.scroll.nativeElement.offsetWidth);
     this.exibirBotao(atual);
-
   }
 
   anterior() {
-    const atual = this.scroll.nativeElement.scrollLeft -= this.scrollAtual - Math.round(this.scroll.nativeElement.offsetWidth);
+    const atual = this.scroll.nativeElement.scrollLeft -= Math.round(this.scroll.nativeElement.offsetWidth);
+
     this.exibirBotao(atual);
   }
 
+  selecionar(idImagem: string) {
+
+    this.formulario.get(this.id).setValue(idImagem);
+
+  }
 
   abrirSelecaoAtual() {
 
+    console.log('abrir seleção')
+  
     const lista = this.modelo.colecao.lista;
-
+    this.scroll.nativeElement.scrollLeft = 0;
     lista.forEach((item, indice) => {
+      this.scroll.nativeElement.scrollLeft = 0
+      if (item.id === this.formulario.get(this.id).value) {
 
-      if ( item.id === this.formulario.get(this.id).value) {
+        lista.unshift(lista[indice]);
+        lista.splice(indice + 1, 1);
+        this.exibirBotao(0);
 
-        this.scroll.nativeElement.scrollLeft = 0
-        this.scroll.nativeElement.scrollLeft = this.larguraTotal * indice
-
-        this.scrollAtual = this.larguraTotal * indice
-     /*    this.exibirBotao(this.scrollAtual); */
-
-        /* this.exibirBotao(this.larguraTotal * indice) */
-/*         lista.unshift(lista[indice]);
-        lista.splice(indice + 1, 1); */
         return;
+
       }
-      
+
     });
   }
 
@@ -90,19 +96,14 @@ export class GaleriaHorizontalComponent implements AfterViewChecked {
     this.exibirAnterior = atual > 1 ? false : true;
     this.exibirProximo = atual < this.calcular() ? false : true;
   }
-
   calcular() {
 
     const totalLista = this.modelo.colecao.lista.length;
     const imagemLargura = this.larguraTotal;
     const janelaVisivel = Math.round(this.scroll.nativeElement.offsetWidth);
-    const tamanhoScrooll = totalLista * imagemLargura - janelaVisivel;
+    const tamanhoScroll = totalLista * imagemLargura - janelaVisivel;
 
-    return tamanhoScrooll;
+    return tamanhoScroll;
   }
-  selecionar(idImagem: string,) {
 
-    this.formulario.get(this.id).setValue(idImagem);
-    
-  }
 }

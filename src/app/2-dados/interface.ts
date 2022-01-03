@@ -25,6 +25,20 @@ export type Apresentador = {
   nome?: string;
   velocidade?: number;
   entonacao?: number;
+  processamento?: boolean;
+  cssAlinhamento?: string;
+  videoWidth?: number;
+  videoHeight?: number;
+  videoDuplo?: boolean;
+  videoPause?: boolean;
+  videoAlgoritimo?: string;
+  cssBackground?: string;
+  alinhamentoHorizontal?: number;
+  alinhamentoVertical?: number;
+  corTolerancia?: number;
+  corTransparencia?: number;
+  corReferencia?: string;
+  corRgb?: string;
   colecao?: {
     voz: { [x: string]: Pick<ColecoesCampos, 'api' | 'nome' | 'tipo' | 'velocidade' | 'entonacao'> };
   };
@@ -66,27 +80,12 @@ export type Urls = | 'revenda' | 'stream-video' | 'gravar-video' | 'new-modulo' 
 export type RotaBancoDados = | 'revenda' | 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/newModulo/lista/' | 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/apresentador/lista/';
 export type ChaveDados = | 'revendaV8dados' | 'newModuloV8rwrJsoYJbz5' | 'apresentadorV8xapweiops';
 export type ChaveModulo = GetNomes<Modulos>;
-export type Acao =
-  | 'usuario'
-  | 'delete'
-  | 'update'
-  | 'nova'
-  | 'lista'
-  | 'listarColecao'
-  | 'documento'
-  | 'rotaAPIusuario'
-  | 'rotaAPIclienteUsuario'
-  | 'rotaAPIclienteModelo'
-  | 'lista'
-  | 'item';
-export type nomeTodosCampos =
-  | GetNomes<Revenda>
-  | GetNomes<ColecoesCampos>
-  | GetNomes<NewModulo>
-  | GetNomes<Apresentador>;
+export type Acao = 'usuario' | 'delete' | 'update' | 'salvar' | 'nova' | 'lista' | 'listarColecao' | 'documento' | 'rotaAPIusuario' | 'rotaAPIclienteUsuario' | 'rotaAPIclienteModelo' | 'lista' | 'item';
+export type nomeTodosCampos = | GetNomes<Revenda> | GetNomes<ColecoesCampos> | GetNomes<NewModulo> | GetNomes<Apresentador>;
 
-  // TIPOS MÓDULOS
-  export type VozApresentador = 'Ricardo' | 'Vitoria' | 'Francisca' | 'Antonio' | 'Daniel';
+// TIPOS MÓDULOS
+export type VozApresentador = 'Ricardo' | 'Vitoria' | 'Francisca' | 'Antonio' | 'Daniel';
+
 
 // CONSTRUTORES ########################
 
@@ -133,7 +132,8 @@ export type FuncoesSincronas =
   | 'nativoRequeridoTrue'
   | 'nativoRequerido'
   | 'nativoTextoMaximo'
-  | 'nativoTextoMinimo';
+  | 'nativoTextoMinimo'
+  | 'converterRgb';
 
 export type MenuPrincipal = Menu[];
 export type Permissao = { [K in keyof Modulos]?: GetPermissao<Modulos[K]> };
@@ -250,10 +250,10 @@ export interface ModeloCampos {
   tipo: 'control' | 'lista' | 'grupo' | 'grupoLista';
   nome: string | boolean | [];
   requerido: boolean;
-  valor?: string[] | number[];
+  valor?: string[] | number[] | boolean[];
   valorMinimo?: number;
   valorMaximo?: number;
-  inputTipo?: 'range' | 'input' | 'texto-area' | 'select' | 'galeriaHorizontal';
+  inputTipo?: 'range' | 'input' | 'radio' | 'texto-area' | 'select' | 'galeriaHorizontal' | 'color';
   cssInput?: 'fill' | 'outline';
   cssColuna?:
   | 'f-total'
@@ -284,7 +284,7 @@ export interface ColeçãoDados {
   voz?: VozApresentador;
 }
 export interface apresentadorGaleriaColecao {
-  
+
 }
 export interface Colecao {
   tipo: 'lista' | 'objeto';
@@ -319,5 +319,20 @@ export type ColecoesCampos = {
   | 'pt-BR-Heloisa';
   velocidade: number;
   entonacao: number;
-  voz: VozApresentador
+  voz: VozApresentador;
+  processamento: boolean;
+  cssAlinhamento: string;
+  videoWidth: number;
+  videoHeight: number;
+  videoDuplo: boolean;
+  videoPause: boolean;
+  videoAlgoritimo: string;
+  cssBackground: string;
+  alinhamentoHorizontal: number;
+  alinhamentoVertical: number;
+  corTolerancia: number;
+  corTransparencia: number;
+  corReferencia: string;
+  corRgb: string;
+
 };

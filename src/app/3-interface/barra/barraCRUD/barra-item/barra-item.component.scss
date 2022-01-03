@@ -10,12 +10,22 @@ section {
 }
 button {
   margin: 0px;
-  padding: 0px;
+  padding: 0px 8px;
   margin-right: 8px;
   /* margin-left: 8px; */
 }
 
+mat-spinner {
+  display: flex;
+  flex-direction: row;
+  float: left;
+  margin-top: 8px;
+  margin-right: 5px;
+  margin-left: 0px;
+}
+
 #titulo {
+  width: 230px;
   line-height: 150%;
   padding-left: 16px;
   padding-right: 8px;

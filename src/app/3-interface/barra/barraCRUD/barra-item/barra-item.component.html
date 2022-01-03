@@ -8,10 +8,13 @@
   <div id="titulo"> {{ i.data.usuario?.modulo[i.data.usuario.credenciais.modulo].dados.item?.nome }} </div>
 
 
-  <button mat-raised-button (click)="i.delete()" [disabled]="i.processandoCrud.delete"> Delete </button>
-  <button mat-mini-fab *ngIf="i.processandoCrud.delete">
-    <mat-spinner [diameter]="25"></mat-spinner>
+  <button mat-raised-button (click)="i.delete()" [disabled]="i.processandoCrud.delete">
+    <span *ngIf="!i.processandoCrud.delete">Delete</span>
+    <span *ngIf="i.processandoCrud.delete">
+      <mat-spinner [diameter]="20"></mat-spinner>Deletando...
+    </span>
   </button>
+
 
 
 
