@@ -6,7 +6,7 @@
 
   <section [ngSwitch]="i.data.usuario.credenciais.acao">
 
-    <section *ngSwitchCase="'nova'">
+    <section *ngSwitchCase="i.data.const.acao.itemNovo">
       <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario>
     </section>
     <section *ngSwitchCase="'item'">

@@ -9,6 +9,7 @@ import { Debug } from '../5-componentes/debug';
 import { AutenticarService } from 'src/app/1-autenticar/autenticar.service';
 import { HttpClient } from '@angular/common/http';
 import { Usuario, Acao, RetornoServidor, Credenciais } from './interface';
+import { acao } from '../../../../interface/modulos/variaveis';
 
 
 @Injectable({
@@ -17,6 +18,7 @@ import { Usuario, Acao, RetornoServidor, Credenciais } from './interface';
 export class DadosService {
 
   readonly API = `${environment.API}api/documento`;
+  const = {acao}
   usuario: Usuario = null;
   chaveCliente: string;
   chaveUsuario: any;
@@ -28,6 +30,7 @@ export class DadosService {
     public auth: AngularFireAuth,
     public fire: AngularFirestore,
     public http: HttpClient,
+    
 
   ) {
 
@@ -56,7 +59,28 @@ export class DadosService {
     /*    
         alert(this.usuario ? credencialServico ? credencialServico : this.usuario.credenciais : null) */
 
-    return await this.http.post<RetornoServidor<T>>(`${environment.API}firebase`,
+    return await this.http.post<RetornoServidor<T>>(`${environment.API}`,
+      { chave, acao, credenciais, dados })
+      .toPromise().then(data => {
+        if (data.existe) {
+          return data.data;
+        } else {
+          const mensagem = 'Erro Servidor: ' + data.error + data.mensagem;
+          alert(mensagem); console.log(mensagem);
+          return;
+        }
+      }
+      );
+  }
+  async getDataUniversal<T>(acao: Acao, dados?: any, credencialServico: Credenciais = null): Promise<T> {
+
+    const chave = this.chaveUsuario;
+    /*   const credenciais = this.usuario ? this.usuario.credenciais : null; */
+    const credenciais = this.usuario ? credencialServico ? credencialServico : this.usuario.credenciais : null
+    /*    
+        alert(this.usuario ? credencialServico ? credencialServico : this.usuario.credenciais : null) */
+
+    return await this.http.post<RetornoServidor<T>>(`https://testeuniversal.web.app/apresentador/meuApresentador.js`,
       { chave, acao, credenciais, dados })
       .toPromise().then(data => {
         if (data.existe) {

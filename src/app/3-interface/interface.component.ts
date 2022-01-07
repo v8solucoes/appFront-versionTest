@@ -55,7 +55,10 @@ export class InterfaceComponent implements OnInit {
     this.iniciarInterface();
    
   }
-
+conexaoUniversal() {
+  alert('conexão')
+/* this.i.data.getData('item') */
+}
   iniciarInterface() {
     this.inscricaoEventos();
     this.iniciarTema();

@@ -1,5 +1,3 @@
-import { __values } from 'tslib';
-import { Dados } from './../2-dados/interface';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -14,14 +12,10 @@ import { CaixaDialogoService } from '../5-componentes/caixa-dialogo/caixa-dialog
 import { Acao } from '../2-dados/interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-
-
 @Injectable({
   providedIn: 'root',
 })
-
 export class InterfaceService {
-
   eventoEmitter = new EventEmitter<'menuEsquerdo' | 'menuDireito'>();
 
   carregarModulo = false;
@@ -31,8 +25,6 @@ export class InterfaceService {
     salvar: false,
     delete: false,
     nova: false,
-
-
   };
 
   designUser = {
@@ -54,7 +46,6 @@ export class InterfaceService {
     animaItem: true,
   };
 
-
   debug = (pro: any, valor: any) => new Debug('ativo', 'InterServ', pro, valor);
 
   constructor(
@@ -63,7 +54,6 @@ export class InterfaceService {
     private http: HttpClient,
     private _snackBar: MatSnackBar
   ) {
-
     this.start();
   }
   async start() {
@@ -71,7 +61,7 @@ export class InterfaceService {
       await this.data.usuarioCredenciais();
       await this.startModulo();
       this.carregarModulo = true;
-    } catch (error) { }
+    } catch (error) {}
   }
 
   async startModulo(url?: ActivatedRouteSnapshot) {
@@ -84,20 +74,20 @@ export class InterfaceService {
     const modulo = this.data.usuario.modulo[rota.modulo];
 
     const form = () =>
-
       CriarForm.grupo(modulo.permissao, modulo.modelo, modulo.dados.item);
 
     credenciais.chaveDados = modulo.modelo.modulo.chaveDados;
     credenciais.nomeModulo = modulo.modelo.modulo.nome;
     credenciais.modulo = modulo.modelo.modulo.chaveModulo;
-    credenciais.moduloUrl = rota.moduloUrl
+    credenciais.moduloUrl = rota.moduloUrl;
     credenciais.acao = rota.acao;
     credenciais.item = rota.item;
 
     try {
-      if (rota.acao === 'nova') {
+      if (rota.acao === 'itemNovo') {
         modulo.dados.item = null;
         modulo.form = form();
+        /* alert(rota.acao) */
       }
       if (rota.acao === 'item') {
         modulo.dados.item = await this.data.getData('item');
@@ -135,65 +125,59 @@ export class InterfaceService {
     this.processandoCrud.nova = true;
 
     const modulo = this.data.usuario.credenciais.modulo;
+    const moduloUrl = this.data.usuario.credenciais.moduloUrl;
     const formulario = this.data.usuario.modulo[modulo];
     const dados = formulario.form.value;
 
     try {
       if (this.validar(formulario)) {
         const chave = await this.data.getData('nova', dados);
-        this.data.autenticar.router.navigateByUrl(`interface/${modulo}/item/${chave}`);
+        this.data.autenticar.router.navigateByUrl(
+          `interface/${moduloUrl}/item/${chave}`
+        );
         this.data.usuario.modulo[modulo].dados.lista = { chave: dados };
         this.debug(`Novo`, chave);
         dados ? this.processando('nova', 'Criado com Sucesso') : '';
       }
-    } catch (error) { }
+    } catch (error) {}
   }
 
-
   getProcessamento(): Promise<any> {
-    const credenciais = this.fila[0]
+    const credenciais = this.fila[0];
     const modulo = credenciais.modulo;
     const chave = credenciais.item;
 
     return this.contarTempo(5000).then(() => {
-
       return this.data.getData('item', null, credenciais).then((dados: any) => {
         this.data.usuario.modulo[modulo].dados.lista[chave] = dados;
 
         if (dados.processamento == false) {
           this.data.usuario.modulo[modulo].form.value.processamento = false;
-          console.log(dados.processamento)
+          console.log(dados.processamento);
         }
-        console.log(dados.processamento)
+        console.log(dados.processamento);
 
         return dados.processamento;
-
-      }
-      )
-
+      });
     });
   }
 
-
   contarTempo(tempo: number) {
-    return new Promise(resolve => setTimeout(resolve, tempo)
-    )
+    return new Promise((resolve) => setTimeout(resolve, tempo));
   }
 
-
-  fila = []
+  fila = [];
 
   criarServico(): boolean | 'processando' {
     // id, modulo
 
-    this.fila.push(this.data.usuario.credenciais)
-    console.log(this.fila)
-    return
+    this.fila.push(this.data.usuario.credenciais);
+    console.log(this.fila);
+    return;
   }
 
   async salvarDadosServico() {
-
-    const credenciais = this.fila[0]
+    const credenciais = this.fila[0];
     this.processandoCrud.salvar = true;
     const modulo = credenciais.modulo;
     const chave = credenciais.item;
@@ -206,58 +190,54 @@ export class InterfaceService {
         this.debug(`Servico`, data);
         this.data.usuario.modulo[modulo].dados.lista[chave] = dados;
 
-        return console.log('Salvou o Serviço Dados')
+        return console.log('Salvou o Serviço Dados');
       }
-    } catch (error) { }
-
-
+    } catch (error) {}
   }
 
-
-  async salvarProcessamento(salvar: boolean | 'processando' | 'salvarFila' | 'salvarDados') {
-
+  async salvarProcessamento(
+    salvar: boolean | 'processando' | 'salvarFila' | 'salvarDados'
+  ) {
     switch (salvar) {
-
-
       case 'salvarFila':
-        this.data.usuario.modulo[this.data.usuario.credenciais.modulo].form.value.processamento = true;
-        this.criarServico()
-        this.salvarProcessamento('salvarDados')
-        this.debug('Fila', this.fila)
+        this.data.usuario.modulo[
+          this.data.usuario.credenciais.modulo
+        ].form.value.processamento = true;
+        this.criarServico();
+        this.salvarProcessamento('salvarDados');
+        this.debug('Fila', this.fila);
         break;
 
       case 'salvarDados':
-        await this.salvarDadosServico()
-        this.salvarProcessamento('processando')
-        this.debug('FilaSalvou', this.fila)
+        await this.salvarDadosServico();
+        this.salvarProcessamento('processando');
+        this.debug('FilaSalvou', this.fila);
         break;
 
       case 'processando':
-
-
         if (this.fila[0] == undefined) {
-          this.salvarProcessamento(false)
+          this.salvarProcessamento(false);
         } else {
           const status = await this.getProcessamento();
           status ? 'processando' : this.fila.shift();
-          this.salvarProcessamento(status ? 'processando' : false)
+          this.salvarProcessamento(status ? 'processando' : false);
         }
-        this.debug('processando Status', status)
-        this.debug('processando ', this.fila)
+        this.debug('processando Status', status);
+        this.debug('processando ', this.fila);
 
         break;
 
       case false:
-        this.debug('Finalizado', this.fila)
-        this.processando('salvar', 'Salvo com sucesso')
+        this.debug('Finalizado', this.fila);
+        this.processando('salvar', 'Salvo com sucesso');
         break;
     }
   }
 
-
   async salvar() {
     this.processandoCrud.salvar = true;
     const modulo = this.data.usuario.credenciais.modulo;
+    const moduloUrl = this.data.usuario.credenciais.moduloUrl;
     const chave = this.data.usuario.credenciais.item;
     const formulario = this.data.usuario.modulo[modulo];
     const dados = formulario.form.value;
@@ -265,20 +245,21 @@ export class InterfaceService {
     try {
       if (this.validar(formulario)) {
         const data = await this.data.getData('update', dados);
-        this.data.autenticar.router.navigateByUrl(`interface/${modulo}/item/${chave}`);
+        this.data.autenticar.router.navigateByUrl(
+          `interface/${moduloUrl}/item/${chave}`
+        );
         this.debug(`Salvar`, dados);
         this.data.usuario.modulo[modulo].dados.lista[chave] = dados;
         // dados ? this.processando('update', 'Editado com sucesso') : '';
         this.salvarProcessamento('processando');
       }
-    } catch (error) { }
+    } catch (error) {}
   }
-
-
 
   async update() {
     this.processandoCrud.update = true;
     const modulo = this.data.usuario.credenciais.modulo;
+    const moduloUrl = this.data.usuario.credenciais.moduloUrl;
     const chave = this.data.usuario.credenciais.item;
     const formulario = this.data.usuario.modulo[modulo];
     const dados = formulario.form.value;
@@ -286,17 +267,20 @@ export class InterfaceService {
     try {
       if (this.validar(formulario)) {
         const data = await this.data.getData('update', dados);
-        this.data.autenticar.router.navigateByUrl(`interface/${modulo}/item/${chave}`);
+        this.data.autenticar.router.navigateByUrl(
+          `interface/${moduloUrl}/item/${chave}`
+        );
         this.debug(`update`, dados);
         this.data.usuario.modulo[modulo].dados.lista[chave] = dados;
         // dados ? this.processando('update', 'Editado com sucesso') : '';
       }
-    } catch (error) { }
+    } catch (error) {}
   }
 
   async delete() {
     this.processandoCrud.delete = true;
     const modulo = this.data.usuario.credenciais.modulo;
+    const moduloUrl = this.data.usuario.credenciais.moduloUrl;
     const chave = this.data.usuario.credenciais.item;
     const formulario = this.data.usuario.modulo[modulo];
     const dados = formulario.form.value;
@@ -305,12 +289,12 @@ export class InterfaceService {
       if (this.validar(formulario)) {
         console.log('Deletado com Sucesso');
         const data = await this.data.getData('delete', dados);
-        this.data.autenticar.router.navigateByUrl(`interface/${modulo}/lista/`);
+        this.data.autenticar.router.navigateByUrl(`interface/${moduloUrl}/lista/`);
         this.debug(`delete`, dados);
         this.data.usuario.modulo[modulo].dados.lista[chave] = dados;
         dados ? this.processando('delete', 'Deletado com Sucesso') : '';
       }
-    } catch (error) { }
+    } catch (error) {}
   }
 
   validar(modulo) {
@@ -321,7 +305,6 @@ export class InterfaceService {
         modulo.modelo
       );
       this.processandoCrud.nova = false;
-
     } else {
       return true;
     }
@@ -367,8 +350,6 @@ export class InterfaceService {
     }, 3000);
   }
 
-
-
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 5000,
@@ -376,7 +357,6 @@ export class InterfaceService {
       verticalPosition: 'top',
     });
   }
-
 
   /*   get tela() {
  

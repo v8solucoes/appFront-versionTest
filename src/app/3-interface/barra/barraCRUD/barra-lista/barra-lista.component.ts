@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicoCredenciaisAcao } from '../../../../../../../interface/servicoCredenciais';
 import { InterfaceService } from '../../../interface.service';
 
 @Component({
@@ -11,6 +12,9 @@ export class BarraListaComponent implements OnInit {
   constructor(
     public i: InterfaceService,
   ) { }
+
+  acao: ServicoCredenciaisAcao = 'itemNovo'
+  
   ngOnInit() {
 
   }

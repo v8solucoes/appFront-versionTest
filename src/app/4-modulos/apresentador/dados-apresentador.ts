@@ -1,8 +1,3 @@
-// import { Funcao } from './../../5-componentes/formulario/contrutor/criar-form';
-
-// import { Input } from '@angular/core';
-// import { Colecao } from './../../2-dados/interface';
-import { NgModuleFactoryLoader } from '@angular/core';
 import {
   Apresentador,
   Chaves,
@@ -20,7 +15,7 @@ export class DadosApresentador {
   documento: Apresentador = {
     apresentadorGaleria: 'apresentador02',
     vozColecao: 'Ricardo',
-    /*     sugestao: 'Gostaria de Vender Mais', */
+    sugestao: 'Gostaria de Vender Mais',
     texto: 'Olá meu nome é Emerson Felix',
     api: 'amazom',
     idioma: 'pt-BR',
@@ -29,8 +24,6 @@ export class DadosApresentador {
     entonacao: 0,
     videoWidth: 364,
     videoHeight: 680,
-
-
   };
 
   validar: Validar = {
@@ -393,28 +386,28 @@ export class DadosApresentador {
 
         },
         cssBackground: {
-          nome: 'cssBackground',
+          nome: 'css Background',
           tipo: 'control',
           inputTipo: 'input',
           requerido: false,
           valor: [null]
         },
         alinhamentoHorizontal: {
-          nome: 'alinhamentoHorizontal',
+          nome: 'alinhamento Horizontal',
           tipo: 'control',
           inputTipo: 'input',
           requerido: false,
           valor: [100],
         },
         alinhamentoVertical: {
-          nome: 'alinhamentoVertical',
+          nome: 'Alinhamento Vertical',
           tipo: 'control',
           inputTipo: 'input',
           requerido: false,
           valor: [100],
         },
         corTolerancia: {
-          nome: 'corTolerancia',
+          nome: 'Cor Tolerancia',
           tipo: 'control',
           inputTipo: 'range',
           cssColuna: 'f-metade-direita',
@@ -422,7 +415,7 @@ export class DadosApresentador {
           valor: [100],
         },
         corTransparencia: {
-          nome: 'corTransparencia',
+          nome: 'Cor Transparencia',
           tipo: 'control',
           inputTipo: 'range',
           cssColuna: 'f-metade-esquerda',
@@ -447,12 +440,6 @@ export class DadosApresentador {
           valor: [null]
 
         }
-
-
-
-
-
-
 
       },
     },

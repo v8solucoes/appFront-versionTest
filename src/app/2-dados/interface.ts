@@ -1,4 +1,5 @@
 import { FormGroup } from '@angular/forms';
+import { ServicoCredenciaisAcao } from '../../../../interface/servicoCredenciais';
 
 // Modulos Pai
 export interface Modulos {
@@ -195,18 +196,18 @@ export interface Credenciais {
   moduloUrl: Urls;
   modulo: ChaveModulo;
   item?: string;
-  acao?: Acao;
+  acao?: ServicoCredenciaisAcao | Acao;
 }
 
 export interface Chaves {
   nome: NomeModulo;
   rotaBancoDados: RotaBancoDados;
   chaveModulo: ChaveModulo;
-  acao?: Acao;
+  acao?: ServicoCredenciaisAcao | Acao;
 }
 
 export interface Rotas {
-  acao: Acao;
+  acao: ServicoCredenciaisAcao | Acao;
   modulo: ChaveModulo;
   moduloUrl: Urls;
   item: string;
@@ -233,7 +234,7 @@ export interface Menu {
   moduloNome: string;
   url: Urls;
   tipo: 'control' | 'colecao' | 'colecaoGaveta';
-  acao: Acao;
+  acao: ServicoCredenciaisAcao |Acao;
   item: string;
   icone: string | boolean | 'folder';
   grupo?: Menu[];
