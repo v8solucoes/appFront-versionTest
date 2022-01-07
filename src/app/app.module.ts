@@ -1,3 +1,4 @@
+import { DadosService } from './2-dados/dados.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,35 +17,38 @@ import { InterfaceModule } from './3-interface/interface.module';
 import { ApresentadorModule } from './4-modulos/apresentador/apresentador.module';
 
 import { AppComponent } from './app.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
 
-   imports: [
-      BrowserModule,
-      RouterModule,
-      AppRoutingModule,
-      AngularFireModule.initializeApp(environment.firebaseConfig),
-      BrowserAnimationsModule,
-      HttpClientModule,
-      AutenticarModule,
-      InterfaceModule,
-      ApresentadorModule,
-      MatDialogModule
-   ],
+  imports: [
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AutenticarModule,
+    InterfaceModule,
+    ApresentadorModule,
+    MatDialogModule
+  ],
 
-   declarations: [
-      AppComponent
-   ],
+  declarations: [
+    AppComponent
+  ],
 
-   exports: [
-      AppComponent
-   ],
+  exports: [
+    AppComponent
+  ],
 
-   providers: [AutenticarService],
+  providers: [
+    AutenticarService,
+    DadosService
+  ],
 
-   bootstrap: [
-      AppComponent
-   ]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

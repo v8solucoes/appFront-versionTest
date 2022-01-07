@@ -1,6 +1,29 @@
 <mat-dialog-content>
 
-  <video *ngIf="ecluirSessao" #video width="320px" controls crossorigin="anonymous"
+  <ng-container *ngFor="let campo of novaPermissao; index as i;">
+
+
+    <ng-container *ngIf="campo[i].visualizar">
+
+
+      <div *ngIf="modelo[campo.id].tipo == 'control'" [ngClass]="modelo[campo.id].cssColuna">
+        {{modelo[campo.id].tipo}}
+        <ng-container [ngSwitch]="modelo[campo.id].inputTipo">
+
+          <app-galeria-horizontal *ngSwitchCase="'galeriaHorizontal' " [formulario]="formulario"
+            [modelo]="modelo[campo.id]" [id]="campo.id" [ngClass]="modelo[campo.id].cssColuna">
+          </app-galeria-horizontal>
+
+          <!-- <app-input *ngSwitchCase="'input'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
+          </app-input> -->
+
+        </ng-container>
+
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <!-- <video *ngIf="ecluirSessao" #video width="320px" controls crossorigin="anonymous"
     poster="{{'assets/modulo/apresentador/modelo/' + data.nome + '.png'}}">
     <source src="{{'assets/modulo/apresentador/modelo/' + data.nome + '.mp4'}}" type="video/mp4">
     Vídeo não suportado!
@@ -12,7 +35,9 @@
   </nav>
 
   <canvas #exibir id="exibir" width="320" height="170"></canvas>
-  <canvas #processando id="processando" width="320" height="170"></canvas>
+  <canvas #processando id="processando" width="320" height="170"></canvas> -->
+
+
 
 </mat-dialog-content>
 

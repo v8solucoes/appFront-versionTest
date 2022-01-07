@@ -100,16 +100,10 @@ export class Funcao {
   }
 
 
-  static converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any) {
+  static async converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any) {
     // Acessar Campo
     const tipo = modelo.tipo
 
-    console.log(controle.get(dados.destino));
-
-    // if (controle || controle.controls) {
-    //   alert('sdo')
-    //   if (controle.get(dados.destino[0]) != null) {
-    //     alert('segundo if')
     // Aplicar Filtro
     function filtro(value: String) {
       var hex = value;
@@ -120,13 +114,7 @@ export class Funcao {
     }
 
     // Salvar no Destino
-    controle.get(dados.destino).setValue(filtro(controle.get(dados.origem).value));
-
-    //   }
-
-    // }
-    return null;
-
+    controle.get(dados.destino).setValue(filtro(await controle.get(dados.origem).value));
   }
 
 

@@ -22,8 +22,9 @@ export class GrupoComponent {
     public i: InterfaceService,
     public crud: FormularioCRUDService,
   ) {
-
+    console.log(this.permissao)
   }
+
 
   getLista(form: any): FormArray { return form as FormArray; }
 }
