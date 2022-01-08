@@ -1,5 +1,6 @@
 import { FormGroup } from '@angular/forms';
 import { ServicoCredenciaisAcao } from '../../../../interface/servicoCredenciais';
+import { Acao, AcaoNomes } from '../../../../interface/variaveis';
 
 // Modulos Pai
 export interface Modulos {
@@ -81,7 +82,7 @@ export type Urls = | 'revenda' | 'stream-video' | 'gravar-video' | 'new-modulo' 
 export type RotaBancoDados = | 'revenda' | 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/newModulo/lista/' | 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/apresentador/lista/';
 export type ChaveDados = | 'revendaV8dados' | 'newModuloV8rwrJsoYJbz5' | 'apresentadorV8xapweiops';
 export type ChaveModulo = GetNomes<Modulos>;
-export type Acao = 'usuario' | 'delete' | 'update' | 'salvar' | 'nova' | 'lista' | 'listarColecao' | 'documento' | 'rotaAPIusuario' | 'rotaAPIclienteUsuario' | 'rotaAPIclienteModelo' | 'lista' | 'item';
+/* export type Acao = 'usuario' | 'delete' | 'update' | 'salvar' | 'nova' | 'lista' | 'listarColecao' | 'documento' | 'rotaAPIusuario' | 'rotaAPIclienteUsuario' | 'rotaAPIclienteModelo' | 'lista' | 'item'; */
 export type nomeTodosCampos = | GetNomes<Revenda> | GetNomes<ColecoesCampos> | GetNomes<NewModulo> | GetNomes<Apresentador>;
 
 // TIPOS MÓDULOS
@@ -196,7 +197,7 @@ export interface Credenciais {
   moduloUrl: Urls;
   modulo: ChaveModulo;
   item?: string;
-  acao?: ServicoCredenciaisAcao | Acao;
+  acao?: AcaoNomes;
 }
 
 export interface Chaves {
@@ -234,7 +235,7 @@ export interface Menu {
   moduloNome: string;
   url: Urls;
   tipo: 'control' | 'colecao' | 'colecaoGaveta';
-  acao: ServicoCredenciaisAcao |Acao;
+  acao: AcaoNomes;
   item: string;
   icone: string | boolean | 'folder';
   grupo?: Menu[];

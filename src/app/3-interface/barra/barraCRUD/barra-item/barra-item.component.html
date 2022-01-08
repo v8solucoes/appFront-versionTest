@@ -1,8 +1,8 @@
-<section *ngIf="i.data.usuario.credenciais.acao == 'item'">
+<section *ngIf="i.data.usuario.credenciais.acao == i.data.const.acao.pegar">
   <button
     *ngIf="i.design.telaCelular == true"
     mat-icon-button
-    [routerLink]="[i.data.usuario.credenciais.moduloUrl, 'lista', '']"
+    [routerLink]="[i.data.usuario.credenciais.moduloUrl, i.data.const.acao.pegar, '']"
   >
     <mat-icon>arrow_back</mat-icon>
   </button>

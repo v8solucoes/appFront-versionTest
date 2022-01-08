@@ -8,17 +8,15 @@ import { Debug } from '../5-componentes/debug';
 
 import { AutenticarService } from 'src/app/1-autenticar/autenticar.service';
 import { HttpClient } from '@angular/common/http';
-import { Usuario, Acao, RetornoServidor, Credenciais } from './interface';
-import { acao } from '../../../../interface/modulos/variaveis';
-
+import { Usuario, RetornoServidor, Credenciais } from './interface';
+import { acao, AcaoNomes } from '../../../../interface/variaveis';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DadosService {
-
   readonly API = `${environment.API}api/documento`;
-  const = {acao}
+  const = { acao };
   usuario: Usuario = null;
   chaveCliente: string;
   chaveUsuario: any;
@@ -29,68 +27,83 @@ export class DadosService {
     public autenticar: AutenticarService,
     public auth: AngularFireAuth,
     public fire: AngularFirestore,
-    public http: HttpClient,
-    
-
-  ) {
-
-  }
+    public http: HttpClient
+  ) {}
 
   async usuarioCredenciais() {
-
     try {
-
       this.chaveUsuario = await this.autenticar.autenticado();
 
-      this.usuario = (await this.getData<Usuario>('usuario'));
+      this.usuario = await this.getData<Usuario>('usuario');
 
       this.debug('Usuario', this.usuario);
 
       return;
+    } catch (error) {
+      alert('Erro do Servidor:' + error)
+      console.log(error);
     }
-    catch (error) { console.log(error); }
   }
 
-  async getData<T>(acao: Acao, dados?: any, credencialServico: Credenciais = null): Promise<T> {
-
+  async getData<T>(acao: AcaoNomes, dados?: any, credencialServico: Credenciais = null): Promise<T> {
+    
     const chave = this.chaveUsuario;
-    /*   const credenciais = this.usuario ? this.usuario.credenciais : null; */
-    const credenciais = this.usuario ? credencialServico ? credencialServico : this.usuario.credenciais : null
-    /*    
-        alert(this.usuario ? credencialServico ? credencialServico : this.usuario.credenciais : null) */
+  
+    const credenciais = this.usuario
+      ? credencialServico
+        ? credencialServico
+        : this.usuario.credenciais
+      : null;
 
-    return await this.http.post<RetornoServidor<T>>(`${environment.API}`,
-      { chave, acao, credenciais, dados })
-      .toPromise().then(data => {
+    return await this.http
+      .post<RetornoServidor<T>>(`${environment.API}`, {
+        chave,
+        "acao":acao,
+        credenciais,
+        dados,
+      })
+      .toPromise()
+      .then((data) => {
         if (data.existe) {
           return data.data;
         } else {
           const mensagem = 'Erro Servidor: ' + data.error + data.mensagem;
-          alert(mensagem); console.log(mensagem);
+          alert(mensagem);
+          console.log(mensagem);
           return;
         }
-      }
-      );
+      });
   }
-  async getDataUniversal<T>(acao: Acao, dados?: any, credencialServico: Credenciais = null): Promise<T> {
-
+  async getDataUniversal<T>(
+    acao: AcaoNomes,
+    dados?: any,
+    credencialServico: Credenciais = null
+  ): Promise<T> {
     const chave = this.chaveUsuario;
     /*   const credenciais = this.usuario ? this.usuario.credenciais : null; */
-    const credenciais = this.usuario ? credencialServico ? credencialServico : this.usuario.credenciais : null
+    const credenciais = this.usuario
+      ? credencialServico
+        ? credencialServico
+        : this.usuario.credenciais
+      : null;
     /*    
         alert(this.usuario ? credencialServico ? credencialServico : this.usuario.credenciais : null) */
 
-    return await this.http.post<RetornoServidor<T>>(`https://testeuniversal.web.app/apresentador/meuApresentador.js`,
-      { chave, acao, credenciais, dados })
-      .toPromise().then(data => {
+    return await this.http
+      .post<RetornoServidor<T>>(
+        `https://testeuniversal.web.app/apresentador/meuApresentador.js`,
+        { chave, acao, credenciais, dados }
+      )
+      .toPromise()
+      .then((data) => {
         if (data.existe) {
           return data.data;
         } else {
           const mensagem = 'Erro Servidor: ' + data.error + data.mensagem;
-          alert(mensagem); console.log(mensagem);
+          alert(mensagem);
+          console.log(mensagem);
           return;
         }
-      }
-      );
+      });
   }
 }

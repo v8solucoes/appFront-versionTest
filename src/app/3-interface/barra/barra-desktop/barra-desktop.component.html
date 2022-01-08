@@ -1,13 +1,13 @@
 <!-- Barra Desktop -->
 <nav>
 
-  <div [@conteudoMenu]="(i.data.usuario.credenciais.acao == i.data.const.acao.itemNovo)" id="barra-unica">
+  <div [@conteudoMenu]="(i.data.usuario.credenciais.acao == i.data.const.acao.novo)" id="barra-unica">
 
     <app-barra-cria ></app-barra-cria>
 
   </div>
 
-  <div [@conteudoMenu]="(i.data.usuario.credenciais.acao == 'item')" id="barra-unica">
+  <div [@conteudoMenu]="(i.data.usuario.credenciais.acao == i.data.const.acao.pegar)" id="barra-unica">
 
     <app-barra-item></app-barra-item>
 

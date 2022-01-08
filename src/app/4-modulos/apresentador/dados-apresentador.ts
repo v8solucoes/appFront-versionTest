@@ -4,6 +4,7 @@ import {
   ModuloCriar,
   Validar,
 } from 'src/app/2-dados/interface';
+import { acao } from '../../../../../interface/variaveis';
 
 export class DadosApresentador {
   chave: Chaves = {
@@ -28,13 +29,8 @@ export class DadosApresentador {
 
   validar: Validar = {
     apresentador: {
-
-      sugestao: [
-        { funcao: 'popularCampo', destino: ['texto'] }
-      ],
-      corReferencia: [
-        { funcao: 'converterRgb', destino: ['corRgb'], }
-      ],
+      sugestao: [{ funcao: 'popularCampo', destino: ['texto'] }],
+      corReferencia: [{ funcao: 'converterRgb', destino: ['corRgb'] }],
 
       texto: [
         { funcao: 'nativoRequerido', valor: true },
@@ -58,7 +54,7 @@ export class DadosApresentador {
           origem: ['apresentadorGaleria'],
           destino: ['vozColecao'],
           colecao: ['voz'],
-        }
+        },
       ],
     },
   };
@@ -66,28 +62,50 @@ export class DadosApresentador {
   colecoes: Pick<Apresentador, 'colecao'> = {
     colecao: {
       voz: {
-        Ricardo: { nome: 'Ricardo', tipo: 'standard', api: 'amazom', entonacao: 10, velocidade: 1 },
-        Vitoria: { nome: 'Vitória', tipo: 'standard', api: 'amazom', entonacao: 20, velocidade: 2 },
+        Ricardo: {
+          nome: 'Ricardo',
+          tipo: 'standard',
+          api: 'amazom',
+          entonacao: 10,
+          velocidade: 1,
+        },
+        Vitoria: {
+          nome: 'Vitória',
+          tipo: 'standard',
+          api: 'amazom',
+          entonacao: 20,
+          velocidade: 2,
+        },
         Francisca: {
           nome: 'Francisca',
           tipo: 'pt-BR-FranciscaNeural',
-          api: 'microsoft', entonacao: 40, velocidade: 4
+          api: 'microsoft',
+          entonacao: 40,
+          velocidade: 4,
         },
         Antonio: {
           nome: 'Antonio',
           tipo: 'pt-BR-AntonioNeural',
-          api: 'microsoft', entonacao: 0, velocidade: 0
+          api: 'microsoft',
+          entonacao: 0,
+          velocidade: 0,
         },
         Daniel: {
           nome: 'Daniel',
           tipo: 'pt-BR-Daniel',
-          api: 'microsoft', entonacao: 0, velocidade: 0
+          api: 'microsoft',
+          entonacao: 0,
+          velocidade: 0,
         },
-        Heloisa: { nome: 'Heloisa', tipo: 'pt-BR-Heloisa', api: 'microsoft', entonacao: 0, velocidade: 0 },
-      }
-
-    }
-
+        Heloisa: {
+          nome: 'Heloisa',
+          tipo: 'pt-BR-Heloisa',
+          api: 'microsoft',
+          entonacao: 0,
+          velocidade: 0,
+        },
+      },
+    },
   };
 
   dados: ModuloCriar = {
@@ -99,7 +117,7 @@ export class DadosApresentador {
             moduloNome: 'Produto',
             url: 'apresentador',
             tipo: 'colecao',
-            acao: 'lista',
+            acao: acao.listar,
             item: 'aasd',
             icone: '',
             grupo: [
@@ -107,7 +125,7 @@ export class DadosApresentador {
                 moduloNome: 'Apresentador',
                 url: 'apresentador',
                 tipo: 'control',
-                acao: 'lista',
+                acao: acao.listar,
                 item: '',
                 icone: '',
               },
@@ -115,7 +133,7 @@ export class DadosApresentador {
                 moduloNome: 'Gravar Vídeo',
                 url: 'gravar-video',
                 tipo: 'control',
-                acao: 'lista',
+                acao: acao.listar,
                 item: '',
                 icone: '',
               },
@@ -123,7 +141,7 @@ export class DadosApresentador {
                 moduloNome: 'Stream Vídeo',
                 url: 'stream-video',
                 tipo: 'control',
-                acao: 'lista',
+                acao: acao.listar,
                 item: '',
                 icone: '',
               },
@@ -134,7 +152,6 @@ export class DadosApresentador {
     },
     permissao: {
       apresentador: [
-
         { id: 'vozColecao', editar: false, visualizar: true },
         { id: 'idioma', editar: false, visualizar: true },
         { id: 'sugestao', editar: false, visualizar: true },
@@ -158,14 +175,13 @@ export class DadosApresentador {
         { id: 'corTransparencia', editar: false, visualizar: true },
         { id: 'corReferencia', editar: false, visualizar: true },
         { id: 'corRgb', editar: false, visualizar: true },
-
       ],
     },
     listarTitulo: {
-      apresentador: ['nome']
+      apresentador: ['nome'],
     },
     listarSubTitulo: {
-      apresentador: ['tipo']
+      apresentador: ['tipo'],
     },
     modelo: {
       apresentador: {
@@ -204,7 +220,11 @@ export class DadosApresentador {
             lista: [
               { id: 'apresentador01', nome: 'Apresentador 1', voz: 'Antonio' },
               { id: 'apresentador02', nome: 'Apresentador 2', voz: 'Daniel' },
-              { id: 'apresentador03', nome: 'Apresentador 3', voz: 'Francisca' },
+              {
+                id: 'apresentador03',
+                nome: 'Apresentador 3',
+                voz: 'Francisca',
+              },
               { id: 'apresentador04', nome: 'Apresentador 4', voz: 'Ricardo' },
               { id: 'apresentador05', nome: 'Apresentador 5', voz: 'Vitoria' },
             ],
@@ -323,14 +343,16 @@ export class DadosApresentador {
           valor: [null],
           colecao: {
             tipo: 'lista',
-            lista: [{
-              id: 'left',
-              nome: 'Esquerda',
-            },
-            {
-              id: 'right',
-              nome: 'Direita'
-            },]
+            lista: [
+              {
+                id: 'left',
+                nome: 'Esquerda',
+              },
+              {
+                id: 'right',
+                nome: 'Direita',
+              },
+            ],
           },
         },
         videoWidth: {
@@ -338,23 +360,21 @@ export class DadosApresentador {
           tipo: 'control',
           inputTipo: 'input',
           requerido: false,
-          valor: [364]
-
+          valor: [364],
         },
         videoHeight: {
           nome: 'VideoHeight',
           tipo: 'control',
           inputTipo: 'input',
           requerido: false,
-          valor: [680]
-
+          valor: [680],
         },
         videoDuplo: {
           nome: 'VideoDuplo',
           tipo: 'control',
           inputTipo: 'input',
           requerido: false,
-          valor: [true]
+          valor: [true],
         },
 
         videoPause: {
@@ -374,23 +394,24 @@ export class DadosApresentador {
           valor: [null],
           colecao: {
             tipo: 'lista',
-            lista: [{
-              id: 'único',
-              nome: 'Único',
-            },
-            {
-              id: 'duplo',
-              nome: 'Duplo'
-            },]
+            lista: [
+              {
+                id: 'único',
+                nome: 'Único',
+              },
+              {
+                id: 'duplo',
+                nome: 'Duplo',
+              },
+            ],
           },
-
         },
         cssBackground: {
           nome: 'css Background',
           tipo: 'control',
           inputTipo: 'input',
           requerido: false,
-          valor: [null]
+          valor: [null],
         },
         alinhamentoHorizontal: {
           nome: 'alinhamento Horizontal',
@@ -420,7 +441,7 @@ export class DadosApresentador {
           inputTipo: 'range',
           cssColuna: 'f-metade-esquerda',
           requerido: false,
-          valor: [0]
+          valor: [0],
         },
         corReferencia: {
           nome: 'RGB',
@@ -428,19 +449,16 @@ export class DadosApresentador {
           inputTipo: 'color',
           cssColuna: 'f-metade-esquerda',
           requerido: false,
-          valor: ["#000000"],
+          valor: ['#000000'],
           validarSincrono: this.validar.apresentador.corReferencia,
-
         },
         corRgb: {
           nome: 'corRgb',
           tipo: 'control',
           inputTipo: 'input',
           requerido: false,
-          valor: [null]
-
-        }
-
+          valor: [null],
+        },
       },
     },
     dados: {

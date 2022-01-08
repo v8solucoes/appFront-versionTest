@@ -1,7 +1,8 @@
 import { Revenda, Chaves, ModuloCriar } from 'src/app/2-dados/interface';
+import { acao } from '../../../../../interface/variaveis';
 
 export class DadosRevenda {
-
+  _acao = acao
   chave: Chaves = {
     nome: 'Revenda',
     rotaBancoDados: 'revenda',
@@ -42,7 +43,7 @@ export class DadosRevenda {
             moduloNome: 'Revenda',
             url: 'revenda',
             tipo: 'control',
-            acao: 'lista',
+            acao: acao.listar,
             item: '',
             icone: '',
             grupo: [
