@@ -1,9 +1,26 @@
-mat-dialog-content{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+@import "~src/sass/formulario";
+.f {
+  @include formulario();
+}
+
+app-lista {
   width: 100%;
 }
+
+app-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+mat-dialog-content {
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: center;
+  // align-items: center;
+  width: 100%;
+}
+
 nav {
   display: block;
   justify-content: center;
@@ -17,5 +34,5 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-    background-color: rgb(120, 208, 50);
+  background-color: rgb(120, 208, 50);
 }

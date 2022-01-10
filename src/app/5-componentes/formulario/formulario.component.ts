@@ -14,6 +14,7 @@ export class FormularioComponent implements OnInit {
 
   usuario = this.i.data.usuario;
 
+
   constructor(
     public i: InterfaceService
 

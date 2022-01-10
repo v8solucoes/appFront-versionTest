@@ -1,5 +1,6 @@
 <ng-container *ngFor="let campo of permissao; index as i;">
 
+
   <ng-container *ngIf="campo.visualizar">
 
     <div *ngIf="modelo[campo.id].tipo == 'control'" [ngClass]="modelo[campo.id].cssColuna">

@@ -1,6 +1,14 @@
-import { Component, ElementRef, Inject, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { ChaveModulo } from 'src/app/2-dados/interface';
+import { GetModelo } from './../../../2-dados/interface';
+import { Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DadosService } from 'src/app/2-dados/dados.service';
 import { DialogData } from 'src/app/5-componentes/caixa-dialogo/caixa-dialogo.component';
+import { FormGroup } from '@angular/forms';
+import { InterfaceService } from 'src/app/3-interface/interface.service';
+
+
+
 
 @Component({
   selector: 'app-visualizar',
@@ -13,35 +21,60 @@ export class VisualizarComponent implements OnInit {
   @ViewChild('processando') processando: ElementRef<HTMLCanvasElement>;
   @ViewChild('exibir') exibir: ElementRef<HTMLCanvasElement>;
 
+  permissao = this.i.data.usuario.modulo.apresentador.permissao.filter(campo => { if (campo.id == 'vozColecao') return campo });
+
+
   cssPlay = {
     'visibility': 'hidden',
   };
   ecluirSessao = true;
 
+
+
+
+  @Input() formulario: FormGroup;
+  @Input() modelo: GetModelo<any>;
+  @Input() id: string;
+  @Input() modulo: ChaveModulo;
+  usuario = this.i.data.usuario;
+
+
   constructor(
+
     public dialogRef: MatDialogRef<VisualizarComponent>,
     @Inject(MAT_DIALOG_DATA)
     public data: DialogData,
+    public data2: DadosService,
+    public i: InterfaceService,
+
   ) { }
+
+
 
   ngOnInit() {
 
+    // const validarAssincrono = modelo[id].validarAssincrono
+    //   ? modelo[id].validarAssincrono.map(funcao => Funcao.assincrono(funcao.nome, funcao.dadosFuncao, id, modelo))
+    //   : [];
+
+    // const campos = this.i.data.usuario.modulo.apresentador.permissao.map(campo => { if (campo.id == 'vozColecao') return campo })
+    // console.log(campos)
   }
 
-  pause(){
+  pause() {
     this.video.nativeElement.pause();
-    
+
   }
 
-  excluir(){
+  excluir() {
     this.ecluirSessao = false;
   }
 
   removerFundoRGB() {
     this.video.nativeElement.play();
-  /*   this.cssPlay = {
-      'visibility': 'hidden',
-    }; */
+    /*   this.cssPlay = {
+        'visibility': 'hidden',
+      }; */
 
     const video = this.video.nativeElement
     const width = video.videoWidth;
@@ -58,13 +91,13 @@ export class VisualizarComponent implements OnInit {
       let r = frame.data[i * 4 + 0];
       let g = frame.data[i * 4 + 1];
       let b = frame.data[i * 4 + 2];
-      if ( g > 100  && r > 100 && b < 43){
-         frame.data[i * 4 + 3] = 0;
+      if (g > 100 && r > 100 && b < 43) {
+        frame.data[i * 4 + 3] = 0;
       }
-       
+
     }
 
-   exibir.putImageData(frame, 0, 0);
+    exibir.putImageData(frame, 0, 0);
 
     if (video.paused || video.ended) return;
 

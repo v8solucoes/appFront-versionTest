@@ -25,5 +25,6 @@ export class GrupoComponent {
 
   }
 
+
   getLista(form: any): FormArray { return form as FormArray; }
 }

@@ -206,7 +206,6 @@ export interface Chaves {
   chaveModulo: ChaveModulo;
   acao?: ServicoCredenciaisAcao | Acao;
 }
-
 export interface Rotas {
   acao: ServicoCredenciaisAcao | Acao;
   modulo: ChaveModulo;

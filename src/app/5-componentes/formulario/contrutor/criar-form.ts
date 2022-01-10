@@ -103,9 +103,14 @@ export class Funcao {
 
   static converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any) : ValidationErrors | null {
 
+
+  static async converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any) {
+    // Acessar Campo
+
     const tipo = modelo.tipo
     const corHexadecimal: RegExp = /^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/i
     const corOrigem = controle.get(dados.origem).value
+
 
     if (corHexadecimal.test(corOrigem)){
 
@@ -123,6 +128,7 @@ export class Funcao {
     } else {
       return { "corHexadecimal" : { "value" : controle.get(dados.origem).value} };
     }
+
 
   }
 
