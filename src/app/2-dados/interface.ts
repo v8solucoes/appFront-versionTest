@@ -204,7 +204,6 @@ export interface Chaves {
   chaveModulo: ChaveModulo;
   acao?: Acao;
 }
-
 export interface Rotas {
   acao: Acao;
   modulo: ChaveModulo;

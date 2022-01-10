@@ -22,7 +22,7 @@ export class GrupoComponent {
     public i: InterfaceService,
     public crud: FormularioCRUDService,
   ) {
-    console.log(this.permissao)
+
   }
 
 

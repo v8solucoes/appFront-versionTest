@@ -1,3 +1,4 @@
+import { ChaveModulo } from 'src/app/2-dados/interface';
 import { GetModelo } from './../../../2-dados/interface';
 import { Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -20,8 +21,9 @@ export class VisualizarComponent implements OnInit {
   @ViewChild('processando') processando: ElementRef<HTMLCanvasElement>;
   @ViewChild('exibir') exibir: ElementRef<HTMLCanvasElement>;
 
-  campo: any;
-  novaPermissao = [];
+  permissao = this.i.data.usuario.modulo.apresentador.permissao.filter(campo => { if (campo.id == 'vozColecao') return campo });
+
+
   cssPlay = {
     'visibility': 'hidden',
   };
@@ -31,9 +33,10 @@ export class VisualizarComponent implements OnInit {
 
 
   @Input() formulario: FormGroup;
-  // @Input() permissao: GetPermissao<any>;
   @Input() modelo: GetModelo<any>;
   @Input() id: string;
+  @Input() modulo: ChaveModulo;
+  usuario = this.i.data.usuario;
 
 
   constructor(
@@ -43,23 +46,20 @@ export class VisualizarComponent implements OnInit {
     public data: DialogData,
     public data2: DadosService,
     public i: InterfaceService,
-    // public crud: FormularioCRUDService,
 
   ) { }
 
 
+
   ngOnInit() {
 
+    // const validarAssincrono = modelo[id].validarAssincrono
+    //   ? modelo[id].validarAssincrono.map(funcao => Funcao.assincrono(funcao.nome, funcao.dadosFuncao, id, modelo))
+    //   : [];
 
-    this.novaPermissao.push(this.i.data.usuario.modulo.apresentador.permissao)
-    this.campo = this.data2.usuario.modulo.apresentador.permissao;
-    console.log(this.i.data.usuario.modulo.apresentador.permissao)
-
-
-
-
+    // const campos = this.i.data.usuario.modulo.apresentador.permissao.map(campo => { if (campo.id == 'vozColecao') return campo })
+    // console.log(campos)
   }
-
 
   pause() {
     this.video.nativeElement.pause();

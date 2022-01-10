@@ -1,27 +1,25 @@
 <mat-dialog-content>
 
-  <ng-container *ngFor="let campo of novaPermissao; index as i;">
+
+  <app-grupo [formulario]="i.data.usuario.modulo.apresentador.form" [permissao]="permissao"
+    [modelo]="i.data.usuario.modulo.apresentador.modelo">
+  </app-grupo>
+
+  <!--
+  <div [ngClass]="i.data.usuario.modulo.apresentador.modelo['vozColecao'].cssColuna">
+    <app-input [formulario]="i.data.usuario.modulo.apresentador.form.get('vozColecao')"
+      [modelo]="i.data.usuario.modulo.apresentador.modelo['vozColecao']">
+    </app-input>
+  </div> -->
 
 
-    <ng-container *ngIf="campo[i].visualizar">
 
 
-      <div *ngIf="modelo[campo.id].tipo == 'control'" [ngClass]="modelo[campo.id].cssColuna">
-        {{modelo[campo.id].tipo}}
-        <ng-container [ngSwitch]="modelo[campo.id].inputTipo">
 
-          <app-galeria-horizontal *ngSwitchCase="'galeriaHorizontal' " [formulario]="formulario"
-            [modelo]="modelo[campo.id]" [id]="campo.id" [ngClass]="modelo[campo.id].cssColuna">
-          </app-galeria-horizontal>
 
-          <!-- <app-input *ngSwitchCase="'input'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
-          </app-input> -->
 
-        </ng-container>
 
-      </div>
-    </ng-container>
-  </ng-container>
+
 
   <!-- <video *ngIf="ecluirSessao" #video width="320px" controls crossorigin="anonymous"
     poster="{{'assets/modulo/apresentador/modelo/' + data.nome + '.png'}}">

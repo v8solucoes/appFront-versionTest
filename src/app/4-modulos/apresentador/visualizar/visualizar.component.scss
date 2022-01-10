@@ -1,3 +1,18 @@
+@import "~src/sass/formulario";
+.f {
+  @include formulario();
+}
+
+app-lista {
+  width: 100%;
+}
+
+app-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
 mat-dialog-content {
   // display: flex;
   // flex-wrap: wrap;
