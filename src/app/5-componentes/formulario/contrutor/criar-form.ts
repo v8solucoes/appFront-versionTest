@@ -88,23 +88,23 @@ export class Funcao {
 
     dados.origem ? '' : dados.origem = [id];
 
-    return (control: AbstractControl) : ValidationErrors | null => {
+    return (control: AbstractControl): ValidationErrors | null => {
 
       const controle = control.root as FormGroup;
-     
-      if (controle.controls && controle.get(dados.origem[0]) != null && controle.get(dados.origem[0]).pristine !== true) { 
-        
-       return funcao(controle, dados, modelo); 
-        
+
+      if (controle.controls && controle.get(dados.origem[0]) != null && controle.get(dados.origem[0]).pristine !== true) {
+
+        return funcao(controle, dados, modelo);
+
       } else { return null }
 
     };
   }
 
-  static converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any) : ValidationErrors | null {
+  static converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any): ValidationErrors | null {
 
 
-  static async converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any) {
+    // static async converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any) {
     // Acessar Campo
 
     const tipo = modelo.tipo
@@ -112,21 +112,21 @@ export class Funcao {
     const corOrigem = controle.get(dados.origem).value
 
 
-    if (corHexadecimal.test(corOrigem)){
+    if (corHexadecimal.test(corOrigem)) {
 
       const filtro = (value: String) => {
         var hex = value;
         var red = parseInt(hex[1] + hex[2], 16);
         var green = parseInt(hex[3] + hex[4], 16);
         var blue = parseInt(hex[5] + hex[6], 16);
-        var corRGB = {'r':red, 'g':green, 'b':blue}
+        var corRGB = { 'r': red, 'g': green, 'b': blue }
 
-        return JSON.stringify(corRGB) ;
+        return JSON.stringify(corRGB);
       }
       controle.get(dados.destino).setValue(filtro(controle.get(dados.origem).value));
       return null
     } else {
-      return { "corHexadecimal" : { "value" : controle.get(dados.origem).value} };
+      return { "corHexadecimal": { "value": controle.get(dados.origem).value } };
     }
 
 
