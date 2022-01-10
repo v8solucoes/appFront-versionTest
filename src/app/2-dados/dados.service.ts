@@ -34,7 +34,7 @@ export class DadosService {
     try {
       this.chaveUsuario = await this.autenticar.autenticado();
 
-      this.usuario = await this.getData<Usuario>('usuario');
+      this.usuario = await this.getData<Usuario>(acao.usuario);
 
       this.debug('Usuario', this.usuario);
 

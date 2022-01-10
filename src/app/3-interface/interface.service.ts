@@ -85,8 +85,6 @@ export class InterfaceService {
     credenciais.acao = rota.acao;
     credenciais.item = rota.item;
 
-   
-
     try {
       if (rota.acao === acao.novo) {
         modulo.dados.item = null;
@@ -237,7 +235,7 @@ export class InterfaceService {
     }
   }
 
-  async salvar() {
+ /*  async salvar() {
     this.processandoCrud.salvar = true;
     const modulo = this.data.usuario.credenciais.modulo;
     const moduloUrl = this.data.usuario.credenciais.moduloUrl;
@@ -257,7 +255,7 @@ export class InterfaceService {
         this.salvarProcessamento('processando');
       }
     } catch (error) {}
-  }
+  } */
 
   async update() {
     this.processandoCrud.update = true;
