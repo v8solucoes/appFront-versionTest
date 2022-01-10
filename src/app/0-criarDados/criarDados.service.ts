@@ -46,7 +46,7 @@ export class CriarDadosService {
       modulo: 'apresentador',
       moduloUrl: 'apresentador',
       nomeModulo: 'Apresentador',
-      acao: 'lista',
+      acao: 'listar',
       item: 'xxxxx',
     },
     design: {

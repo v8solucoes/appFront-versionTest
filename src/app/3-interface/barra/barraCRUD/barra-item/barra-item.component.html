@@ -1,28 +1,38 @@
-<section *ngIf="i.data.usuario.credenciais.acao == 'item'">
-
-  <button *ngIf="i.design.telaCelular== true" mat-icon-button
-    [routerLink]="[i.data.usuario.credenciais.modulo,'lista', '']">
+<section *ngIf="i.data.usuario.credenciais.acao == i.data.const.acao.pegar">
+  <button
+    *ngIf="i.design.telaCelular == true"
+    mat-icon-button
+    [routerLink]="[i.data.usuario.credenciais.moduloUrl, i.data.const.acao.pegar, '']"
+  >
     <mat-icon>arrow_back</mat-icon>
   </button>
 
-  <div id="titulo"> {{ i.data.usuario?.modulo[i.data.usuario.credenciais.modulo].dados.item?.nome }} </div>
+  <div id="titulo">
+    {{
+      i.data.usuario?.modulo[i.data.usuario.credenciais.modulo].dados.item?.nome
+    }}
+  </div>
 
-
-  <button mat-raised-button (click)="i.delete()" [disabled]="i.processandoCrud.delete">
+  <button
+    mat-raised-button
+    (click)="i.delete()"
+    [disabled]="i.processandoCrud.delete"
+  >
     <span *ngIf="!i.processandoCrud.delete">Delete</span>
     <span *ngIf="i.processandoCrud.delete">
       <mat-spinner [diameter]="20"></mat-spinner>Deletando...
     </span>
   </button>
 
-
-
-
-  <button mat-raised-button color="accent" (click)="i.update()" [disabled]="i.processandoCrud.update">
+  <button
+    mat-raised-button
+    color="accent"
+    (click)="i.update()"
+    [disabled]="i.processandoCrud.update"
+  >
     Salvar
   </button>
   <button mat-mini-fab *ngIf="i.processandoCrud.update">
     <mat-spinner [diameter]="25"></mat-spinner>
   </button>
-
 </section>

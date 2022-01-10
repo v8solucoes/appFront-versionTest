@@ -6,15 +6,15 @@
 
   <section [ngSwitch]="i.data.usuario.credenciais.acao">
 
-    <section *ngSwitchCase="'nova'">
+    <section *ngSwitchCase="i.data.const.acao.novo">
       <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario>
     </section>
 
-    <section *ngSwitchCase="'item'">
+    <section *ngSwitchCase="i.data.const.acao.pegar">
       <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario>
     </section>
 
-    <section *ngSwitchCase="'lista'">
+    <section *ngSwitchCase="i.data.const.acao.listar">
 
 
     </section>

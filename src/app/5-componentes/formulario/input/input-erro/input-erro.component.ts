@@ -19,7 +19,8 @@ export class InputErroComponent implements OnInit {
     sincrono : 'Sincrono',
     sincPopular : 'Popular',
     teste: 'teste',
-    nulo: ''
+    nulo: '',
+    corHexadecimal:'Formato Hexadecimal inválido. (Ex: #ffffff) atual'
   };
 
   constructor() { }

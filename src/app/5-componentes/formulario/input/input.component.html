@@ -1,13 +1,15 @@
 <mat-form-field appearance="{{ modelo.cssInput }}">
 
-  <mat-label>{{ modelo.nome }}</mat-label>
+  <mat-label>{{ modelo.nome }} </mat-label>
 
   <mat-icon *ngIf="modelo.inputIconeEsquerdo" matPrefix> {{ modelo.inputIconeEsquerdo }}</mat-icon>
   <span *ngIf="modelo.inputTextoEsquerdo" matPrefix> {{ modelo.inputTextoEsquerdo }}</span>
 
   <!-- INPUT -->
-
   <input *ngIf="modelo?.inputTipo == 'input'" [formControl]="formulario" matInput [required]='modelo?.requerido'>
+
+  <!-- COLOR -->
+  <input *ngIf="modelo?.inputTipo == 'color'" type="color" [formControl]="formulario" matInput [required]='modelo?.requerido'>
 
   <!-- TEXT ÁREA -->
   <input *ngIf="modelo?.inputTipo == 'texto-area'" [formControl]="formulario" matInput [required]='modelo?.requerido'>
@@ -53,3 +55,6 @@
     <app-input-erro [erros]='formulario.errors'></app-input-erro>
   </mat-error>
 </mat-form-field>
+
+<!-- Erro:
+  <app-input-erro [erros]='formulario.errors'></app-input-erro> -->

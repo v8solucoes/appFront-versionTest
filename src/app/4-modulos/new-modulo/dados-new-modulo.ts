@@ -1,5 +1,6 @@
 import { Chaves } from './../../2-dados/interface';
 import { ModuloCriar, NewModulo } from 'src/app/2-dados/interface';
+import { acao } from '../../../../../interface/variaveis';
 
 export class DadosNewModulo {
   chave: Chaves = {
@@ -46,7 +47,7 @@ export class DadosNewModulo {
             moduloNome: 'New Modulo2',
             url: 'new-modulo',
             tipo: 'colecaoGaveta',
-            acao: 'lista',
+            acao: acao.listar,
             item: 'aasd',
             icone: '',
             grupo: [
@@ -54,7 +55,7 @@ export class DadosNewModulo {
                 moduloNome: 'Lista',
                 url: 'new-modulo',
                 tipo: 'control',
-                acao: 'lista',
+                acao: acao.listar,
                 item: '',
                 icone: '',
               },
@@ -62,7 +63,7 @@ export class DadosNewModulo {
                 moduloNome: 'Item',
                 url: 'new-modulo',
                 tipo: 'control',
-                acao: 'item',
+                acao: acao.pegar,
                 item: '1627583819372',
                 icone: '',
               },

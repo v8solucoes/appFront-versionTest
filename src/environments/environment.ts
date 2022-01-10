@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'http://localhost:3000/',
+  API: 'http://127.0.0.1:5896/v8app-888cd/us-central1/credenciais/credenciais',
   // API: 'https://servico.meuapresentador.app/',
   firebaseConfig: {
     apiKey: "AIzaSyB7_rYWLJ3s97jJOP9SH37hcvE_6m-brXU",

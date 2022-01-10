@@ -1,4 +1,5 @@
 import { ActivatedRouteSnapshot } from '@angular/router';
+import { RotasApp } from '../../../interface/variaveis';
 import { ChaveModulo, Credenciais, Rotas, Urls } from './2-dados/interface';
 
 export class Funcoes {
@@ -22,9 +23,9 @@ export class Funcoes {
     return this.convertePadraoJSON(transforma) as ChaveModulo;
   }
 
-  static gravarUrl(url: ActivatedRouteSnapshot, credenciais: Credenciais): Rotas {
+  static gravarUrl(url: ActivatedRouteSnapshot, credenciais: Credenciais): RotasApp {
 
-    let rota: Rotas;
+    let rota: RotasApp;
     let rotaUrl: string;
 
     if (localStorage.getItem('rota') == undefined) {

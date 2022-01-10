@@ -5,7 +5,7 @@ Tablet: {{ i.design.telaTablet }}<br>
 Desktop: {{ i.design.telaDesktop }}
 Desktop&Tablet: {{ i.design.telaDesktopTablet }} -->
 <router-outlet></router-outlet>
-<div *ngIf="i.data.usuario.credenciais.acao == 'lista'">
+<div *ngIf="i.data.usuario.credenciais.acao == i.data.const.acao.listar">
     <app-listar *ngFor="let item of i.data.usuario?.modulo[i.data.usuario.credenciais.modulo].dados.lista | keyvalue"
         [chave]="item.key">
     </app-listar>
