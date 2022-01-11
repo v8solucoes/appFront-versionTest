@@ -21,7 +21,22 @@ export class VisualizarComponent implements OnInit {
   @ViewChild('processando') processando: ElementRef<HTMLCanvasElement>;
   @ViewChild('exibir') exibir: ElementRef<HTMLCanvasElement>;
 
-  permissao = this.i.data.usuario.modulo.apresentador.permissao.filter(campo => { if (campo.id == 'vozColecao') return campo });
+  permissao = this.i.data.usuario.modulo.apresentador.permissao.filter(campo => {
+    if (campo.id == 'apresentadorGaleria') return campo;
+    if (campo.id == 'cssAlinhamento') return campo;
+    if (campo.id == 'videoAlgoritimo') return campo;
+    if (campo.id == 'videoWidth') return campo;
+    if (campo.id == 'videoHeight') return campo;
+    if (campo.id == 'videoDuplo') return campo;
+    if (campo.id == 'videoPause') return campo;
+    if (campo.id == 'cssBackground') return campo;
+    if (campo.id == 'alinhamentoHorizontal') return campo;
+    if (campo.id == 'alinhamentoVertical') return campo;
+    if (campo.id == 'corTolerancia') return campo;
+    if (campo.id == 'corTransparencia') return campo;
+    if (campo.id == 'corReferencia') return campo;
+    if (campo.id == 'corRgb') return campo;
+  });
 
 
   cssPlay = {
@@ -52,13 +67,6 @@ export class VisualizarComponent implements OnInit {
 
 
   ngOnInit() {
-
-    // const validarAssincrono = modelo[id].validarAssincrono
-    //   ? modelo[id].validarAssincrono.map(funcao => Funcao.assincrono(funcao.nome, funcao.dadosFuncao, id, modelo))
-    //   : [];
-
-    // const campos = this.i.data.usuario.modulo.apresentador.permissao.map(campo => { if (campo.id == 'vozColecao') return campo })
-    // console.log(campos)
   }
 
   pause() {
