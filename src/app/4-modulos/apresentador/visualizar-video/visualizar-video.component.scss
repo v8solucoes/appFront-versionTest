@@ -1,0 +1,6 @@
+@import "~src/sass/construtor";
+
+mat-dialog-content {
+  width: 100%;
+  @extend %scroll;
+}

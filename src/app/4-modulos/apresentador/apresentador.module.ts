@@ -7,6 +7,7 @@ import { CompartilhadoModule } from 'src/app/compartilhado.module';
 import { ApresentadorComponent } from './apresentador.component';
 import { VisualizarComponent } from './visualizar/visualizar.component';
 import { GerarCodigoComponent } from './gerar-codigo/gerar-codigo.component';
+import { VisualizarVideoComponent } from './visualizar-video/visualizar-video.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { GerarCodigoComponent } from './gerar-codigo/gerar-codigo.component';
   declarations: [
     ApresentadorComponent,
     VisualizarComponent,
-    GerarCodigoComponent
+    GerarCodigoComponent,
+    VisualizarVideoComponent
   ],
   exports: [
     ApresentadorComponent,

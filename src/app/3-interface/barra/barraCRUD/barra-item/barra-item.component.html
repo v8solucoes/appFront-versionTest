@@ -30,9 +30,7 @@
   </button> -->
   <button mat-raised-button color="accent" (click)="i.salvarProcessamento('salvarFila')"
     [disabled]="i.data.usuario.modulo.apresentador.form.value.processamento">
-    <span *ngIf="!i.data.usuario.modulo.apresentador.form.value.processamento">Salvar
-
-    </span>
+    <span *ngIf="!i.data.usuario.modulo.apresentador.form.value.processamento">Salvar</span>
     <span *ngIf="i.data.usuario.modulo.apresentador.form.value.processamento">
       <mat-spinner mat-mini-fab [diameter]="20"></mat-spinner>Salvando...
     </span>

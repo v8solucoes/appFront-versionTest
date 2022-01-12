@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { InterfaceService } from 'src/app/3-interface/interface.service';
 import { DialogData } from 'src/app/5-componentes/caixa-dialogo/caixa-dialogo.component';
 
 @Component({
@@ -13,9 +14,12 @@ export class GerarCodigoComponent implements OnInit {
     public dialogRef: MatDialogRef<GerarCodigoComponent>,
     @Inject(MAT_DIALOG_DATA)
     public data: DialogData,
+    public i: InterfaceService
   ) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

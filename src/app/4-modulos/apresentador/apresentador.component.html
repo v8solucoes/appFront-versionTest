@@ -30,7 +30,8 @@
             CONFIGURAR VÍDEO</button>
           <button mat-raised-button color="accent" (click)="playAudio()">OUVIR</button>
 
-          <button mat-raised-button color="accent">VISUALIZAR</button>
+          <button mat-raised-button color="accent"
+            (click)="caixaDialogo.verVideo('500px',i.data.usuario.modulo.apresentador.form.value)">VISUALIZAR</button>
 
 
           <!-- <button mat-raised-button color="accent" (click)="i.salvarProcessamento('salvarFila')"
@@ -49,8 +50,10 @@
         </div>
         <div class="a-total button">
           <button mat-raised-button color="accent"
-            (click)="caixaDialogo.codigo('500px',i.data.usuario.modulo.apresentador.form.value)">GERAR
-            CÓDIGO</button>
+            (click)="caixaDialogo.codigo('500px',i.data.usuario.modulo.apresentador.form.value)"
+            [disabled]="i.data.usuario.modulo.apresentador.form.value.processamento">
+            <span *ngIf="!i.data.usuario.modulo.apresentador.form.value.processamento">GERAR CÓDIGO</span>
+            <span *ngIf="i.data.usuario.modulo.apresentador.form.value.processamento">GERAR CÓDIGO</span></button>
 
         </div>
 
