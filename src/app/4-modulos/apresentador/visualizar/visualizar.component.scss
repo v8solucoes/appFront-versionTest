@@ -1,4 +1,5 @@
 @import "~src/sass/formulario";
+@import "~src/sass/construtor";
 .f {
   @include formulario();
 }
@@ -19,6 +20,7 @@ mat-dialog-content {
   // justify-content: center;
   // align-items: center;
   width: 100%;
+  @extend %scroll;
 }
 
 nav {

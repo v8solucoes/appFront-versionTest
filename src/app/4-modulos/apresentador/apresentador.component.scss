@@ -43,3 +43,8 @@ mat-spinner {
 .a {
   @include formulario();
 }
+.button {
+  button {
+    width: 360px;
+  }
+}

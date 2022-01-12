@@ -1,30 +1,23 @@
 <section *ngIf="i.data.usuario.credenciais.acao == i.data.const.acao.pegar">
-  <button
-    *ngIf="i.design.telaCelular == true"
-    mat-icon-button
-    [routerLink]="[i.data.usuario.credenciais.moduloUrl, i.data.const.acao.pegar, '']"
-  >
+  <button *ngIf="i.design.telaCelular == true" mat-icon-button
+    [routerLink]="[i.data.usuario.credenciais.moduloUrl, i.data.const.acao.pegar, '']">
     <mat-icon>arrow_back</mat-icon>
   </button>
 
   <div id="titulo">
     {{
-      i.data.usuario?.modulo[i.data.usuario.credenciais.modulo].dados.item?.nome
+    i.data.usuario?.modulo[i.data.usuario.credenciais.modulo].dados.item?.nome
     }}
   </div>
 
-  <button
-    mat-raised-button
-    (click)="i.delete()"
-    [disabled]="i.processandoCrud.delete"
-  >
+  <button mat-raised-button (click)="i.delete()" [disabled]="i.processandoCrud.delete">
     <span *ngIf="!i.processandoCrud.delete">Delete</span>
     <span *ngIf="i.processandoCrud.delete">
       <mat-spinner [diameter]="20"></mat-spinner>Deletando...
     </span>
   </button>
 
-  <button
+  <!-- <button
     mat-raised-button
     color="accent"
     (click)="i.update()"
@@ -34,5 +27,15 @@
   </button>
   <button mat-mini-fab *ngIf="i.processandoCrud.update">
     <mat-spinner [diameter]="25"></mat-spinner>
+  </button> -->
+  <button mat-raised-button color="accent" (click)="i.salvarProcessamento('salvarFila')"
+    [disabled]="i.data.usuario.modulo.apresentador.form.value.processamento">
+    <span *ngIf="!i.data.usuario.modulo.apresentador.form.value.processamento">Salvar
+
+    </span>
+    <span *ngIf="i.data.usuario.modulo.apresentador.form.value.processamento">
+      <mat-spinner mat-mini-fab [diameter]="20"></mat-spinner>Salvando...
+    </span>
+
   </button>
 </section>
