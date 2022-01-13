@@ -4,7 +4,7 @@
 
 <ng-container *ngIf="carregar; else carregando">
 
-  <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario>
+  <app-formulario [modulo]="chaveModulo" [debugar]='false'></app-formulario>
 
   <section>
 
@@ -50,7 +50,7 @@
         </div>
         <div class="a-total button">
           <button mat-raised-button color="accent"
-            (click)="caixaDialogo.codigo('500px',i.data.usuario.modulo.apresentador.form.value)"
+            (click)="caixaDialogo.codigo('700px',i.data.usuario.modulo.apresentador.form.value)"
             [disabled]="i.data.usuario.modulo.apresentador.form.value.processamento">
             <span *ngIf="!i.data.usuario.modulo.apresentador.form.value.processamento">GERAR CÓDIGO</span>
             <span *ngIf="i.data.usuario.modulo.apresentador.form.value.processamento">GERAR CÓDIGO</span></button>
