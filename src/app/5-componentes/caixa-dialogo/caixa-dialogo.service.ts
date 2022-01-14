@@ -1,3 +1,4 @@
+import { VisualizarVideoComponent } from './../../4-modulos/apresentador/visualizar-video/visualizar-video.component';
 import { Modelo } from './../../2-dados/interface';
 import { Injectable } from '@angular/core';
 
@@ -5,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { VisualizarComponent } from 'src/app/4-modulos/apresentador/visualizar/visualizar.component';
 import { ValidarComponent } from '../formulario/validar/validar.component';
 import { CaixaDialogoComponent } from './caixa-dialogo.component';
+import { GerarCodigoComponent } from 'src/app/4-modulos/apresentador/gerar-codigo/gerar-codigo.component';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +49,37 @@ export class CaixaDialogoService {
   apresentador(tamanho: string, nome: string): void {
 
     const dialogRef = this.dialogo.open(VisualizarComponent, {
+      panelClass: "modal-visualizar-apresentador",
+      width: tamanho,
+      disableClose: true,
+      data: {
+        nome: nome,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      /*  console.log('The dialog was closed'); */
+    });
+  }
+  codigo(tamanho: string, nome: string): void {
+
+    const dialogRef = this.dialogo.open(GerarCodigoComponent, {
+      panelClass: "modal-gerar-codigo",
+      width: tamanho,
+      disableClose: true,
+      data: {
+        nome: nome,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      /*  console.log('The dialog was closed'); */
+    });
+  }
+  verVideo(tamanho: string, nome: string): void {
+
+    const dialogRef = this.dialogo.open(VisualizarVideoComponent, {
+      panelClass: "modal-visualizar-video",
       width: tamanho,
       disableClose: true,
       data: {

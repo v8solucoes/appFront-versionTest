@@ -1,4 +1,5 @@
 @import "~src/sass/formulario";
+@import "~src/sass/construtor";
 .f {
   @include formulario();
 }
@@ -13,12 +14,14 @@ app-grupo {
   justify-content: flex-start;
   width: 100%;
 }
+
 mat-dialog-content {
   // display: flex;
   // flex-wrap: wrap;
   // justify-content: center;
   // align-items: center;
   width: 100%;
+  // @extend %scroll;
 }
 
 nav {
