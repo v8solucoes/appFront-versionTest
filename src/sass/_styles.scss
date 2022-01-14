@@ -63,10 +63,10 @@ body {
   font-weight: normal;
 }
 .modal-visualizar-apresentador {
-  @media (max-width: 360px) {
+  @media (max-width: 450px) {
     mat-dialog-container {
-      min-width: 92vw;
-      margin-left: -22px;
+      min-width: 95vw;
+      margin-left: -25px;
       padding: 14px;
     }
   }
@@ -74,11 +74,10 @@ body {
 
 .modal-visualizar-video,
 .modal-gerar-codigo {
-  @media (max-width: 360px) {
+  @media (max-width: 450px) {
     mat-dialog-container {
-      min-width: 92vw;
+      min-width: 95vw;
       margin-left: -24px;
-      // padding: 12px;
     }
   }
 }

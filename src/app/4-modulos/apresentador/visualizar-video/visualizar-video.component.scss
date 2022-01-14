@@ -2,7 +2,7 @@
 
 mat-dialog-content {
   width: 100%;
-  @extend %scroll;
+  overflow: hidden;
 }
 .mat-dialog-container {
   border: 1px solid red;
