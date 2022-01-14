@@ -153,6 +153,7 @@ export class DadosApresentador {
     },
     permissao: {
       apresentador: [
+        { id: 'apresentadorGaleria', editar: false, visualizar: true },
         { id: 'vozColecao', editar: false, visualizar: true },
         { id: 'idioma', editar: false, visualizar: true },
         { id: 'sugestao', editar: false, visualizar: true },
@@ -162,7 +163,6 @@ export class DadosApresentador {
         { id: 'entonacao', editar: false, visualizar: true },
         { id: 'tipo', editar: false, visualizar: false },
         { id: 'processamento', editar: false, visualizar: true },
-        { id: 'apresentadorGaleria', editar: false, visualizar: true },
         { id: 'cssAlinhamento', editar: false, visualizar: true },
         { id: 'videoAlgoritimo', editar: false, visualizar: true },
         { id: 'videoWidth', editar: false, visualizar: true },
