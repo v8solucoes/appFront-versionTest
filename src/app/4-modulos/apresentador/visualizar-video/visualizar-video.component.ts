@@ -1,7 +1,10 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Apresentador } from 'src/app/2-dados/interface';
 import { InterfaceService } from 'src/app/3-interface/interface.service';
 import { DialogData } from 'src/app/5-componentes/caixa-dialogo/caixa-dialogo.component';
+import { CaixaDialogoService } from 'src/app/5-componentes/caixa-dialogo/caixa-dialogo.service';
 import { GerarCodigoComponent } from '../gerar-codigo/gerar-codigo.component';
 
 @Component({
@@ -12,6 +15,9 @@ import { GerarCodigoComponent } from '../gerar-codigo/gerar-codigo.component';
 export class VisualizarVideoComponent implements OnInit {
 
   ecluirSessao = true;
+  formulario: FormGroup;
+  dados: Apresentador;
+
 
 
   @ViewChild('video') video: ElementRef<HTMLVideoElement>;
@@ -22,7 +28,9 @@ export class VisualizarVideoComponent implements OnInit {
     public dialogRef: MatDialogRef<GerarCodigoComponent>,
     @Inject(MAT_DIALOG_DATA)
     public data: DialogData,
-    public i: InterfaceService
+    public i: InterfaceService,
+    public caixaDialogo: CaixaDialogoService,
+
   ) { }
 
   ngOnInit(): void {

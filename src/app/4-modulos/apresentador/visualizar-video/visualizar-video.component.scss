@@ -4,3 +4,6 @@ mat-dialog-content {
   width: 100%;
   @extend %scroll;
 }
+.mat-dialog-container {
+  border: 1px solid red;
+}

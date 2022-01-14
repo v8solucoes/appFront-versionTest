@@ -7,7 +7,10 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-
+  <button mat-raised-button color="accent"
+    (click)="caixaDialogo.verVideo('500px',i.data.usuario.modulo.apresentador.form.value)">
+    VISUALIZAR
+  </button>
   <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial>OK</button>
 
 </mat-dialog-actions>

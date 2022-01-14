@@ -29,34 +29,16 @@
             [disabled]="!i.data.usuario.modulo.apresentador.form.valid">
             CONFIGURAR VÍDEO</button>
           <button mat-raised-button color="accent" (click)="playAudio()">OUVIR</button>
-
-          <button mat-raised-button color="accent"
-            (click)="caixaDialogo.verVideo('500px',i.data.usuario.modulo.apresentador.form.value)">VISUALIZAR</button>
-
-
-          <!-- <button mat-raised-button color="accent" (click)="i.salvarProcessamento('salvarFila')"
-            [disabled]="i.data.usuario.modulo.apresentador.form.value.processamento">
-            <span *ngIf="!i.data.usuario.modulo.apresentador.form.value.processamento">Salvar
-
-            </span>
-            <span *ngIf="i.data.usuario.modulo.apresentador.form.value.processamento">
-              <mat-spinner mat-mini-fab [diameter]="20"></mat-spinner>Salvando...
-            </span>
-
-          </button> -->
-
-          <!--  <button mat-raised-button color="accent" (click)="playAudio()" [disabled]="!formulario.valid">OUVIR</button> -->
-
-        </div>
-        <div class="a-total button">
           <button mat-raised-button color="accent"
             (click)="caixaDialogo.codigo('700px',i.data.usuario.modulo.apresentador.form.value)"
             [disabled]="i.data.usuario.modulo.apresentador.form.value.processamento">
             <span *ngIf="!i.data.usuario.modulo.apresentador.form.value.processamento">GERAR CÓDIGO</span>
-            <span *ngIf="i.data.usuario.modulo.apresentador.form.value.processamento">GERAR CÓDIGO</span></button>
+            <span *ngIf="i.data.usuario.modulo.apresentador.form.value.processamento">GERAR CÓDIGO</span>
+          </button>
+
+          <!--  <button mat-raised-button color="accent" (click)="playAudio()" [disabled]="!formulario.valid">OUVIR</button> -->
 
         </div>
-
 
       </section>
 

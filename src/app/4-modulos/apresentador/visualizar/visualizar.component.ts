@@ -6,6 +6,7 @@ import { DadosService } from 'src/app/2-dados/dados.service';
 import { DialogData } from 'src/app/5-componentes/caixa-dialogo/caixa-dialogo.component';
 import { FormGroup } from '@angular/forms';
 import { InterfaceService } from 'src/app/3-interface/interface.service';
+import { CaixaDialogoService } from 'src/app/5-componentes/caixa-dialogo/caixa-dialogo.service';
 
 
 
@@ -57,6 +58,8 @@ export class VisualizarComponent implements OnInit {
     public data: DialogData,
     public data2: DadosService,
     public i: InterfaceService,
+    public caixaDialogo: CaixaDialogoService,
+
 
   ) { }
 

@@ -49,6 +49,7 @@ export class CaixaDialogoService {
   apresentador(tamanho: string, nome: string): void {
 
     const dialogRef = this.dialogo.open(VisualizarComponent, {
+      panelClass: "modal-visualizar-apresentador",
       width: tamanho,
       disableClose: true,
       data: {
@@ -63,6 +64,7 @@ export class CaixaDialogoService {
   codigo(tamanho: string, nome: string): void {
 
     const dialogRef = this.dialogo.open(GerarCodigoComponent, {
+      panelClass: "modal-gerar-codigo",
       width: tamanho,
       disableClose: true,
       data: {
@@ -77,6 +79,7 @@ export class CaixaDialogoService {
   verVideo(tamanho: string, nome: string): void {
 
     const dialogRef = this.dialogo.open(VisualizarVideoComponent, {
+      panelClass: "modal-visualizar-video",
       width: tamanho,
       disableClose: true,
       data: {
