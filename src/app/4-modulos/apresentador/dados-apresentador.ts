@@ -11,6 +11,7 @@ export class DadosApresentador {
     nome: 'Apresentador',
     rotaBancoDados: 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/apresentador/lista/',
     chaveModulo: 'apresentador',
+    moduloServico: true
   };
 
   documento: Apresentador = {

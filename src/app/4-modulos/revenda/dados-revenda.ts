@@ -7,6 +7,7 @@ export class DadosRevenda {
     nome: 'Revenda',
     rotaBancoDados: 'revenda',
     chaveModulo: 'revenda',
+    moduloServico: false
   };
 
   documento: Revenda = {

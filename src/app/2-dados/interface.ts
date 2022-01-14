@@ -183,7 +183,7 @@ export type Tela = 'celuar' | 'tablet' | 'desktop' | 'modulo';
 
 // Interfaces ##################
 
-export interface Credenciais {
+export interface Credenciais extends ModuloServico {
   tipo?: 'adm' | 'revenda' | 'cliente';
   idUsuario: IdUsuario;
   revendas: IdRevenda[];
@@ -200,12 +200,15 @@ export interface Credenciais {
   acao?: AcaoNomes;
 }
 
-export interface Chaves {
+export interface Chaves extends ModuloServico {
   nome: NomeModulo;
   rotaBancoDados: RotaBancoDados;
   chaveModulo: ChaveModulo;
-  acao?: ServicoCredenciaisAcao | Acao;
-}
+  acao?: AcaoNomes;
+} 
+
+export interface ModuloServico { moduloServico: boolean}
+
 export interface Rotas {
   acao: ServicoCredenciaisAcao | Acao;
   modulo: ChaveModulo;
@@ -297,6 +300,7 @@ export interface Colecao {
 
 export interface ModuloConfig {
   modulo?: Chaves;
+
 }
 
 export interface DadosFuncao {

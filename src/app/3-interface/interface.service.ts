@@ -84,6 +84,7 @@ export class InterfaceService {
     credenciais.moduloUrl = rota.moduloUrl;
     credenciais.acao = rota.acao;
     credenciais.item = rota.item;
+    credenciais.moduloServico = modulo.modelo.modulo.moduloServico
 
     try {
       if (rota.acao === acao.novo) {

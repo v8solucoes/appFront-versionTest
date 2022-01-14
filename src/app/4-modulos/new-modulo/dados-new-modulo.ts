@@ -7,6 +7,7 @@ export class DadosNewModulo {
     nome: 'New Modulo',
     rotaBancoDados: 'cliente/gfFyiX5IU4OaoXm4BDzX/dados/newModulo/lista/',
     chaveModulo: 'newModulo',
+    moduloServico: false
   };
 
   documento: NewModulo = {

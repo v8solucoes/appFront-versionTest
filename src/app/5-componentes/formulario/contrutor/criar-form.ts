@@ -103,8 +103,6 @@ export class Funcao {
 
   static converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any) : ValidationErrors | null {
 
-
-  static async converteRgb(controle: FormGroup, dados: ValidarSincrono, modelo: any) {
     // Acessar Campo
 
     const tipo = modelo.tipo

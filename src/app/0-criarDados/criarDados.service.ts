@@ -48,6 +48,7 @@ export class CriarDadosService {
       nomeModulo: 'Apresentador',
       acao: 'listar',
       item: 'xxxxx',
+      moduloServico: true
     },
     design: {
       tema: 'pad-tema-black',
