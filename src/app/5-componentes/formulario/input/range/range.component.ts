@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ModeloCampos } from 'src/app/2-dados/interface';
+import { ModeloCampos } from './../../../../interfaces-import';
 
 @Component({
   selector: 'app-range',

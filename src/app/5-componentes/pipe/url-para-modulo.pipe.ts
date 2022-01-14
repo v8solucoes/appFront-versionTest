@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Funcoes } from '../../funcoes';
-import { ChaveModulo } from '../../2-dados/interface';
+import { ChaveModulo } from './../../interfaces-import';
 
 @Pipe({
   name: 'urlparamodulo'

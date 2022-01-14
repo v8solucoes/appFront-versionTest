@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { InterfaceService } from '../../../3-interface/interface.service';
 import { Animacoes } from 'src/app/3-interface/animacao';
-import { Menu } from 'src/app/2-dados/interface';
+import { Menu } from './../../../interfaces-import';
 
 @Component({
   selector: 'app-menu-lista',

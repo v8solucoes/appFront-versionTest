@@ -2,7 +2,7 @@ import { Component, Input, OnInit} from '@angular/core';
 import { FormArray } from '@angular/forms';
 
 import { Animacoes } from 'src/app/3-interface/animacao';
-import { ModeloCampos } from 'src/app/2-dados/interface';
+import { ModeloCampos } from './../../../interfaces-import';
 import { FormularioCRUDService } from '../formularioCRUD.service';
 
 @Component({

@@ -2,7 +2,7 @@
 import { AbstractControl, FormArray, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Debug } from 'src/app/5-componentes/debug';
-import { GetPermissao, DadosFuncao, GetModelo, ValidarSincrono, ModeloCampos } from 'src/app/2-dados/interface';
+import { GetPermissao, DadosFuncao, GetModelo, ValidarSincrono, ModeloCampos } from './../../../interfaces-import';
 
 export class CriarForm {
 

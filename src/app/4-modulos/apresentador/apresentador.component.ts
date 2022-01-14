@@ -5,7 +5,7 @@ import { FormGroup } from '@angular/forms';
 
 import { ActivatedRoute } from '@angular/router';
 import { Debug } from 'src/app/5-componentes/debug';
-import { Apresentador, ChaveModulo } from 'src/app/2-dados/interface';
+import { Apresentador, ChaveModulo } from './../../interfaces-import';
 import { CaixaDialogoService } from 'src/app/5-componentes/caixa-dialogo/caixa-dialogo.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 

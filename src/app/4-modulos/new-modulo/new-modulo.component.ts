@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ChaveModulo } from 'src/app/2-dados/interface';
+import { ChaveModulo }from './../../interfaces-import';
 
 import { InterfaceService } from 'src/app/3-interface/interface.service';
 import { DadosNewModulo } from './dados-new-modulo';

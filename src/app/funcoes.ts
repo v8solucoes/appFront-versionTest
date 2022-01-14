@@ -1,6 +1,6 @@
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { RotasApp } from '../../../interface/variaveis';
-import { ChaveModulo, Credenciais, Rotas, Urls } from './2-dados/interface';
+import { ChaveModulo, Credenciais }from './interfaces-import';
 
 export class Funcoes {
   static convertePadraoURL(texto: string): string {

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ChaveModulo } from 'src/app/2-dados/interface';
+import { ChaveModulo } from './../../interfaces-import';
 import { InterfaceService } from 'src/app/3-interface/interface.service';
 
 @Component({

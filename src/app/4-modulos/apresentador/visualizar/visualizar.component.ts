@@ -1,5 +1,5 @@
-import { ChaveModulo } from 'src/app/2-dados/interface';
-import { GetModelo } from './../../../2-dados/interface';
+import { ChaveModulo } from './../../../interfaces-import';
+import { GetModelo } from './../../../interfaces-import';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DadosService } from 'src/app/2-dados/dados.service';

@@ -5,11 +5,9 @@ import {
   Menu,
   Modelo,
   Modulo,
-  Dados,
   ModuloUsuario,
   RotaBancoDados,
-  NewModulo,
-} from './../2-dados/interface';
+} from '../interfaces-import';
 
 import { Injectable } from '@angular/core';
 

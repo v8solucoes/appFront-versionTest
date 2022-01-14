@@ -1,5 +1,4 @@
 import { VisualizarVideoComponent } from './../../4-modulos/apresentador/visualizar-video/visualizar-video.component';
-import { Modelo } from './../../2-dados/interface';
 import { Injectable } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';

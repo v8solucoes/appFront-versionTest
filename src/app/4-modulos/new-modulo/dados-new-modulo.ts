@@ -1,5 +1,5 @@
-import { Chaves } from './../../2-dados/interface';
-import { ModuloCriar, NewModulo } from 'src/app/2-dados/interface';
+import { Chaves } from './../../interfaces-import';
+import { ModuloCriar, NewModulo } from './../../interfaces-import';
 import { acao } from '../../../../../interface/variaveis';
 
 export class DadosNewModulo {

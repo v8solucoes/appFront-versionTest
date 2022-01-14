@@ -8,7 +8,7 @@ import { Debug } from '../5-componentes/debug';
 
 import { AutenticarService } from 'src/app/1-autenticar/autenticar.service';
 import { HttpClient } from '@angular/common/http';
-import { Usuario, RetornoServidor, Credenciais } from './interface';
+import { Usuario, RetornoServidor, Credenciais } from '.././interfaces-import';
 import { acao, AcaoNomes } from '../../../../interface/variaveis';
 
 @Injectable({

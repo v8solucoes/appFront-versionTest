@@ -1,7 +1,7 @@
 import { DadosService } from 'src/app/2-dados/dados.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ModeloCampos } from 'src/app/2-dados/interface';
+import { ModeloCampos } from './../../../interfaces-import';
 
 @Component({
   selector: 'app-input',

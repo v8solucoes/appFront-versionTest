@@ -1,0 +1,16 @@
+export { Modulos, ChaveModulo, Credenciais,
+    Usuario,
+    Menu,
+    Modelo,
+    Modulo,
+    ModuloUsuario,
+    RotaBancoDados,
+    RetornoServidor,
+    Apresentador,
+    Chaves,
+    ModuloCriar,
+    Validar,
+    NewModulo,
+    Revenda,
+    GetPermissao, DadosFuncao, GetModelo, ValidarSincrono, ModeloCampos 
+ } from '../../../interface/interface';

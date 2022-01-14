@@ -1,4 +1,4 @@
-import { ModeloCampos } from 'src/app/2-dados/interface';
+import { ModeloCampos } from './../../../../interfaces-import';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 

@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 
 import { Animacoes } from 'src/app/3-interface/animacao';
-import { GetPermissao, GetModelo } from 'src/app/2-dados/interface';
+import { GetPermissao, GetModelo } from './../../../interfaces-import';
 import { FormularioCRUDService } from '../formularioCRUD.service';
 
 @Component({

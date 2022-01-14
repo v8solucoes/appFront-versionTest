@@ -1,4 +1,4 @@
-import { ChaveModulo, Revenda } from './../../2-dados/interface';
+import { ChaveModulo, Revenda } from './../../interfaces-import';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { InterfaceService } from 'src/app/3-interface/interface.service';
