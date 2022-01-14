@@ -4,7 +4,7 @@
 
 <ng-container *ngIf="carregar; else carregando">
 
-  <app-formulario [modulo]="chaveModulo" [debugar]='true'></app-formulario>
+  <app-formulario [modulo]="chaveModulo" [debugar]='false'></app-formulario>
 
   <section>
 
@@ -27,23 +27,18 @@
           <button mat-raised-button color="accent"
             (click)="caixaDialogo.apresentador('500px',i.data.usuario.modulo.apresentador.form.value.apresentadorGaleria)"
             [disabled]="!i.data.usuario.modulo.apresentador.form.valid">
-            VISUALIZAR</button>
+            CONFIGURAR VÍDEO</button>
           <button mat-raised-button color="accent" (click)="playAudio()">OUVIR</button>
-          <button mat-raised-button color="accent" (click)="i.salvarProcessamento('salvarFila')"
+          <button mat-raised-button color="accent"
+            (click)="caixaDialogo.codigo('700px',i.data.usuario.modulo.apresentador.form.value)"
             [disabled]="i.data.usuario.modulo.apresentador.form.value.processamento">
-            <span *ngIf="!i.data.usuario.modulo.apresentador.form.value.processamento">Salvar
-
-            </span>
-            <span *ngIf="i.data.usuario.modulo.apresentador.form.value.processamento">
-              <mat-spinner mat-mini-fab [diameter]="20"></mat-spinner>Salvando...
-            </span>
-
+            <span *ngIf="!i.data.usuario.modulo.apresentador.form.value.processamento">GERAR CÓDIGO</span>
+            <span *ngIf="i.data.usuario.modulo.apresentador.form.value.processamento">GERAR CÓDIGO</span>
           </button>
 
           <!--  <button mat-raised-button color="accent" (click)="playAudio()" [disabled]="!formulario.valid">OUVIR</button> -->
 
         </div>
-
 
       </section>
 
