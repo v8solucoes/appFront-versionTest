@@ -1,17 +1,17 @@
 <mat-dialog-content>
-  <video *ngIf="ecluirSessao" #video width="320px" controls crossorigin="anonymous"
-    poster="{{'assets/modulo/apresentador/modelo/' + data.nome + '.png'}}">
-    <source src="{{'assets/modulo/apresentador/modelo/' + data.nome + '.mp4'}}" type="video/mp4">
+  <video id="video" *ngIf="ecluirSessao" #video width="320px" controls crossorigin="anonymous"
+    poster="../../../../../../assets/midias/foto-pessoa-01.jpg">
+    <source src="../../../../assets/midias/duplo.mp4" type="video/mp4">
     Vídeo não suportado!
   </video>
 
   <nav>
-    <button mat-raised-button color="accent" (click)="removerFundoRGB()">PLAY</button>
+    <button mat-raised-button color="accent" (click)="play()">PLAY</button>
     <button mat-raised-button color="accent" (click)="pause()">PAUSE</button>
   </nav>
 
-  <canvas #exibir id="exibir" width="320" height="170"></canvas>
-  <canvas #processando id="processando" width="320" height="170"></canvas>
+  <canvas #buffer id="processando" width="{{width}}" height="{{height}}"></canvas>
+  <canvas #output id="exibir" width="{{width}}" height="{{height / 2}}"></canvas>
 
 
 </mat-dialog-content>
