@@ -1,0 +1,31 @@
+<div>
+  <mat-dialog-content>
+    <app-visualizar-video></app-visualizar-video>
+  </mat-dialog-content>
+</div>
+
+
+
+<div>
+  <mat-dialog-actions>
+    <!-- <button mat-raised-button color="accent"
+    (click)="caixaDialogo.verVideo('800px',i.data.usuario.modulo.apresentador.form.value)">
+    VISUALIZAR
+  </button> -->
+    <div>
+      <app-grupo [formulario]="i.data.usuario.modulo.apresentador.form" [permissao]="permissao"
+        [modelo]="i.data.usuario.modulo.apresentador.modelo">
+      </app-grupo>
+    </div>
+
+    <div>
+      <button mat-raised-button color="accent" (click)="excluir()" [mat-dialog-close]="true"
+        cdkFocusInitial>Cancel</button>
+
+      <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+    </div>
+
+
+  </mat-dialog-actions>
+
+</div>

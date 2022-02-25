@@ -3,7 +3,7 @@ import { Modelo } from './../../2-dados/interface';
 import { Injectable } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
-import { VisualizarComponent } from 'src/app/4-modulos/apresentador/visualizar/visualizar.component';
+import { VisualizarComponent } from 'src/app/4-modulos/apresentador/gerar-codigo/visualizar/visualizar.component';
 import { ValidarComponent } from '../formulario/validar/validar.component';
 import { CaixaDialogoComponent } from './caixa-dialogo.component';
 import { GerarCodigoComponent } from 'src/app/4-modulos/apresentador/gerar-codigo/gerar-codigo.component';
@@ -46,11 +46,13 @@ export class CaixaDialogoService {
       /*  console.log('The dialog was closed'); */
     });
   }
-  apresentador(tamanho: string, nome: string): void {
+  apresentador(tamanho: string, height: string, nome: string): void {
 
     const dialogRef = this.dialogo.open(VisualizarComponent, {
       panelClass: "modal-visualizar-apresentador",
       width: tamanho,
+      height: height,
+
       disableClose: true,
       data: {
         nome: nome,

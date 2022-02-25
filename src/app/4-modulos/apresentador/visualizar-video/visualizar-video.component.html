@@ -1,6 +1,31 @@
 <mat-dialog-content>
-  <video id="video" *ngIf="ecluirSessao" #video width="320px" controls crossorigin="anonymous"
-    poster="../../../../../../assets/midias/foto-pessoa-01.jpg">
+
+  <script>
+    let apresentadores = new MeuApresentadorOk({ id: 'QjvUSNgCpE9L2', url: '../../../../../QjvUSNgCpE9L2.json', versao: 'v1' });
+  </script>
+
+
+
+
+
+  <div id='MeuApresentador${id}' #apresentador></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <video id="video" #video width="320px" controls crossorigin="anonymous"
+    poster="../../../../../../assets/midias/foto-pessoa-01.jpg" hidden>
     <source src="../../../../assets/midias/duplo.mp4" type="video/mp4">
     Vídeo não suportado!
   </video>
@@ -10,13 +35,6 @@
     <button mat-raised-button color="accent" (click)="pause()">PAUSE</button>
   </nav>
 
-  <canvas #buffer id="processando" width="{{width}}" height="{{height}}"></canvas>
-  <canvas #output id="exibir" width="{{width}}" height="{{height / 2}}"></canvas>
-
-
+  <canvas #buffer id="processando" width="{{width}}" height="{{height}}" hidden></canvas>
+  <canvas #output id="exibir" width="{{width}}" height="{{height / 2}}"></canvas> -->
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-
-  <button mat-raised-button color="accent" (click)="excluir()" [mat-dialog-close]="true" cdkFocusInitial>Cancel</button>
-
-</mat-dialog-actions>

@@ -14,6 +14,7 @@ export class FormularioComponent implements OnInit {
 
   usuario = this.i.data.usuario;
   permissao = this.i.data.usuario.modulo.apresentador.permissao.filter(campo => {
+    if (campo.id == 'apresentadorGaleria') return campo;
     if (campo.id == 'vozColecao') return campo;
     if (campo.id == 'idioma') return campo;
     if (campo.id == 'sugestao') return campo;

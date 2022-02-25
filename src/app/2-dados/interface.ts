@@ -205,9 +205,9 @@ export interface Chaves extends ModuloServico {
   rotaBancoDados: RotaBancoDados;
   chaveModulo: ChaveModulo;
   acao?: AcaoNomes;
-} 
+}
 
-export interface ModuloServico { moduloServico: boolean}
+export interface ModuloServico { moduloServico: boolean }
 
 export interface Rotas {
   acao: ServicoCredenciaisAcao | Acao;
@@ -257,7 +257,7 @@ export interface ModeloCampos {
   valor?: string[] | number[] | boolean[];
   valorMinimo?: number;
   valorMaximo?: number;
-  inputTipo?: 'range' | 'input' | 'radio' | 'texto-area' | 'select' | 'galeriaHorizontal' | 'color';
+  inputTipo?: 'range' | 'input' | 'radio' | 'texto-area' | 'select' | 'galeriaHorizontal' | 'color' | 'slide-toggle';
   cssInput?: 'fill' | 'outline';
   cssColuna?:
   | 'f-total'

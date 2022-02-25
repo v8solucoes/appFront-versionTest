@@ -11,6 +11,7 @@ import { RangeComponent } from './input/range/range.component';
 import { RadioComponent } from './input/radio/radio.component';
 import { ColorInputComponent } from './input/color-input/color-input.component';
 import { ConverterRgbPipe } from './input/converter-rgb.pipe';
+import { SlideToggleComponent } from './input/slide-toggle/slide-toggle.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { ConverterRgbPipe } from './input/converter-rgb.pipe';
     RangeComponent,
     RadioComponent,
     ColorInputComponent,
-    ConverterRgbPipe
+    ConverterRgbPipe,
+    SlideToggleComponent
   ],
   providers: []
 })

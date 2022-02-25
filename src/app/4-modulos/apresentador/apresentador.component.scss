@@ -43,8 +43,12 @@ mat-spinner {
 .a {
   @include formulario();
 }
+.a-total {
+  display: flex;
+  justify-content: center;
+}
 .button {
   button {
-    width: 360px;
+    width: 100%;
   }
 }

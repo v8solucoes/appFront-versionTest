@@ -1,0 +1,47 @@
+@import "~src/sass/formulario";
+@import "~src/sass/construtor";
+.f {
+  @include formulario();
+}
+
+app-lista {
+  width: 100%;
+}
+
+app-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+mat-dialog-content {
+  height: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  @extend %scroll;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: -120px;
+}
+
+nav {
+  display: block;
+  justify-content: center;
+}
+
+#processando {
+  visibility: hidden;
+}
+
+mat-dialog-actions {
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 180px;
+  border: 1px solid blueviolet;
+}

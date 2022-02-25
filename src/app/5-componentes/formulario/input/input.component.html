@@ -9,7 +9,8 @@
   <input *ngIf="modelo?.inputTipo == 'input'" [formControl]="formulario" matInput [required]='modelo?.requerido'>
 
   <!-- COLOR -->
-  <input *ngIf="modelo?.inputTipo == 'color'" type="color" [formControl]="formulario" matInput [required]='modelo?.requerido'>
+  <input *ngIf="modelo?.inputTipo == 'color'" type="color" [formControl]="formulario" matInput
+    [required]='modelo?.requerido'>
 
   <!-- TEXT ÁREA -->
   <input *ngIf="modelo?.inputTipo == 'texto-area'" [formControl]="formulario" matInput [required]='modelo?.requerido'>

@@ -10,7 +10,7 @@
     }}
   </div>
 
-  <button mat-raised-button (click)="i.delete()" [disabled]="i.processandoCrud.delete">
+  <button class="delete" mat-raised-button (click)="i.delete()" [disabled]="i.processandoCrud.delete">
     <span *ngIf="!i.processandoCrud.delete">Delete</span>
     <span *ngIf="i.processandoCrud.delete">
       <mat-spinner [diameter]="20"></mat-spinner>Deletando...
@@ -28,10 +28,10 @@
   <button mat-mini-fab *ngIf="i.processandoCrud.update">
     <mat-spinner [diameter]="25"></mat-spinner>
   </button> -->
-  <button mat-raised-button color="accent" (click)="i.salvarProcessamento('salvarFila')"
-    [disabled]="i.data.usuario.modulo.apresentador.form.value.processamento">
-    <span *ngIf="!i.data.usuario.modulo.apresentador.form.value.processamento">Salvar</span>
-    <span *ngIf="i.data.usuario.modulo.apresentador.form.value.processamento">
+  <button class="salvando" mat-raised-button color="accent" (click)="i.salvarProcessamento('salvarFila')"
+    [disabled]="i.data.usuario.modulo[i.data.usuario.credenciais.modulo].form.value.processamento">
+    <span *ngIf="!i.data.usuario.modulo[i.data.usuario.credenciais.modulo].form.value.processamento">Salvar</span>
+    <span *ngIf="i.data.usuario.modulo[i.data.usuario.credenciais.modulo].form.value.processamento">
       <mat-spinner mat-mini-fab [diameter]="20"></mat-spinner>Salvando...
     </span>
 

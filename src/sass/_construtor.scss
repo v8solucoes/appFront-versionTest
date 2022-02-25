@@ -10,7 +10,6 @@
   @media (max-width: 360px) {
     max-width: 100%;
   }
-  
 }
 
 %conteudo {
@@ -69,17 +68,14 @@
   }
 }
 @mixin ativo() {
- 
   &-fundo {
     background-color: var(--cor-ativo);
-   
   }
   &-icone {
     color: var(--cor-secundaria);
   }
   &-texto {
     color: var(--cor-superficie-on);
-    
   }
 }
 @mixin menu-divisor() {
@@ -130,14 +126,14 @@
   }
 }
 
-%nav-unica{
+%nav-unica {
   height: 56px;
-  box-shadow: var(--sombra-4dp); 
+  box-shadow: var(--sombra-4dp);
 }
 
-%nav-dupla{
+%nav-dupla {
   height: 132px;
-  box-shadow: var(--sombra-4dp); 
+  box-shadow: var(--sombra-4dp);
 }
 
 %nav-topo {
@@ -221,6 +217,7 @@
   width: 100%;
   padding-top: 24px;
   padding-bottom: 190px;
+  margin-left: 0;
   overflow: auto;
   box-sizing: border-box;
 

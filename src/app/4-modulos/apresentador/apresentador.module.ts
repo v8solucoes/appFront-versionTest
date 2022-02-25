@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormularioModule } from 'src/app/5-componentes/formulario/formulario.module';
 import { CompartilhadoModule } from 'src/app/compartilhado.module';
 import { ApresentadorComponent } from './apresentador.component';
-import { VisualizarComponent } from './visualizar/visualizar.component';
+import { VisualizarComponent } from './gerar-codigo/visualizar/visualizar.component';
 import { GerarCodigoComponent } from './gerar-codigo/gerar-codigo.component';
 import { VisualizarVideoComponent } from './visualizar-video/visualizar-video.component';
 
@@ -25,6 +25,6 @@ import { VisualizarVideoComponent } from './visualizar-video/visualizar-video.co
   exports: [
     ApresentadorComponent,
     VisualizarComponent
-]
+  ]
 })
 export class ApresentadorModule { }

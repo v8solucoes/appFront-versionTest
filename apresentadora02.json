@@ -1,0 +1,12 @@
+{
+    "videoWidth": 464,
+    "videoHeight": 600,
+    "videoPause" : true,
+    "videoDuplo" : true,
+    "videoAlgoritimo" : "duplo",
+    "cssBackground" : "white",
+    "cssAlinhamento" : "fluxo",
+    "corTolerancia" : 200,
+    "corTransparencia" : 0,
+    "corReferencia" : {"r":255, "g":255, "b":255}
+}

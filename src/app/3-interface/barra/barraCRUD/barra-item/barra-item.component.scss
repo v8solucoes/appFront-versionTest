@@ -6,7 +6,6 @@ section {
   padding-top: 8px;
   padding-bottom: 8px;
   @extend %flex-linha;
-  /*   background-color: brown; */
 }
 button {
   margin: 0px;
@@ -34,4 +33,11 @@ mat-spinner {
   @media (max-width: 600px) {
     padding-left: 0px;
   }
+}
+.delete {
+  margin-left: -40px;
+}
+.salvando {
+  width: 120px;
+  right: 0;
 }

@@ -26,6 +26,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
 
@@ -59,6 +60,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSnackBarModule,
     MatSliderModule,
     MatRadioModule,
+    MatSlideToggleModule
   ]
 })
 export class CompartilhadoModule { }

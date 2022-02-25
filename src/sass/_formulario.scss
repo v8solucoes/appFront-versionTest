@@ -10,7 +10,7 @@
   $multiplicador: 1
 ) {
   /* @extend %flex-linha; */
-  display: flex;
+  // display: flex;
   flex-direction: row;
   width: (100% / $divisor) * ($multiplicador);
   min-width: 100px;

@@ -21,6 +21,9 @@
         </app-input>
         <app-range *ngSwitchCase="'range'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
         </app-range>
+        <app-slide-toggle *ngSwitchCase="'slide-toggle'" [formulario]="formulario.get(campo.id)"
+          [modelo]="modelo[campo.id]">
+        </app-slide-toggle>
         <app-radio *ngSwitchCase="'radio'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
         </app-radio>
         <app-input *ngSwitchCase="'texto-area'" [formulario]="formulario.get(campo.id)" [modelo]="modelo[campo.id]">
