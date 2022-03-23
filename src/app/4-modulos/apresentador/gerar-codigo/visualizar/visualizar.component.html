@@ -1,31 +1,41 @@
-<div>
-  <mat-dialog-content>
-    <app-visualizar-video></app-visualizar-video>
-  </mat-dialog-content>
-</div>
+<mat-dialog-content>
+  <div class="main1">
+    <iframe width="100%" height="100%" src="https://www.itagtecnologia.com.br/"></iframe>
+    <div id="meuApresentador" class="canvas">
+      <video id="video" #video width="{{width + 'px'}}" height="{{height + 'px'}}" controls style="display: none;">
+        <source src="../../../../assets/midias/QjvUSNgCpE9L2.mp4" type="video/mp4" />
+        Seu navegador não suporte este vídeo.
+      </video>
 
+      <canvas #buffer width="{{width}}" height="{{height}}" style="display: none;"></canvas>
 
+      <canvas #output class="canvas1" width="{{width}}" height="{{height / duplo}}"></canvas>
+      <br />
+      <button (click)="play()" class="play">
+        <img id="play" style="width: 50px; height: 50px;" src="../../../../assets/midias/button-play.png" alt="play">
+      </button>
+      <button id="pause" (click)="pause()" class="pause">
+        <img src="../../../../assets/pause.png" alt="pause">
+      </button>
+      <button id="close" class="close" (click)="circle()">
+        <img id="imgClose" src="../../../../assets/cancel.png" alt="close">
+      </button>
+      <button class="voltar" id="aumentar" (click)="ampliar()"></button>
+    </div>
+  </div>
+</mat-dialog-content>
 
 <div>
   <mat-dialog-actions>
-    <!-- <button mat-raised-button color="accent"
-    (click)="caixaDialogo.verVideo('800px',i.data.usuario.modulo.apresentador.form.value)">
-    VISUALIZAR
-  </button> -->
     <div>
       <app-grupo [formulario]="i.data.usuario.modulo.apresentador.form" [permissao]="permissao"
         [modelo]="i.data.usuario.modulo.apresentador.modelo">
       </app-grupo>
     </div>
-
     <div>
-      <button mat-raised-button color="accent" (click)="excluir()" [mat-dialog-close]="true"
+      <button mat-raised-button color="accent" (click)="cancel()" [mat-dialog-close]="true"
         cdkFocusInitial>Cancel</button>
-
       <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial>OK</button>
     </div>
-
-
   </mat-dialog-actions>
-
 </div>

@@ -32,6 +32,9 @@ export class DadosApresentador {
     apresentador: {
       sugestao: [{ funcao: 'popularCampo', destino: ['texto'] }],
       corReferencia: [{ funcao: 'converterRgb', destino: ['corRgb'] }],
+      cssAlinhamento: [{ funcao: 'alinhamento', destino: ['cssAlinhamento'] }],
+      alinhamentoVertical: [{ funcao: 'espacoVertical', destino: ['alinhamentoVertical'] }],
+      alinhamentoHorizontal: [{ funcao: 'espacoHorizontal', destino: ['alinhamentoHorizontal'] }],
 
       texto: [
         { funcao: 'nativoRequerido', valor: true },
@@ -344,17 +347,21 @@ export class DadosApresentador {
           cssInput: 'fill',
           cssColuna: 'f-1-esquerda',
           valor: [null],
+          validarSincrono: this.validar.apresentador.cssAlinhamento,
           colecao: {
             tipo: 'lista',
             lista: [
               {
-                id: 'left',
-                nome: 'Esquerda',
-              },
-              {
                 id: 'right',
                 nome: 'Direita',
+              }, {
+                id: 'left',
+                nome: 'Esquerda',
+              }, {
+                id: 'middle',
+                nome: 'Centro',
               },
+
             ],
           },
         },
@@ -423,7 +430,9 @@ export class DadosApresentador {
           cssInput: 'fill',
           cssColuna: 'f-1-direita',
           requerido: false,
-          valor: [100],
+          valor: [0],
+          validarSincrono: this.validar.apresentador.alinhamentoHorizontal
+
         },
         alinhamentoVertical: {
           nome: 'Espaço Vertical',
@@ -431,8 +440,9 @@ export class DadosApresentador {
           inputTipo: 'input',
           cssColuna: 'f-1-meio',
           cssInput: 'fill',
-          requerido: false,
-          valor: [100],
+          requerido: true,
+          valor: [0],
+          validarSincrono: this.validar.apresentador.alinhamentoVertical
         },
         corTolerancia: {
           nome: 'Cor Tolerancia',

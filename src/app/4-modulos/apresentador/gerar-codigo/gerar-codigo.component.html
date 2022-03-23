@@ -2,16 +2,22 @@
 
   <h3>Copie o código </h3>
   <div class="box">
-    <textarea name="" id="texto" cols="75" rows="10" noresize readonly disabled>
+    <div>
+      <textarea name="" id="texto" cols="75" rows="10" noresize readonly disabled>
     {{script}}
-  </textarea>
-    <span>
-      <button mat-icon-button>
-        <mat-icon matTooltip="Clique para copiar" (click)="copyToClipboard(script)" aria-hidden="false">
-          content_copy
-        </mat-icon>
-      </button>
-    </span>
+   </textarea>
+    </div>
+    <div>
+      <span>
+        <button mat-icon-button>
+          <mat-icon matTooltip="Clique para copiar" (click)="copyToClipboard(script)" aria-hidden="false">
+            content_copy
+          </mat-icon>
+        </button>
+      </span>
+    </div>
+
+
 
 
   </div>

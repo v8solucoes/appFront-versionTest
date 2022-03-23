@@ -77,6 +77,9 @@ export class Funcao {
       case 'nativoTextoMaximo': return Validators.maxLength(dados.valor);
       case 'popularCampo': return Funcao.validar(Funcao.popular, dados, modelo, id);
       case 'converterRgb': return Funcao.validar(Funcao.converteRgb, dados, modelo, id);
+      case 'alinhamento': return Funcao.validar(Funcao.alinhamento, dados, modelo, id);
+      case 'espacoVertical': return Funcao.validar(Funcao.espacoVertical, dados, modelo, id);
+      case 'espacoHorizontal': return Funcao.validar(Funcao.espacoHorizontal, dados, modelo, id);
       case 'popularColecaoObjeto': return Funcao.validar(Funcao.popularObjeto, dados, modelo, id);
       case 'popularColecaoLista': return Funcao.validar(Funcao.popularLista, dados, modelo, id);
 
@@ -130,6 +133,50 @@ export class Funcao {
 
   }
 
+  static alinhamento(controle: FormGroup, dados: ValidarSincrono) {
+    let alinhamento = controle.controls.cssAlinhamento.value;
+    let canvaPositionDisplay = document.querySelector<HTMLElement>(".canvas");
+    canvaPositionDisplay.style.zIndex = "50";
+    canvaPositionDisplay.style.position = "absolute";
+    canvaPositionDisplay.style.bottom = "0";
+
+    switch (alinhamento) {
+      case "right":
+        canvaPositionDisplay.style.right = "0";
+        canvaPositionDisplay.style.left = "";
+        break;
+      case "left":
+        canvaPositionDisplay.style.left = "0";
+        canvaPositionDisplay.style.right = "";
+        break;
+      case "middle":
+        canvaPositionDisplay.style.left = "calc(52% - 121px)";
+        canvaPositionDisplay.style.right = "";
+        break;
+    }
+  }
+
+  static espacoVertical(controle: FormGroup, dados: ValidarSincrono) {
+    let altura = controle.controls.alinhamentoVertical.value;
+    let canvaPositionDisplay = document.querySelector<HTMLElement>(".canvas");
+
+    canvaPositionDisplay.style.marginBottom = `${altura}` + "px";
+  }
+
+  static espacoHorizontal(controle: FormGroup, dados: ValidarSincrono) {
+    let alinhamento = controle.controls.cssAlinhamento.value;
+    let lateral = controle.controls.alinhamentoHorizontal.value;
+    let canvaPositionDisplay = document.querySelector<HTMLElement>(".canvas");
+
+    switch (alinhamento) {
+      case "right":
+        canvaPositionDisplay.style.marginRight = `${lateral}` + "px";
+        break;
+      case "left":
+        canvaPositionDisplay.style.marginLeft = `${lateral}` + "px";
+        break;
+    }
+  }
 
 
   // if (controle.get(dados.destino[0]) != null && controle.get(dados.origem[0]).pristine !== true) {

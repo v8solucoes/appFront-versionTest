@@ -16,15 +16,89 @@ app-grupo {
 }
 
 mat-dialog-content {
-  height: 800px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   @extend %scroll;
-  border-radius: 10px;
   background-color: rgb(255, 255, 255);
   margin-bottom: -120px;
+
+  .play img {
+    width: 100px;
+    height: 100px;
+  }
+  .pause img {
+    width: 25px;
+    height: 25px;
+    margin-top: -3px;
+  }
+  .close img {
+    width: 25px;
+    height: 25px;
+    margin-top: -3px;
+  }
+  .canvas {
+    position: absolute;
+    width: 240px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .canvas1 {
+    position: absolute;
+    // left: 0;
+  }
+  .main1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .play {
+    position: absolute;
+    border: none;
+    background: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 60px;
+    left: 90px;
+    cursor: pointer;
+  }
+  .pause {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+    border-radius: 50%;
+    left: 10px;
+    top: 0;
+    cursor: pointer;
+  }
+  .close {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+    border-radius: 50%;
+    margin-left: 197px;
+    top: 0;
+    cursor: pointer;
+  }
+  .voltar {
+    border: none;
+    background: transparent;
+  }
 }
 
 nav {
@@ -42,6 +116,5 @@ mat-dialog-actions {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  margin-top: 180px;
-  border: 1px solid blueviolet;
+  margin-top: 150px;
 }

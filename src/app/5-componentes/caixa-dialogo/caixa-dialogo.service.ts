@@ -1,4 +1,3 @@
-import { VisualizarVideoComponent } from './../../4-modulos/apresentador/visualizar-video/visualizar-video.component';
 import { Modelo } from './../../2-dados/interface';
 import { Injectable } from '@angular/core';
 
@@ -78,19 +77,5 @@ export class CaixaDialogoService {
       /*  console.log('The dialog was closed'); */
     });
   }
-  verVideo(tamanho: string, nome: string): void {
 
-    const dialogRef = this.dialogo.open(VisualizarVideoComponent, {
-      panelClass: "modal-visualizar-video",
-      width: tamanho,
-      disableClose: true,
-      data: {
-        nome: nome,
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      /*  console.log('The dialog was closed'); */
-    });
-  }
 }

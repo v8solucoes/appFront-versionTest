@@ -135,7 +135,10 @@ export type FuncoesSincronas =
   | 'nativoRequerido'
   | 'nativoTextoMaximo'
   | 'nativoTextoMinimo'
-  | 'converterRgb';
+  | 'converterRgb'
+  | 'alinhamento'
+  | 'espacoVertical'
+  | 'espacoHorizontal';
 
 export type MenuPrincipal = Menu[];
 export type Permissao = { [K in keyof Modulos]?: GetPermissao<Modulos[K]> };
