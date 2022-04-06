@@ -28,7 +28,7 @@ export class DadosService {
     public auth: AngularFireAuth,
     public fire: AngularFirestore,
     public http: HttpClient
-  ) {}
+  ) { }
 
   async usuarioCredenciais() {
     try {
@@ -46,9 +46,9 @@ export class DadosService {
   }
 
   async getData<T>(acao: AcaoNomes, dados?: any, credencialServico: Credenciais = null): Promise<T> {
-    
+
     const chave = this.chaveUsuario;
-  
+
     const credenciais = this.usuario
       ? credencialServico
         ? credencialServico
@@ -58,7 +58,7 @@ export class DadosService {
     return await this.http
       .post<RetornoServidor<T>>(`${environment.API}`, {
         chave,
-        "acao":acao,
+        "acao": acao,
         credenciais,
         dados,
       })
@@ -68,7 +68,6 @@ export class DadosService {
           return data.data;
         } else {
           const mensagem = 'Erro Servidor: ' + data.error + data.mensagem;
-          alert(mensagem);
           console.log(mensagem);
           return;
         }
@@ -86,7 +85,7 @@ export class DadosService {
         ? credencialServico
         : this.usuario.credenciais
       : null;
-    /*    
+    /*
         alert(this.usuario ? credencialServico ? credencialServico : this.usuario.credenciais : null) */
 
     return await this.http

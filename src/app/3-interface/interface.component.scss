@@ -15,7 +15,7 @@ app-menu {
 }
 
 app-modulo {
-  
+
   @extend %conteudo;
   background-color: var(--cor-superficie);
 
@@ -110,7 +110,7 @@ app-modulo {
 mat-drawer-container,
 mat-sidenav-container {
   height: 100%;
- 
+
 }
 
 .scroll {

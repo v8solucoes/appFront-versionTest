@@ -1,0 +1,17 @@
+<form [ngClass]="'pad-tema-black'" class="container" [formGroup]="autenticar.form" (ngSubmit)="onSubmit()">
+  <div class="content">
+    <div class="logo">
+      <img mat-card-sm-image src="../../../assets/Logo-V8-Sites.jpg" alt="V8 Soluções">
+    </div>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [type]="'email'" formControlName="email">
+      <mat-icon mat-icon-button matSuffix>email</mat-icon>
+    </mat-form-field>
+    <button type="submit" class="button-login" mat-raised-button>
+      <span>
+        <mat-label>Redefinir senha</mat-label>
+      </span>
+    </button>
+  </div>
+</form>

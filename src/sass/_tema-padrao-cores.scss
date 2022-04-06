@@ -76,31 +76,31 @@ $shadow-1: box-shadow 0px 12px 16px;
   --cor-secundaria-clara-on: #{$padrao-cor-secundaria-clara-on};
   --cor-secundaria-escura: #{$padrao-cor-secundaria-escura};
   --cor-secundaria-escura-on: #{$padrao-cor-secundaria-escura-on};
-   
+
   --cor-error: #{$padrao-cor-error};
   --cor-error-on: #{$padrao-cor-error-on};
-  
+
   --cor-divisor:  #{rgba($padrao-cor-superficie-on, 0.30)};
   --cor-inativo: #{$padrao-cor-superficie-on};
   --cor-ativo: #{rgba($padrao-cor-superficie-on, 0.12)};
-  
+
   --cor-hover: #{rgba($padrao-cor-superficie-on, 0.12)};
-   
+
   --sombra-2dp: #{0px 6px 8px   rgba($padrao-sombra, 0.87)};
   --sombra-4dp: #{0px 12px 16px rgba($padrao-sombra, 0.87)};
   --sombra-6dp: #{0px 17px 20px rgba($padrao-sombra, 0.87)};
   --sombra-8dp: #{0px 19px 23px rgba($padrao-sombra, 0.87)};
   --sombra-12dp:#{0px 26px 28px rgba($padrao-sombra, 0.87)};
   --sombra-24dp:#{0px 40px 50px rgba($padrao-sombra, 0.87)};
-  
-  
+
+
 }
 
 %pad-cores-white {
   --cor-secundaria: #{$pad-white-cor-secundaria};
   --cor-ativo: #{$pad-black};
   --cor-inativo: #{rgba($pad-black, 0.87)};
-  --cor-background: #{$pad-white-background};
+  --cor-background: #{$pad-black-background};
   --cor-background-ativo: #{rgba($pad-black, 0.12)};
   --cor-divisor:  #{rgba($pad-black, 0.30)};
   --cor-1dp:      #{rgba($pad-black, 0.050)};

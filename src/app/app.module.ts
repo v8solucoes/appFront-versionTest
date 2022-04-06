@@ -19,6 +19,8 @@ import { ApresentadorModule } from './4-modulos/apresentador/apresentador.module
 import { AppComponent } from './app.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
+
+
 @NgModule({
 
   imports: [
@@ -31,11 +33,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     AutenticarModule,
     InterfaceModule,
     ApresentadorModule,
-    MatDialogModule
+    MatDialogModule,
   ],
 
   declarations: [
-    AppComponent
+    AppComponent,
   ],
 
   exports: [

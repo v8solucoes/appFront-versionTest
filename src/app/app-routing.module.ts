@@ -1,3 +1,5 @@
+import { RecuperarSenhaComponent } from './1-autenticar/recuperar-senha/recuperar-senha.component';
+import { CadastroComponent } from './1-autenticar/cadastro/cadastro.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -8,10 +10,14 @@ import { RevendaComponent } from './4-modulos/revenda/revenda.component';
 import { ApresentadorComponent } from './4-modulos/apresentador/apresentador.component';
 import { VideoGravarComponent } from './estudos/video-gravar/video-gravar.component';
 import { StreamVideoComponent } from './estudos/stream-video/stream-video.component';
+import { LoginComponent } from './1-autenticar/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: AutenticarComponent },
-
+  // { path: '', component: AutenticarComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: 'login', component: LoginComponent },
+  { path: 'cadastrar', component: CadastroComponent },
+  { path: 'recuperar-senha', component: RecuperarSenhaComponent },
   {
     path: 'interface', component: InterfaceComponent,
     children: [

@@ -1,0 +1,53 @@
+<form class="container" [formGroup]="autenticar.form" (ngSubmit)="onSubmit()">
+  <div class="content">
+    <button mat-icon-button (click)="voltarLogin()" type="button" class="button-back">
+      <span class="material-icons-outlined">
+        <mat-icon>arrow_back</mat-icon>
+      </span>
+    </button>
+    <div class="logo">
+      <img mat-card-sm-image src="../../../assets/Logo-V8-Sites.jpg" alt="V8 Soluções">
+    </div>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput [type]="'text'" formControlName="nome">
+      <mat-icon mat-icon-button matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [type]="'email'" formControlName="email">
+      <mat-icon mat-icon-button matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Telefone</mat-label>
+      <input matInput [type]="'number'" formControlName="telefone">
+      <mat-icon mat-icon-button matSuffix>phone</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Senha</mat-label>
+      <input matInput [type]="exibir ? 'password' : 'text'" formControlName="senha">
+      <button mat-icon-button matSuffix (click)="exibir = !exibir" [attr.aria-label]="'Senha'"
+        [attr.aria-pressed]="exibir">
+        <mat-icon mat-icon-button matSuffix>{{exibir ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Confirmar Senha</mat-label>
+      <input matInput [type]="exibir ? 'password' : 'text'" formControlName="confirmaSenha">
+      <button mat-icon-button matSuffix (click)="exibir = !exibir" [attr.aria-label]="'Confirmar Senha'"
+        [attr.aria-pressed]="exibir">
+        <mat-icon mat-icon-button matSuffix>{{exibir ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="buttons">
+      <button type="submit" class="button-cadastrar" mat-raised-button>
+        <mat-label>Cadastre-se</mat-label>
+      </button>
+
+    </div>
+  </div>
+</form>

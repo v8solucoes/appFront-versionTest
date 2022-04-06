@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ModeloCampos } from '../2-dados/interface';
 import { AutenticarService } from './autenticar.service';
 
 @Component({
@@ -8,17 +9,28 @@ import { AutenticarService } from './autenticar.service';
 })
 export class AutenticarComponent implements OnInit {
 
-  exibir = true;
+  exibir: boolean = true;
+  cadastrarUsuario: boolean = false;
+  novaSenha: boolean = false;
+  @Input() modelo: ModeloCampos;
+
 
   constructor(
     public autenticar: AutenticarService,
-  )
-  {
+  ) {
     console.log('Autenticar Component');
   }
 
   ngOnInit() {
 
+  }
+
+  cadastrar() {
+    this.cadastrarUsuario = !this.cadastrarUsuario;
+  }
+
+  senhaNova() {
+    this.novaSenha = !this.novaSenha;
   }
 
 }

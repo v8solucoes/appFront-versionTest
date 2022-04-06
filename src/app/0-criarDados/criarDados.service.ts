@@ -135,7 +135,7 @@ export class CriarDadosService {
   gravarLista<T>(caminho, dados): T {
     const chave = Date.now().toString();
 
-/*     this.lote.set(this.fire.collection(`${caminho}`).doc(chave), dados); */
+    /*     this.lote.set(this.fire.collection(`${caminho}`).doc(chave), dados); */
 
     return null;
   }

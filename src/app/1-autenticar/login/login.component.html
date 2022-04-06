@@ -1,0 +1,46 @@
+<form [ngClass]="'pad-tema-black'" class="container" [formGroup]="autenticar.form" (ngSubmit)="onSubmit()">
+  <div class="content">
+    <div class="logo">
+      <img mat-card-sm-image src="../../../assets/Logo-V8-Sites.jpg" alt="V8 Soluções">
+    </div>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [type]="'email'" formControlName="email">
+      <mat-icon mat-icon-button matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Senha</mat-label>
+      <input matInput [type]="exibir ? 'password' : 'text'" formControlName="senha">
+      <button mat-icon-button matSuffix (click)="exibir = !exibir" [attr.aria-label]="'Senha'"
+        [attr.aria-pressed]="exibir">
+        <mat-icon mat-icon-button matSuffix>{{exibir ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button type="submit" class="button-login" mat-raised-button>
+      <span>
+        <mat-label>Entrar</mat-label>
+        <mat-icon>login</mat-icon>
+      </span>
+    </button>
+    <div class="buttons">
+      <button (click)="cadastro()" class="button-cadastrar" mat-raised-button>
+        <mat-label>Cadastre-se</mat-label>
+      </button>
+      <button (click)="recuperaSenha()" mat-stroked-button>
+        <mat-label>Esqueci a senha</mat-label>
+      </button>
+    </div>
+
+    <div class="linhas">
+      <hr>
+      <mat-label>Ou</mat-label>
+      <hr>
+    </div>
+
+    <div class="social-button">
+      <cool-google-button color="light">Login with Google</cool-google-button>
+    </div>
+
+  </div>
+</form>
