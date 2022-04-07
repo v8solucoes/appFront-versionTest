@@ -14,13 +14,13 @@
       </div>
 
       <mat-form-field *ngIf="cadastrarUsuario" appearance="fill" class="full-width">
-        <mat-label>Nome</mat-label>
+        <mat-label>Nome  </mat-label>
         <input matInput>
         <mat-icon mat-icon-button matSuffix>person</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Email</mat-label>
+        <mat-label>Email </mat-label>
         <input matInput [type]="'email'">
         <mat-icon mat-icon-button matSuffix>email</mat-icon>
       </mat-form-field>
@@ -81,15 +81,15 @@
           <mat-label>Entrar</mat-label>
           <mat-icon>login</mat-icon>
         </span>
-        <span (click)="autenticar.cadastrar()" *ngIf="cadastrarUsuario">Cadastre-se</span>
-        <span (click)="autenticar.resetarSenha()" *ngIf="novaSenha">Redefinir Senha</span>
+        <span [routerLink]="'../cadastrar'"  *ngIf="cadastrarUsuario">Cadastre-se</span>
+        <span [routerLink]="'../recuperar-senha'" (click)="autenticar.resetarSenha()" *ngIf="novaSenha">Redefinir Senha</span>
       </button>
 
-      <div *ngIf="!cadastrarUsuario && !novaSenha" class="buttons">
-        <button (click)="cadastrar()" class="button-cadastrar" mat-raised-button>
-          <mat-label>Cadastre-se</mat-label>
+      <div *ngIf="cadastrarUsuario && novaSenha" class="buttons">
+        <button  [routerLink]="'../cadastrar'" (click)="cadastrar()" class="button-cadastrar" mat-raised-button>
+          <mat-label>Cadastre-se </mat-label>
         </button>
-        <button (click)="senhaNova()" mat-stroked-button>
+        <button  [routerLink]="'../recuperar-senha'" (click)="senhaNova()" mat-stroked-button>
           <mat-label>Esqueci a senha</mat-label>
         </button>
       </div>

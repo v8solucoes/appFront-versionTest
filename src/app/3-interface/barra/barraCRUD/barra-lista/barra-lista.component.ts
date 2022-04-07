@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicoCredenciaisAcao } from '../../../../../../../interface/servicoCredenciais';
+import { ServicoCredenciaisAcao } from 'servicoCredenciais';
 import { InterfaceService } from '../../../interface.service';
 
 @Component({

@@ -13,10 +13,9 @@ import { StreamVideoComponent } from './estudos/stream-video/stream-video.compon
 import { LoginComponent } from './1-autenticar/login/login.component';
 
 const routes: Routes = [
-  // { path: '', component: AutenticarComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'login', component: LoginComponent },
-  { path: 'cadastrar', component: CadastroComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'login/adm' },
+  { path: 'cadastrar/:tipo', component: CadastroComponent },
+  { path: 'login/:tipo', component: LoginComponent },
   { path: 'recuperar-senha', component: RecuperarSenhaComponent },
   {
     path: 'interface', component: InterfaceComponent,

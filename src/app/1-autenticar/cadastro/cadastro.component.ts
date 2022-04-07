@@ -1,7 +1,8 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { ModeloCampos } from 'src/app/2-dados/interface';
 import { AutenticarService } from '../autenticar.service';
+import { nomePermissao } from '../../../../../construtor/src/construtor/dados/dados.interface';
 
 @Component({
   selector: 'app-cadastro',
@@ -13,16 +14,25 @@ export class CadastroComponent implements OnInit {
 
   @Input() modelo: ModeloCampos;
 
+  public tipo: nomePermissao
+
   constructor(
     public autenticar: AutenticarService,
-    private route: Router
+    private route: Router,
+    private routerAtivo: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+
+    this.routerAtivo.params.subscribe(params => {
+
+      this.tipo = params['tipo']
+
+    })
   }
 
   onSubmit() {
-    this.autenticar.cadastrar();
+    this.autenticar.cadastrar(this.tipo);
   }
 
   voltarLogin() {

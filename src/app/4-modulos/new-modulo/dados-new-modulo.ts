@@ -1,6 +1,6 @@
 import { Chaves } from './../../2-dados/interface';
 import { ModuloCriar, NewModulo } from 'src/app/2-dados/interface';
-import { acao } from '../../../../../interface/variaveis';
+import { acao } from '../../variaveis';
 
 export class DadosNewModulo {
   chave: Chaves = {

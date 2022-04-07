@@ -22,6 +22,7 @@ $pad-black-configuracao-fonte-material: mat.define-typography-config(
   --fonte-16: 16px;
   --fonte-20: 20px;
   --margem: 16px;
+  --cor-background: #212121;
 }
 
 .pad-tema-black {
@@ -53,15 +54,16 @@ body {
   width: 100vw;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: #292929;
-
+  background-color: var(--cor-background);
+  
   @media (min-width: 1100px) {
     width: 1100px;
     /*   height: 100%; */
     margin-left: auto;
     margin-right: auto;
   }
-  background-color: var(--cor-background);
+ 
+  
   font-size: 0.625rem;
   font-family: Roboto, Noto, sans-serif;
   font-weight: normal;

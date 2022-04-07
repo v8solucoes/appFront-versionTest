@@ -1,5 +1,5 @@
 import { ActivatedRouteSnapshot } from '@angular/router';
-import { RotasApp } from '../../../interface/variaveis';
+import { RotasApp } from './variaveis';
 import { ChaveModulo, Credenciais, Rotas, Urls } from './2-dados/interface';
 
 export class Funcoes {

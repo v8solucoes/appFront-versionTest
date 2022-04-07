@@ -1,6 +1,6 @@
 import { FormGroup } from '@angular/forms';
-import { ServicoCredenciaisAcao } from '../../../../interface/servicoCredenciais';
-import { Acao, AcaoNomes } from '../../../../interface/variaveis';
+import { ServicoCredenciaisAcao } from 'servicoCredenciais';
+import { Acao, AcaoNomes } from '../variaveis';
 
 // Modulos Pai
 export interface Modulos {

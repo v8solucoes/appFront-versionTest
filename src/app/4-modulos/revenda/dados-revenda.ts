@@ -1,5 +1,5 @@
 import { Revenda, Chaves, ModuloCriar } from 'src/app/2-dados/interface';
-import { acao } from '../../../../../interface/variaveis';
+import { acao } from '../../variaveis';
 
 export class DadosRevenda {
   _acao = acao

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API: 'http://localhost:5001/v8app-888cd/us-central1/credenciais/credenciais',
+  API: 'http://localhost:5002/v8app-888cd/us-central1/credenciais/credenciais',
+  rotaApi: 'http://127.0.0.1:5002/v8app-888cd/us-central1/credenciais',
   // API: 'https://servico.meuapresentador.app/',
   firebaseConfig: {
     apiKey: "AIzaSyB7_rYWLJ3s97jJOP9SH37hcvE_6m-brXU",

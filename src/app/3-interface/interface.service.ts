@@ -11,7 +11,7 @@ import { ActivatedRouteSnapshot } from '@angular/router';
 import { CaixaDialogoService } from '../5-componentes/caixa-dialogo/caixa-dialogo.service';
 /* import { Acao } from '../2-dados/interface'; */
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { acao, AcaoNomes, RotasApp } from '../../../../interface/variaveis';
+import { acao, AcaoNomes, RotasApp } from '../variaveis';
 
 @Injectable({
   providedIn: 'root',

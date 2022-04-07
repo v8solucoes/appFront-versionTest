@@ -4,7 +4,7 @@ import {
   ModuloCriar,
   Validar,
 } from 'src/app/2-dados/interface';
-import { acao } from '../../../../../interface/variaveis';
+import { acao } from '../../variaveis';
 
 export class DadosApresentador {
   chave: Chaves = {
