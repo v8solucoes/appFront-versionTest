@@ -32,7 +32,7 @@ export class CadastroComponent implements OnInit {
   }
 
   onSubmit() {
-    this.autenticar.cadastrar(this.tipo);
+    this.autenticar.autenticar(this.tipo);
   }
 
   voltarLogin() {

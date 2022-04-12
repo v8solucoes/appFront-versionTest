@@ -10,6 +10,7 @@ import { AutenticarService } from 'src/app/1-autenticar/autenticar.service';
 import { HttpClient } from '@angular/common/http';
 import { Usuario, RetornoServidor, Credenciais } from './interface';
 import { acao, AcaoNomes } from '../variaveis';
+import { Usuario2 } from '../inteface';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,7 @@ export class DadosService {
   readonly API = `${environment.API}api/documento`;
   const = { acao };
   usuario: Usuario = null;
+  usuario2: Usuario2;
   chaveCliente: string;
   chaveUsuario: any;
 
@@ -35,6 +37,7 @@ export class DadosService {
       this.chaveUsuario = await this.autenticar.autenticado();
 
       this.usuario = await this.getData<Usuario>(acao.usuario);
+/*       this.usuario2 = await this.autenticar.requisicaoHttp() */
 
       this.debug('Usuario', this.usuario);
 

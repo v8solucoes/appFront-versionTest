@@ -24,10 +24,10 @@
       </span>
     </button>
     <div class="buttons">
-      <button (click)="cadastro()" class="button-cadastrar" mat-raised-button>
+      <button [routerLink]="'../../cadastrar/adm'" class="button-cadastrar" mat-raised-button>
         <mat-label>Cadastre-se</mat-label>
       </button>
-      <button (click)="recuperaSenha()" mat-stroked-button>
+      <button [routerLink]="'../../recuperar-senha/adm'" mat-stroked-button>
         <mat-label>Esqueci a senha</mat-label>
       </button>
     </div>

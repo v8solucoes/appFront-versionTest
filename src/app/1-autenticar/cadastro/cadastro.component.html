@@ -1,6 +1,6 @@
 <form class="container" [formGroup]="autenticar.form" (ngSubmit)="onSubmit()">
   <div class="content">
-    <button mat-icon-button (click)="voltarLogin()" type="button" class="button-back">
+    <button mat-icon-button [routerLink]="'../../login/adm'" type="button" class="button-back">
       <span class="material-icons-outlined">
         <mat-icon>arrow_back</mat-icon>
       </span>

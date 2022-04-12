@@ -35,7 +35,7 @@ export class CriarDadosService {
   usuario: Usuario = {
     credenciais: {
       tipo: 'adm',
-      idUsuario: 'ZEjRkWCDc1PkuIaFyaWnYqmJY4q1',
+      idUsuario: 'SOcXlEM1h8REyVGrEPSQQAPxW4g1',
       revendas: ['C0JrcUWVqTQR3sPt8Qqo'],
       clientes: ['gfFyiX5IU4OaoXm4BDzX'],
       usuarioNome: 'Emerson',
@@ -76,7 +76,7 @@ export class CriarDadosService {
     try {
       this.gravar<Usuario>(
         'usuario',
-        'ZEjRkWCDc1PkuIaFyaWnYqmJY4q1',
+        'SOcXlEM1h8REyVGrEPSQQAPxW4g1',
         this.usuario
       );
 

@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Credencial, Requisicao, Resposta } from '../inteface';
 import { nomePermissao } from '../../../../construtor/src/construtor/dados/dados.interface';
-import { PromiseState } from 'microsoft-cognitiveservices-speech-sdk/distrib/lib/src/common/Promise';
+import { credencialModelo } from 'src/construtor';
 
 @Injectable({
   providedIn: 'root'
@@ -18,23 +18,15 @@ import { PromiseState } from 'microsoft-cognitiveservices-speech-sdk/distrib/lib
 
 export class AutenticarService {
 
-
   form = new FormGroup({
-    nome: new FormControl(null, Validators.required),
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    telefone: new FormControl(null, Validators.required),
-    senha: new FormControl(null, [Validators.required, Validators.minLength(6)]),
-    confirmaSenha: new FormControl(null, [Validators.required, Validators.minLength(6)])
+    nome: new FormControl('Emerson', Validators.required),
+    email: new FormControl('teste@v8sites.com.br', [Validators.required, Validators.email]),
+    telefone: new FormControl('1111111', Validators.required),
+    senha: new FormControl('123456', [Validators.required, Validators.minLength(6)]),
+    confirmaSenha: new FormControl('123456', [Validators.required, Validators.minLength(6)])
   });
 
-  // user = new FormGroup({
-  //   email: new FormControl('', Validators.email),
-  //   senha: new FormControl('', Validators.minLength(6)),
-  // })
-
-
   debug = (pro: any, valor: any) => new Debug('desativado', 'Autenticar', pro, valor);
-
 
   constructor(
     public auth: AngularFireAuth,
@@ -46,24 +38,73 @@ export class AutenticarService {
   ) {
     this.conectar();
   }
+  async autenticar(tipoAcesso: nomePermissao) {
+ try {
 
+  const credencialUsuario = credencialModelo.usuario('set','', {
+    requisicao: { 'funcao':'criarAutenticacao' },
+    usuario: {
+     nome: this.form.value.nome,
+     email: this.form.value.email,
+     telefone: this.form.value.email,
+     senha: this.form.value.senha
+     }
+   }
+   )[tipoAcesso]
+
+   await this.requisicaoFuncao(credencialUsuario, null)
+   
+ } catch (error) {
+   
+ }
+  }
+
+  async requisicaoFuncao(credencial:Credencial, dados:any): Promise<Resposta> {
+
+    const requisicao: Requisicao = {
+      credencial,
+      dados
+    }
+     try {
+       const cadastro = await this.http
+       .post<Promise<Resposta>>(`${environment.rotaApi}/funcao`, requisicao)
+       .toPromise()
+
+       console.log('FUNCAO')
+       console.log(cadastro)
+      return cadastro
+     } catch (error) {
+       return error
+     }
+   }
   async cadastrar(tipoAcesso: nomePermissao) {
     
     try {
+     
       // Cria Autenticação ID
      const data = await this.auth
      .createUserWithEmailAndPassword(this.form.get('email').value, this.form.get('senha').value)
-     // Pegar Modelo 
-      
-     /* Implantar depois modelo da Persmissão */
+     console.log(data)
+     // Criar Credencial Modelo e pega modelo BD 
+    /*  const credencialModelo = this.lerCredencialModelo(data.user.uid, tipoAcesso) */
+     const credencial = credencialModelo.modelo('lerDocumento')[tipoAcesso]
+     const modelo = await this.requisicaoHttp(credencial, null)
+     console.log(modelo)
 
-     // Criar Credencial
-     const credencial = this.criarCredencial(data.user.uid, tipoAcesso)
-     // Gravar Servidor
-     const resposta = await this.requisicaoHttp(credencial)
-
-      this._snackBar.open('Cadastro efetuado com sucesso!' + resposta.mensagem, 'X', { duration: 3000 });
-
+     // Criar Credencial Usuario e Grava BD
+     const credencialUsuario = credencialModelo.usuario('set', data.user.uid, {
+       usuario: {
+        nome: this.form.value.nome,
+        email: this.form.value.email,
+        telefone: this.form.value.email,
+        senha: this.form.value.senha
+        }
+      }
+      )[tipoAcesso]
+     const usuario = await this.requisicaoHttp(credencialUsuario, modelo.data)
+     console.log(usuario)
+      this._snackBar.open('Cadastro efetuado com sucesso! ' + usuario.mensagem, 'X', { duration: 3000 });
+      /* this.router.navigate(['interface']); */
    /*    this.form.reset(); */
      /*  this.router.navigate(['login']); */
     } catch (error) {
@@ -72,42 +113,11 @@ export class AutenticarService {
 
     }
   }
-  criarCredencial(id:string, tipoAcesso: nomePermissao): Credencial {
-
-  return {
-    usuario: {
-      id_adm: (tipoAcesso == 'adm') ? id : 'semID',
-      id_revenda: (tipoAcesso == 'revenda') ? id : 'semID',
-      id_cliente: (tipoAcesso == 'cliente') ? id : 'semID',
-      id_usuario: (tipoAcesso == 'usuario') ? id : 'semID',
-      tipoAcesso: tipoAcesso,
-      nome: this.form.value.nome,
-      email: this.form.value.email,
-    },
-    modulo: {
-      id: `usuario_${tipoAcesso}`,
-      nome: `Usuário ${tipoAcesso}`,
-      url: "usuario-adm",
-      servico: false,
-      tipoModulo: tipoAcesso,
-    },
-    requisicao: {
-      ambiente: "ambienteTesteV8",
-      acao: 'set',
-      item: "sem item",
-      itemCriar: id,
-      dominio: "localhost",
-      dataUpdate: new Date(),
-      dataCriacao: new Date(),
-    },
-  } 
-
-  }
-  async requisicaoHttp(credencial:Credencial): Promise<Resposta> {
+  async requisicaoHttp(credencial:Credencial, dados:any): Promise<Resposta> {
 
    const requisicao: Requisicao = {
      credencial,
-     dados: credencial
+     dados
    }
     try {
       const cadastro = await this.http

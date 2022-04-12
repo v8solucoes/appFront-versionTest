@@ -19,8 +19,6 @@ import { ApresentadorModule } from './4-modulos/apresentador/apresentador.module
 import { AppComponent } from './app.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
-
-
 @NgModule({
 
   imports: [

@@ -74,7 +74,7 @@ export type NewModulo = {
 };
 
 // TIPOS
-export type IdUsuario = 'ZEjRkWCDc1PkuIaFyaWnYqmJY4q1';
+export type IdUsuario = 'SOcXlEM1h8REyVGrEPSQQAPxW4g1';
 export type IdRevenda = 'C0JrcUWVqTQR3sPt8Qqo';
 export type IdCliente = 'gfFyiX5IU4OaoXm4BDzX';
 export type NomeModulo = 'Revenda' | 'Apresentador' | 'New Modulo';
