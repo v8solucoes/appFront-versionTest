@@ -10,7 +10,7 @@ import { AutenticarService } from 'src/app/1-autenticar/autenticar.service';
 import { HttpClient } from '@angular/common/http';
 import { Usuario, RetornoServidor, Credenciais } from './interface';
 import { acao, AcaoNomes } from '../variaveis';
-import { Usuario2 } from '../inteface';
+import { dados_Interface} from '../../app/import.inteface'
 
 @Injectable({
   providedIn: 'root',
@@ -19,9 +19,9 @@ export class DadosService {
   readonly API = `${environment.API}api/documento`;
   const = { acao };
   usuario: Usuario = null;
-  usuario2: Usuario2;
   chaveCliente: string;
   chaveUsuario: any;
+  usuario2: dados_Interface = null;
 
   debug = (pro: any, valor: any) => new Debug('ativo', 'Dados', pro, valor);
 
@@ -30,21 +30,28 @@ export class DadosService {
     public auth: AngularFireAuth,
     public fire: AngularFirestore,
     public http: HttpClient
-  ) { }
+  ){}
 
   async usuarioCredenciais() {
+
     try {
+
       this.chaveUsuario = await this.autenticar.autenticado();
 
       this.usuario = await this.getData<Usuario>(acao.usuario);
-/*       this.usuario2 = await this.autenticar.requisicaoHttp() */
+
+      this.usuario2 = await this.autenticar.pegarUsuario2()
 
       this.debug('Usuario', this.usuario);
+      this.debug('Usuario2', this.usuario2);
 
       return;
     } catch (error) {
+
       alert('Erro do Servidor:' + error)
+      
       console.log(error);
+    
     }
   }
 

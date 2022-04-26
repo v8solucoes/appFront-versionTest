@@ -2,7 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { ModeloCampos } from 'src/app/2-dados/interface';
 import { AutenticarService } from '../autenticar.service';
-import { nomePermissao } from '../../../../../construtor/src/construtor/dados/dados.interface';
+import { Nome_Dados } from '../../../../../construtor/src/construtor/dados/dados.interface';
 
 @Component({
   selector: 'app-cadastro',
@@ -14,7 +14,7 @@ export class CadastroComponent implements OnInit {
 
   @Input() modelo: ModeloCampos;
 
-  public tipo: nomePermissao
+  public tipo: Nome_Dados['tipoAcesso']
 
   constructor(
     public autenticar: AutenticarService,

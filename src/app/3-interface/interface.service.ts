@@ -61,6 +61,7 @@ export class InterfaceService {
     try {
       await this.data.usuarioCredenciais();
       await this.startModulo();
+      this.designUser.tema = this.data.usuario2.usuarioAdm.design.tema
       this.carregarModulo = true;
     } catch (error) {}
   }

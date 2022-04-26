@@ -1,0 +1,1 @@
+export {Debugar, _debugar} from '../../../construtor/src/funcoes/sincronas/debug'

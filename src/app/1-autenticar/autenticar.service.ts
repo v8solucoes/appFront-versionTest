@@ -8,9 +8,9 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Credencial, Requisicao, Resposta } from '../inteface';
-import { nomePermissao } from '../../../../construtor/src/construtor/dados/dados.interface';
-import { credencialModelo } from 'src/construtor';
+import { Credencial, Requisicao, Resposta, Nome_Dados } from '../import.inteface';
+import { ModeloCredencial } from '../import.construtor';
+import { Debugar, _debugar } from '../../../../construtor/src/funcoes/sincronas/debug';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,7 @@ export class AutenticarService {
     confirmaSenha: new FormControl('123456', [Validators.required, Validators.minLength(6)])
   });
 
-  debug = (pro: any, valor: any) => new Debug('desativado', 'Autenticar', pro, valor);
+  debug = (pro: any, valor: any) => new Debug('ativo', 'Autenticar', pro, valor);
 
   constructor(
     public auth: AngularFireAuth,
@@ -38,92 +38,78 @@ export class AutenticarService {
   ) {
     this.conectar();
   }
-  async autenticar(tipoAcesso: nomePermissao) {
- try {
-
-  const credencialUsuario = credencialModelo.usuario('set','', {
-    requisicao: { 'funcao':'criarAutenticacao' },
-    usuario: {
-     nome: this.form.value.nome,
-     email: this.form.value.email,
-     telefone: this.form.value.email,
-     senha: this.form.value.senha
-     }
-   }
-   )[tipoAcesso]
-
-   await this.requisicaoFuncao(credencialUsuario, null)
-   
- } catch (error) {
-   
- }
+  async pegarUsuario2(){
+    try {
+      const modeloRequisicao = ModeloCredencial.requisicaoUsuario('lerDocumento', 'uU7GcmNuxlXp7iYqv85jXJpbDQy1', 'adm')
+      const { data } = await this.requisicaoCrud(modeloRequisicao)
+      return data
+    } catch (error) {
+      return error
+    }
   }
+  async autenticar(tipoAcesso: Nome_Dados['tipoAcesso']) {
 
-  async requisicaoFuncao(credencial:Credencial, dados:any): Promise<Resposta> {
+    const d = new Debugar(_debugar.autenticar, 'Criar Autenticar', false)
+
+    try {
+
+      const modeloRequisicao = ModeloCredencial.requisicaoModelo('lerDocumento', tipoAcesso)
+      const dataModelo = await this.requisicaoCrud(modeloRequisicao)
+      const dataDados = dataModelo.data.dados
+
+      d.bug('Pegou Modelo', dataModelo.data.dados)
+
+      const credencialUsuario = ModeloCredencial.usuario('set', '', {
+        requisicao: { 'funcao': 'criarAutenticacao' },
+        usuario: {
+          nome: this.form.value.nome,
+          email: this.form.value.email,
+          telefone: this.form.value.email,
+          senha: this.form.value.senha
+        }
+      }
+      )[tipoAcesso]
+
+      const { data } = await this.requisicaoFuncao(credencialUsuario, null)
+
+      d.bug('Pegou ID', data)
+
+      const usuarioRequisicao = ModeloCredencial.requisicaoUsuario
+        ('set', `${data.uid}`, tipoAcesso, dataDados)
+      const usuarioGravar = await this.requisicaoCrud(usuarioRequisicao)
+
+      d.bug('Gravou Usuário', usuarioGravar)
+
+      d.fechar()
+      return
+
+    } catch (error) {
+      d.bug('Erro Autenticar', error)
+      d.fechar()
+      return
+    }
+  }
+  async requisicaoCrud(requisicao: Requisicao): Promise<Resposta> {
+    try {
+      const cadastro = await this.http
+        .post<Promise<Resposta>>(`${environment.rotaApi}/cadastrar`, requisicao)
+        .toPromise()
+      return cadastro
+    } catch (error) {
+      return error
+    }
+  }
+  async requisicaoFuncao(credencial: Credencial, dados: any): Promise<Resposta> {
 
     const requisicao: Requisicao = {
       credencial,
       dados
     }
-     try {
-       const cadastro = await this.http
-       .post<Promise<Resposta>>(`${environment.rotaApi}/funcao`, requisicao)
-       .toPromise()
-
-       console.log('FUNCAO')
-       console.log(cadastro)
-      return cadastro
-     } catch (error) {
-       return error
-     }
-   }
-  async cadastrar(tipoAcesso: nomePermissao) {
-    
-    try {
-     
-      // Cria Autenticação ID
-     const data = await this.auth
-     .createUserWithEmailAndPassword(this.form.get('email').value, this.form.get('senha').value)
-     console.log(data)
-     // Criar Credencial Modelo e pega modelo BD 
-    /*  const credencialModelo = this.lerCredencialModelo(data.user.uid, tipoAcesso) */
-     const credencial = credencialModelo.modelo('lerDocumento')[tipoAcesso]
-     const modelo = await this.requisicaoHttp(credencial, null)
-     console.log(modelo)
-
-     // Criar Credencial Usuario e Grava BD
-     const credencialUsuario = credencialModelo.usuario('set', data.user.uid, {
-       usuario: {
-        nome: this.form.value.nome,
-        email: this.form.value.email,
-        telefone: this.form.value.email,
-        senha: this.form.value.senha
-        }
-      }
-      )[tipoAcesso]
-     const usuario = await this.requisicaoHttp(credencialUsuario, modelo.data)
-     console.log(usuario)
-      this._snackBar.open('Cadastro efetuado com sucesso! ' + usuario.mensagem, 'X', { duration: 3000 });
-      /* this.router.navigate(['interface']); */
-   /*    this.form.reset(); */
-     /*  this.router.navigate(['login']); */
-    } catch (error) {
-      this._snackBar.open(this.mensagemErro(error), 'X', { duration: 9000 });
-      console.log(error)
-
-    }
-  }
-  async requisicaoHttp(credencial:Credencial, dados:any): Promise<Resposta> {
-
-   const requisicao: Requisicao = {
-     credencial,
-     dados
-   }
     try {
       const cadastro = await this.http
-      .post<Promise<Resposta>>(`${environment.rotaApi}/cadastrar`, requisicao)
-      .toPromise()
-     return cadastro
+        .post<Promise<Resposta>>(`${environment.rotaApi}/funcao`, requisicao)
+        .toPromise()
+      return cadastro
     } catch (error) {
       return error
     }
@@ -134,7 +120,7 @@ export class AutenticarService {
     try {
       // await this.logar();
       await this.criarDados.criar(); // Deve estar Autenticado para Gravar
-/*       this.redireciona(); */
+      /*       this.redireciona(); */
     }
     catch (error) {
       this.debug('Erro Modo Desenvolvedor', error);
@@ -147,7 +133,7 @@ export class AutenticarService {
           this.debug('Conectou ID: ', conectado.user.uid);
         });
       this.form.reset();
-      this.router.navigate(['interface']); 
+      this.router.navigate(['interface']);
     }
     catch (erro) {
       this._snackBar.open(this.mensagemErro(erro), 'X', { duration: 3000 });
@@ -169,7 +155,7 @@ export class AutenticarService {
     }
   }
 
- 
+
 
   redireciona() {
     const base = 'interface';
@@ -209,32 +195,32 @@ export class AutenticarService {
         console.log(mensagemfalha); console.log(mensagemfalha); break;
       case 'auth/email-already-in-use':
         return 'Email já cadastrado > ' + erro;
-      
+
       default:
         const mensagemdDefaut = 'Erro de Autenticação não informado > ' + erro;
         console.log(mensagemdDefaut); console.log(mensagemdDefaut);
         return;
     }
   }
- /*  mensagemErro(erro) {
-
-    const tipoErro = erro;
-
-    switch (tipoErro.code) {
-
-      case 'auth/network-request-failed':
-        const mensagemfalha = 'Falha na conexão com a Internte. > ' + erro;
-        console.log(mensagemfalha); console.log(mensagemfalha); break;
-      case 'auth/email-already-in-use':
-        const mensagemfalhas = 'Falha na conexão com a Internte. > ' + erro;
-        console.log(mensagemfalha); console.log(mensagemfalha); break;
-
-      default:
-        const mensagemdDefaut = 'Erro de Autenticação não informado > ' + erro;
-        console.log(mensagemdDefaut); console.log(mensagemdDefaut);
-        return;
-    }
-  } */
+  /*  mensagemErro(erro) {
+ 
+     const tipoErro = erro;
+ 
+     switch (tipoErro.code) {
+ 
+       case 'auth/network-request-failed':
+         const mensagemfalha = 'Falha na conexão com a Internte. > ' + erro;
+         console.log(mensagemfalha); console.log(mensagemfalha); break;
+       case 'auth/email-already-in-use':
+         const mensagemfalhas = 'Falha na conexão com a Internte. > ' + erro;
+         console.log(mensagemfalha); console.log(mensagemfalha); break;
+ 
+       default:
+         const mensagemdDefaut = 'Erro de Autenticação não informado > ' + erro;
+         console.log(mensagemdDefaut); console.log(mensagemdDefaut);
+         return;
+     }
+   } */
 }
 
 
