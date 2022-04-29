@@ -11,7 +11,6 @@ import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.compo
   imports: [
     CompartilhadoModule,
     CoolSocialLoginButtonsModule,
-
   ],
   declarations: [
     AutenticarComponent,

@@ -3,11 +3,11 @@
 </ng-template>
 
 <ng-container *ngIf="i.carregarModulo && i.design.telaDesktopTablet; else carregando">
-
+TOPO
   <app-barra-desktop [@flyInOut]="i.design.animaItem"></app-barra-desktop>
 
   <section (scroll)="i.ocultarBarraMenu($event,'modulo')">
-
+CONTEÚDO
     <div [@flyInOut]="i.design.animaItem">
       <router-outlet *ngIf='!i.design.telaCelular'></router-outlet>
     </div>

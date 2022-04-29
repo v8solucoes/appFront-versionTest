@@ -23,14 +23,18 @@
 
         <mat-sidenav-content>
 
-          <app-modulo> </app-modulo>
-
+         <!--  <app-modulo> </app-modulo> -->
+         Coleção
+         <button (click)="this.i.eventoEmitter.emit('menuDireito')">EXIBE Módulo</button>
+         <button (click)="this.i.eventoEmitter.emit('menuEsquerdo')">EXIBE Módulo</button>
         </mat-sidenav-content>
 
         <mat-sidenav #menuDireito mode="side" [opened]=" i.carregarModulo && i.design.telaDesktopTablet" position="end">
 
-          <!-- <button (click)="this.i.eventoEmitter.emit('menuDireito')">EXIBE Módulo</button> -->
-          <app-desktop> </app-desktop>
+          <button (click)="this.i.eventoEmitter.emit('menuDireito')">EXIBE Módulo</button>
+    <!--       <app-desktop> </app-desktop> -->
+
+    Documento
 
         </mat-sidenav>
 

@@ -22,7 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
 
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
